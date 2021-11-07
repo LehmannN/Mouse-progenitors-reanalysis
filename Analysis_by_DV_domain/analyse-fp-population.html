@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 10 Analyse FP population | mouse-neural-progenitors.utf8</title>
+  <meta name="description" content="" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 10 Analyse FP population | mouse-neural-progenitors.utf8" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 10 Analyse FP population | mouse-neural-progenitors.utf8" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="analyse-dp6-population.html"/>
+<link rel="next" href="analyse-p0-population.html"/>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-3.5.1/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.18/datatables.js"></script>
+<link href="libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.1/js/crosstalk.min.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="exploration-of-progenitors-as-defined-in-delile-et-al-.html"><a href="exploration-of-progenitors-as-defined-in-delile-et-al-.html"><i class="fa fa-check"></i><b>1</b> Exploration of progenitors as defined in Delile et al.</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="exploration-of-progenitors-as-defined-in-delile-et-al-.html"><a href="exploration-of-progenitors-as-defined-in-delile-et-al-.html#fetch-mousespinalcordatlas-data"><i class="fa fa-check"></i><b>1.1</b> Fetch MouseSpinalCordAtlas data</a></li>
+<li class="chapter" data-level="1.2" data-path="exploration-of-progenitors-as-defined-in-delile-et-al-.html"><a href="exploration-of-progenitors-as-defined-in-delile-et-al-.html#load-pre-filtered-data"><i class="fa fa-check"></i><b>1.2</b> Load pre-filtered data</a></li>
+<li class="chapter" data-level="1.3" data-path="exploration-of-progenitors-as-defined-in-delile-et-al-.html"><a href="exploration-of-progenitors-as-defined-in-delile-et-al-.html#visualize-progenitors-and-neurons"><i class="fa fa-check"></i><b>1.3</b> Visualize Progenitors and Neurons</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="more-exploration-on-progenitors.html"><a href="more-exploration-on-progenitors.html"><i class="fa fa-check"></i><b>2</b> More exploration on progenitors</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="more-exploration-on-progenitors.html"><a href="more-exploration-on-progenitors.html#pca-on-progenitors"><i class="fa fa-check"></i><b>2.1</b> PCA on Progenitors</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="more-exploration-on-progenitors.html"><a href="more-exploration-on-progenitors.html#genes-associated-with-each-pc"><i class="fa fa-check"></i><b>2.1.1</b> Genes associated with each PC</a></li>
+<li class="chapter" data-level="2.1.2" data-path="more-exploration-on-progenitors.html"><a href="more-exploration-on-progenitors.html#metadata-associated-with-each-pc"><i class="fa fa-check"></i><b>2.1.2</b> Metadata associated with each PC</a></li>
+<li class="chapter" data-level="2.1.3" data-path="more-exploration-on-progenitors.html"><a href="more-exploration-on-progenitors.html#go-annotation-associated-with-each-pc"><i class="fa fa-check"></i><b>2.1.3</b> GO annotation associated with each PC</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="more-exploration-on-progenitors.html"><a href="more-exploration-on-progenitors.html#ica-on-progenitors"><i class="fa fa-check"></i><b>2.2</b> ICA on Progenitors</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="more-exploration-on-progenitors.html"><a href="more-exploration-on-progenitors.html#go-annotation-associated-with-ic"><i class="fa fa-check"></i><b>2.2.1</b> GO annotation associated with IC</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="generate-spring-dimensionality-reduction.html"><a href="generate-spring-dimensionality-reduction.html"><i class="fa fa-check"></i><b>3</b> Generate Spring dimensionality reduction</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="generate-spring-dimensionality-reduction.html"><a href="generate-spring-dimensionality-reduction.html#export-data-to-spring"><i class="fa fa-check"></i><b>3.1</b> Export data to Spring</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="analyse-dp1-population.html"><a href="analyse-dp1-population.html"><i class="fa fa-check"></i><b>4</b> Analyse dp1 population</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="analyse-dp1-population.html"><a href="analyse-dp1-population.html#population-selection"><i class="fa fa-check"></i><b>4.1</b> Population selection</a></li>
+<li class="chapter" data-level="4.2" data-path="analyse-dp1-population.html"><a href="analyse-dp1-population.html#visualize-on-main-umap"><i class="fa fa-check"></i><b>4.2</b> Visualize on main UMAP</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="analyse-dp1-population.html"><a href="analyse-dp1-population.html#use-already-computed-values"><i class="fa fa-check"></i><b>4.2.1</b> Use already computed values</a></li>
+<li class="chapter" data-level="4.2.2" data-path="analyse-dp1-population.html"><a href="analyse-dp1-population.html#plot-known-markers"><i class="fa fa-check"></i><b>4.2.2</b> Plot known markers</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="analyse-dp1-population.html"><a href="analyse-dp1-population.html#find-hv-genes"><i class="fa fa-check"></i><b>4.3</b> Find HV genes</a></li>
+<li class="chapter" data-level="4.4" data-path="analyse-dp1-population.html"><a href="analyse-dp1-population.html#pca-on-dp1"><i class="fa fa-check"></i><b>4.4</b> PCA on dp1</a></li>
+<li class="chapter" data-level="4.5" data-path="analyse-dp1-population.html"><a href="analyse-dp1-population.html#specific-umap"><i class="fa fa-check"></i><b>4.5</b> Specific UMAP</a></li>
+<li class="chapter" data-level="4.6" data-path="analyse-dp1-population.html"><a href="analyse-dp1-population.html#clustering"><i class="fa fa-check"></i><b>4.6</b> Clustering</a></li>
+<li class="chapter" data-level="4.7" data-path="analyse-dp1-population.html"><a href="analyse-dp1-population.html#compare-btg2--and-btg2-populations"><i class="fa fa-check"></i><b>4.7</b> Compare Btg2- and Btg2+ populations</a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="analyse-dp1-population.html"><a href="analyse-dp1-population.html#absolute-values"><i class="fa fa-check"></i><b>4.7.1</b> Absolute values</a></li>
+<li class="chapter" data-level="4.7.2" data-path="analyse-dp1-population.html"><a href="analyse-dp1-population.html#relative-values"><i class="fa fa-check"></i><b>4.7.2</b> Relative values</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="analyse-dp2-population.html"><a href="analyse-dp2-population.html"><i class="fa fa-check"></i><b>5</b> Analyse dp2 population</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="analyse-dp2-population.html"><a href="analyse-dp2-population.html#population-selection-1"><i class="fa fa-check"></i><b>5.1</b> Population selection</a></li>
+<li class="chapter" data-level="5.2" data-path="analyse-dp2-population.html"><a href="analyse-dp2-population.html#visualize-on-main-umap-1"><i class="fa fa-check"></i><b>5.2</b> Visualize on main UMAP</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="analyse-dp2-population.html"><a href="analyse-dp2-population.html#use-already-computed-values-1"><i class="fa fa-check"></i><b>5.2.1</b> Use already computed values</a></li>
+<li class="chapter" data-level="5.2.2" data-path="analyse-dp2-population.html"><a href="analyse-dp2-population.html#plot-known-markers-1"><i class="fa fa-check"></i><b>5.2.2</b> Plot known markers</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="analyse-dp2-population.html"><a href="analyse-dp2-population.html#find-hv-genes-1"><i class="fa fa-check"></i><b>5.3</b> Find HV genes</a></li>
+<li class="chapter" data-level="5.4" data-path="analyse-dp2-population.html"><a href="analyse-dp2-population.html#pca-on-dp2"><i class="fa fa-check"></i><b>5.4</b> PCA on dp2</a></li>
+<li class="chapter" data-level="5.5" data-path="analyse-dp2-population.html"><a href="analyse-dp2-population.html#specific-umap-1"><i class="fa fa-check"></i><b>5.5</b> Specific UMAP</a></li>
+<li class="chapter" data-level="5.6" data-path="analyse-dp2-population.html"><a href="analyse-dp2-population.html#clustering-1"><i class="fa fa-check"></i><b>5.6</b> Clustering</a></li>
+<li class="chapter" data-level="5.7" data-path="analyse-dp2-population.html"><a href="analyse-dp2-population.html#compare-btg2--and-btg2-populations-1"><i class="fa fa-check"></i><b>5.7</b> Compare Btg2- and Btg2+ populations</a>
+<ul>
+<li class="chapter" data-level="5.7.1" data-path="analyse-dp2-population.html"><a href="analyse-dp2-population.html#absolute-values-1"><i class="fa fa-check"></i><b>5.7.1</b> Absolute values</a></li>
+<li class="chapter" data-level="5.7.2" data-path="analyse-dp2-population.html"><a href="analyse-dp2-population.html#relative-values-1"><i class="fa fa-check"></i><b>5.7.2</b> Relative values</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="analyse-dp3-population.html"><a href="analyse-dp3-population.html"><i class="fa fa-check"></i><b>6</b> Analyse dp3 population</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="analyse-dp3-population.html"><a href="analyse-dp3-population.html#population-selection-2"><i class="fa fa-check"></i><b>6.1</b> Population selection</a></li>
+<li class="chapter" data-level="6.2" data-path="analyse-dp3-population.html"><a href="analyse-dp3-population.html#visualize-on-main-umap-2"><i class="fa fa-check"></i><b>6.2</b> Visualize on main UMAP</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="analyse-dp3-population.html"><a href="analyse-dp3-population.html#use-already-computed-values-2"><i class="fa fa-check"></i><b>6.2.1</b> Use already computed values</a></li>
+<li class="chapter" data-level="6.2.2" data-path="analyse-dp3-population.html"><a href="analyse-dp3-population.html#plot-known-markers-2"><i class="fa fa-check"></i><b>6.2.2</b> Plot known markers</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="analyse-dp3-population.html"><a href="analyse-dp3-population.html#find-hv-genes-2"><i class="fa fa-check"></i><b>6.3</b> Find HV genes</a></li>
+<li class="chapter" data-level="6.4" data-path="analyse-dp3-population.html"><a href="analyse-dp3-population.html#pca-on-dp3"><i class="fa fa-check"></i><b>6.4</b> PCA on dp3</a></li>
+<li class="chapter" data-level="6.5" data-path="analyse-dp3-population.html"><a href="analyse-dp3-population.html#specific-umap-2"><i class="fa fa-check"></i><b>6.5</b> Specific UMAP</a></li>
+<li class="chapter" data-level="6.6" data-path="analyse-dp3-population.html"><a href="analyse-dp3-population.html#clustering-2"><i class="fa fa-check"></i><b>6.6</b> Clustering</a></li>
+<li class="chapter" data-level="6.7" data-path="analyse-dp3-population.html"><a href="analyse-dp3-population.html#compare-btg2--and-btg2-populations-2"><i class="fa fa-check"></i><b>6.7</b> Compare Btg2- and Btg2+ populations</a>
+<ul>
+<li class="chapter" data-level="6.7.1" data-path="analyse-dp3-population.html"><a href="analyse-dp3-population.html#absolute-values-2"><i class="fa fa-check"></i><b>6.7.1</b> Absolute values</a></li>
+<li class="chapter" data-level="6.7.2" data-path="analyse-dp3-population.html"><a href="analyse-dp3-population.html#relative-values-2"><i class="fa fa-check"></i><b>6.7.2</b> Relative values</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="analyse-dp4-population.html"><a href="analyse-dp4-population.html"><i class="fa fa-check"></i><b>7</b> Analyse dp4 population</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="analyse-dp4-population.html"><a href="analyse-dp4-population.html#population-selection-3"><i class="fa fa-check"></i><b>7.1</b> Population selection</a></li>
+<li class="chapter" data-level="7.2" data-path="analyse-dp4-population.html"><a href="analyse-dp4-population.html#visualize-on-main-umap-3"><i class="fa fa-check"></i><b>7.2</b> Visualize on main UMAP</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="analyse-dp4-population.html"><a href="analyse-dp4-population.html#use-already-computed-values-3"><i class="fa fa-check"></i><b>7.2.1</b> Use already computed values</a></li>
+<li class="chapter" data-level="7.2.2" data-path="analyse-dp4-population.html"><a href="analyse-dp4-population.html#plot-known-markers-3"><i class="fa fa-check"></i><b>7.2.2</b> Plot known markers</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="analyse-dp4-population.html"><a href="analyse-dp4-population.html#find-hv-genes-3"><i class="fa fa-check"></i><b>7.3</b> Find HV genes</a></li>
+<li class="chapter" data-level="7.4" data-path="analyse-dp4-population.html"><a href="analyse-dp4-population.html#pca-on-dp4"><i class="fa fa-check"></i><b>7.4</b> PCA on dp4</a></li>
+<li class="chapter" data-level="7.5" data-path="analyse-dp4-population.html"><a href="analyse-dp4-population.html#specific-umap-3"><i class="fa fa-check"></i><b>7.5</b> Specific UMAP</a></li>
+<li class="chapter" data-level="7.6" data-path="analyse-dp4-population.html"><a href="analyse-dp4-population.html#clustering-3"><i class="fa fa-check"></i><b>7.6</b> Clustering</a></li>
+<li class="chapter" data-level="7.7" data-path="analyse-dp4-population.html"><a href="analyse-dp4-population.html#compare-btg2--and-btg2-populations-3"><i class="fa fa-check"></i><b>7.7</b> Compare Btg2- and Btg2+ populations</a>
+<ul>
+<li class="chapter" data-level="7.7.1" data-path="analyse-dp4-population.html"><a href="analyse-dp4-population.html#absolute-values-3"><i class="fa fa-check"></i><b>7.7.1</b> Absolute values</a></li>
+<li class="chapter" data-level="7.7.2" data-path="analyse-dp4-population.html"><a href="analyse-dp4-population.html#relative-values-3"><i class="fa fa-check"></i><b>7.7.2</b> Relative values</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="analyse-dp5-population.html"><a href="analyse-dp5-population.html"><i class="fa fa-check"></i><b>8</b> Analyse dp5 population</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="analyse-dp5-population.html"><a href="analyse-dp5-population.html#population-selection-4"><i class="fa fa-check"></i><b>8.1</b> Population selection</a></li>
+<li class="chapter" data-level="8.2" data-path="analyse-dp5-population.html"><a href="analyse-dp5-population.html#visualize-on-main-umap-4"><i class="fa fa-check"></i><b>8.2</b> Visualize on main UMAP</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="analyse-dp5-population.html"><a href="analyse-dp5-population.html#use-already-computed-values-4"><i class="fa fa-check"></i><b>8.2.1</b> Use already computed values</a></li>
+<li class="chapter" data-level="8.2.2" data-path="analyse-dp5-population.html"><a href="analyse-dp5-population.html#plot-known-markers-4"><i class="fa fa-check"></i><b>8.2.2</b> Plot known markers</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="analyse-dp5-population.html"><a href="analyse-dp5-population.html#find-hv-genes-4"><i class="fa fa-check"></i><b>8.3</b> Find HV genes</a></li>
+<li class="chapter" data-level="8.4" data-path="analyse-dp5-population.html"><a href="analyse-dp5-population.html#pca-on-dp5"><i class="fa fa-check"></i><b>8.4</b> PCA on dp5</a></li>
+<li class="chapter" data-level="8.5" data-path="analyse-dp5-population.html"><a href="analyse-dp5-population.html#specific-umap-4"><i class="fa fa-check"></i><b>8.5</b> Specific UMAP</a></li>
+<li class="chapter" data-level="8.6" data-path="analyse-dp5-population.html"><a href="analyse-dp5-population.html#clustering-4"><i class="fa fa-check"></i><b>8.6</b> Clustering</a></li>
+<li class="chapter" data-level="8.7" data-path="analyse-dp5-population.html"><a href="analyse-dp5-population.html#compare-btg2--and-btg2-populations-4"><i class="fa fa-check"></i><b>8.7</b> Compare Btg2- and Btg2+ populations</a>
+<ul>
+<li class="chapter" data-level="8.7.1" data-path="analyse-dp5-population.html"><a href="analyse-dp5-population.html#absolute-values-4"><i class="fa fa-check"></i><b>8.7.1</b> Absolute values</a></li>
+<li class="chapter" data-level="8.7.2" data-path="analyse-dp5-population.html"><a href="analyse-dp5-population.html#relative-values-4"><i class="fa fa-check"></i><b>8.7.2</b> Relative values</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="analyse-dp6-population.html"><a href="analyse-dp6-population.html"><i class="fa fa-check"></i><b>9</b> Analyse dp6 population</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="analyse-dp6-population.html"><a href="analyse-dp6-population.html#population-selection-5"><i class="fa fa-check"></i><b>9.1</b> Population selection</a></li>
+<li class="chapter" data-level="9.2" data-path="analyse-dp6-population.html"><a href="analyse-dp6-population.html#visualize-on-main-umap-5"><i class="fa fa-check"></i><b>9.2</b> Visualize on main UMAP</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="analyse-dp6-population.html"><a href="analyse-dp6-population.html#use-already-computed-values-5"><i class="fa fa-check"></i><b>9.2.1</b> Use already computed values</a></li>
+<li class="chapter" data-level="9.2.2" data-path="analyse-dp6-population.html"><a href="analyse-dp6-population.html#plot-known-markers-5"><i class="fa fa-check"></i><b>9.2.2</b> Plot known markers</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="analyse-dp6-population.html"><a href="analyse-dp6-population.html#find-hv-genes-5"><i class="fa fa-check"></i><b>9.3</b> Find HV genes</a></li>
+<li class="chapter" data-level="9.4" data-path="analyse-dp6-population.html"><a href="analyse-dp6-population.html#pca-on-dp6"><i class="fa fa-check"></i><b>9.4</b> PCA on dp6</a></li>
+<li class="chapter" data-level="9.5" data-path="analyse-dp6-population.html"><a href="analyse-dp6-population.html#specific-umap-5"><i class="fa fa-check"></i><b>9.5</b> Specific UMAP</a></li>
+<li class="chapter" data-level="9.6" data-path="analyse-dp6-population.html"><a href="analyse-dp6-population.html#clustering-5"><i class="fa fa-check"></i><b>9.6</b> Clustering</a></li>
+<li class="chapter" data-level="9.7" data-path="analyse-dp6-population.html"><a href="analyse-dp6-population.html#compare-btg2--and-btg2-populations-5"><i class="fa fa-check"></i><b>9.7</b> Compare Btg2- and Btg2+ populations</a>
+<ul>
+<li class="chapter" data-level="9.7.1" data-path="analyse-dp6-population.html"><a href="analyse-dp6-population.html#absolute-values-5"><i class="fa fa-check"></i><b>9.7.1</b> Absolute values</a></li>
+<li class="chapter" data-level="9.7.2" data-path="analyse-dp6-population.html"><a href="analyse-dp6-population.html#relative-values-5"><i class="fa fa-check"></i><b>9.7.2</b> Relative values</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="analyse-fp-population.html"><a href="analyse-fp-population.html"><i class="fa fa-check"></i><b>10</b> Analyse FP population</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="analyse-fp-population.html"><a href="analyse-fp-population.html#population-selection-6"><i class="fa fa-check"></i><b>10.1</b> Population selection</a></li>
+<li class="chapter" data-level="10.2" data-path="analyse-fp-population.html"><a href="analyse-fp-population.html#visualize-on-main-umap-6"><i class="fa fa-check"></i><b>10.2</b> Visualize on main UMAP</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="analyse-fp-population.html"><a href="analyse-fp-population.html#use-already-computed-values-6"><i class="fa fa-check"></i><b>10.2.1</b> Use already computed values</a></li>
+<li class="chapter" data-level="10.2.2" data-path="analyse-fp-population.html"><a href="analyse-fp-population.html#plot-known-markers-6"><i class="fa fa-check"></i><b>10.2.2</b> Plot known markers</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="analyse-fp-population.html"><a href="analyse-fp-population.html#find-hv-genes-6"><i class="fa fa-check"></i><b>10.3</b> Find HV genes</a></li>
+<li class="chapter" data-level="10.4" data-path="analyse-fp-population.html"><a href="analyse-fp-population.html#pca-on-fp"><i class="fa fa-check"></i><b>10.4</b> PCA on FP</a></li>
+<li class="chapter" data-level="10.5" data-path="analyse-fp-population.html"><a href="analyse-fp-population.html#specific-umap-6"><i class="fa fa-check"></i><b>10.5</b> Specific UMAP</a></li>
+<li class="chapter" data-level="10.6" data-path="analyse-fp-population.html"><a href="analyse-fp-population.html#clustering-6"><i class="fa fa-check"></i><b>10.6</b> Clustering</a></li>
+<li class="chapter" data-level="10.7" data-path="analyse-fp-population.html"><a href="analyse-fp-population.html#compare-btg2--and-btg2-populations-6"><i class="fa fa-check"></i><b>10.7</b> Compare Btg2- and Btg2+ populations</a>
+<ul>
+<li class="chapter" data-level="10.7.1" data-path="analyse-fp-population.html"><a href="analyse-fp-population.html#absolute-values-6"><i class="fa fa-check"></i><b>10.7.1</b> Absolute values</a></li>
+<li class="chapter" data-level="10.7.2" data-path="analyse-fp-population.html"><a href="analyse-fp-population.html#relative-values-6"><i class="fa fa-check"></i><b>10.7.2</b> Relative values</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="analyse-p0-population.html"><a href="analyse-p0-population.html"><i class="fa fa-check"></i><b>11</b> Analyse p0 population</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="analyse-p0-population.html"><a href="analyse-p0-population.html#population-selection-7"><i class="fa fa-check"></i><b>11.1</b> Population selection</a></li>
+<li class="chapter" data-level="11.2" data-path="analyse-p0-population.html"><a href="analyse-p0-population.html#visualize-on-main-umap-7"><i class="fa fa-check"></i><b>11.2</b> Visualize on main UMAP</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="analyse-p0-population.html"><a href="analyse-p0-population.html#use-already-computed-values-7"><i class="fa fa-check"></i><b>11.2.1</b> Use already computed values</a></li>
+<li class="chapter" data-level="11.2.2" data-path="analyse-p0-population.html"><a href="analyse-p0-population.html#plot-known-markers-7"><i class="fa fa-check"></i><b>11.2.2</b> Plot known markers</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="analyse-p0-population.html"><a href="analyse-p0-population.html#find-hv-genes-7"><i class="fa fa-check"></i><b>11.3</b> Find HV genes</a></li>
+<li class="chapter" data-level="11.4" data-path="analyse-p0-population.html"><a href="analyse-p0-population.html#pca-on-p0"><i class="fa fa-check"></i><b>11.4</b> PCA on p0</a></li>
+<li class="chapter" data-level="11.5" data-path="analyse-p0-population.html"><a href="analyse-p0-population.html#specific-umap-7"><i class="fa fa-check"></i><b>11.5</b> Specific UMAP</a></li>
+<li class="chapter" data-level="11.6" data-path="analyse-p0-population.html"><a href="analyse-p0-population.html#clustering-7"><i class="fa fa-check"></i><b>11.6</b> Clustering</a></li>
+<li class="chapter" data-level="11.7" data-path="analyse-p0-population.html"><a href="analyse-p0-population.html#compare-btg2--and-btg2-populations-7"><i class="fa fa-check"></i><b>11.7</b> Compare Btg2- and Btg2+ populations</a>
+<ul>
+<li class="chapter" data-level="11.7.1" data-path="analyse-p0-population.html"><a href="analyse-p0-population.html#absolute-values-7"><i class="fa fa-check"></i><b>11.7.1</b> Absolute values</a></li>
+<li class="chapter" data-level="11.7.2" data-path="analyse-p0-population.html"><a href="analyse-p0-population.html#relative-values-7"><i class="fa fa-check"></i><b>11.7.2</b> Relative values</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="analyse-p1-population.html"><a href="analyse-p1-population.html"><i class="fa fa-check"></i><b>12</b> Analyse p1 population</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="analyse-p1-population.html"><a href="analyse-p1-population.html#population-selection-8"><i class="fa fa-check"></i><b>12.1</b> Population selection</a></li>
+<li class="chapter" data-level="12.2" data-path="analyse-p1-population.html"><a href="analyse-p1-population.html#visualize-on-main-umap-8"><i class="fa fa-check"></i><b>12.2</b> Visualize on main UMAP</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="analyse-p1-population.html"><a href="analyse-p1-population.html#use-already-computed-values-8"><i class="fa fa-check"></i><b>12.2.1</b> Use already computed values</a></li>
+<li class="chapter" data-level="12.2.2" data-path="analyse-p1-population.html"><a href="analyse-p1-population.html#plot-known-markers-8"><i class="fa fa-check"></i><b>12.2.2</b> Plot known markers</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="analyse-p1-population.html"><a href="analyse-p1-population.html#find-hv-genes-8"><i class="fa fa-check"></i><b>12.3</b> Find HV genes</a></li>
+<li class="chapter" data-level="12.4" data-path="analyse-p1-population.html"><a href="analyse-p1-population.html#pca-on-p1"><i class="fa fa-check"></i><b>12.4</b> PCA on p1</a></li>
+<li class="chapter" data-level="12.5" data-path="analyse-p1-population.html"><a href="analyse-p1-population.html#specific-umap-8"><i class="fa fa-check"></i><b>12.5</b> Specific UMAP</a></li>
+<li class="chapter" data-level="12.6" data-path="analyse-p1-population.html"><a href="analyse-p1-population.html#clustering-8"><i class="fa fa-check"></i><b>12.6</b> Clustering</a></li>
+<li class="chapter" data-level="12.7" data-path="analyse-p1-population.html"><a href="analyse-p1-population.html#compare-btg2--and-btg2-populations-8"><i class="fa fa-check"></i><b>12.7</b> Compare Btg2- and Btg2+ populations</a>
+<ul>
+<li class="chapter" data-level="12.7.1" data-path="analyse-p1-population.html"><a href="analyse-p1-population.html#absolute-values-8"><i class="fa fa-check"></i><b>12.7.1</b> Absolute values</a></li>
+<li class="chapter" data-level="12.7.2" data-path="analyse-p1-population.html"><a href="analyse-p1-population.html#relative-values-8"><i class="fa fa-check"></i><b>12.7.2</b> Relative values</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="analyse-p2-population.html"><a href="analyse-p2-population.html"><i class="fa fa-check"></i><b>13</b> Analyse p2 population</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="analyse-p2-population.html"><a href="analyse-p2-population.html#population-selection-9"><i class="fa fa-check"></i><b>13.1</b> Population selection</a></li>
+<li class="chapter" data-level="13.2" data-path="analyse-p2-population.html"><a href="analyse-p2-population.html#visualize-on-main-umap-9"><i class="fa fa-check"></i><b>13.2</b> Visualize on main UMAP</a>
+<ul>
+<li class="chapter" data-level="13.2.1" data-path="analyse-p2-population.html"><a href="analyse-p2-population.html#use-already-computed-values-9"><i class="fa fa-check"></i><b>13.2.1</b> Use already computed values</a></li>
+<li class="chapter" data-level="13.2.2" data-path="analyse-p2-population.html"><a href="analyse-p2-population.html#plot-known-markers-9"><i class="fa fa-check"></i><b>13.2.2</b> Plot known markers</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="analyse-p2-population.html"><a href="analyse-p2-population.html#find-hv-genes-9"><i class="fa fa-check"></i><b>13.3</b> Find HV genes</a></li>
+<li class="chapter" data-level="13.4" data-path="analyse-p2-population.html"><a href="analyse-p2-population.html#pca-on-p2"><i class="fa fa-check"></i><b>13.4</b> PCA on p2</a></li>
+<li class="chapter" data-level="13.5" data-path="analyse-p2-population.html"><a href="analyse-p2-population.html#specific-umap-9"><i class="fa fa-check"></i><b>13.5</b> Specific UMAP</a></li>
+<li class="chapter" data-level="13.6" data-path="analyse-p2-population.html"><a href="analyse-p2-population.html#clustering-9"><i class="fa fa-check"></i><b>13.6</b> Clustering</a></li>
+<li class="chapter" data-level="13.7" data-path="analyse-p2-population.html"><a href="analyse-p2-population.html#compare-btg2--and-btg2-populations-9"><i class="fa fa-check"></i><b>13.7</b> Compare Btg2- and Btg2+ populations</a>
+<ul>
+<li class="chapter" data-level="13.7.1" data-path="analyse-p2-population.html"><a href="analyse-p2-population.html#absolute-values-9"><i class="fa fa-check"></i><b>13.7.1</b> Absolute values</a></li>
+<li class="chapter" data-level="13.7.2" data-path="analyse-p2-population.html"><a href="analyse-p2-population.html#relative-values-9"><i class="fa fa-check"></i><b>13.7.2</b> Relative values</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="analyse-p3-population.html"><a href="analyse-p3-population.html"><i class="fa fa-check"></i><b>14</b> Analyse p3 population</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="analyse-p3-population.html"><a href="analyse-p3-population.html#population-selection-10"><i class="fa fa-check"></i><b>14.1</b> Population selection</a></li>
+<li class="chapter" data-level="14.2" data-path="analyse-p3-population.html"><a href="analyse-p3-population.html#visualize-on-main-umap-10"><i class="fa fa-check"></i><b>14.2</b> Visualize on main UMAP</a>
+<ul>
+<li class="chapter" data-level="14.2.1" data-path="analyse-p3-population.html"><a href="analyse-p3-population.html#use-already-computed-values-10"><i class="fa fa-check"></i><b>14.2.1</b> Use already computed values</a></li>
+<li class="chapter" data-level="14.2.2" data-path="analyse-p3-population.html"><a href="analyse-p3-population.html#plot-known-markers-10"><i class="fa fa-check"></i><b>14.2.2</b> Plot known markers</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="analyse-p3-population.html"><a href="analyse-p3-population.html#find-hv-genes-10"><i class="fa fa-check"></i><b>14.3</b> Find HV genes</a></li>
+<li class="chapter" data-level="14.4" data-path="analyse-p3-population.html"><a href="analyse-p3-population.html#pca-on-p3"><i class="fa fa-check"></i><b>14.4</b> PCA on p3</a></li>
+<li class="chapter" data-level="14.5" data-path="analyse-p3-population.html"><a href="analyse-p3-population.html#specific-umap-10"><i class="fa fa-check"></i><b>14.5</b> Specific UMAP</a></li>
+<li class="chapter" data-level="14.6" data-path="analyse-p3-population.html"><a href="analyse-p3-population.html#clustering-10"><i class="fa fa-check"></i><b>14.6</b> Clustering</a></li>
+<li class="chapter" data-level="14.7" data-path="analyse-p3-population.html"><a href="analyse-p3-population.html#compare-btg2--and-btg2-populations-10"><i class="fa fa-check"></i><b>14.7</b> Compare Btg2- and Btg2+ populations</a>
+<ul>
+<li class="chapter" data-level="14.7.1" data-path="analyse-p3-population.html"><a href="analyse-p3-population.html#absolute-values-10"><i class="fa fa-check"></i><b>14.7.1</b> Absolute values</a></li>
+<li class="chapter" data-level="14.7.2" data-path="analyse-p3-population.html"><a href="analyse-p3-population.html#relative-values-10"><i class="fa fa-check"></i><b>14.7.2</b> Relative values</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="analyse-pmn-population.html"><a href="analyse-pmn-population.html"><i class="fa fa-check"></i><b>15</b> Analyse pMN population</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="analyse-pmn-population.html"><a href="analyse-pmn-population.html#population-selection-11"><i class="fa fa-check"></i><b>15.1</b> Population selection</a></li>
+<li class="chapter" data-level="15.2" data-path="analyse-pmn-population.html"><a href="analyse-pmn-population.html#visualize-on-main-umap-11"><i class="fa fa-check"></i><b>15.2</b> Visualize on main UMAP</a>
+<ul>
+<li class="chapter" data-level="15.2.1" data-path="analyse-pmn-population.html"><a href="analyse-pmn-population.html#use-already-computed-values-11"><i class="fa fa-check"></i><b>15.2.1</b> Use already computed values</a></li>
+<li class="chapter" data-level="15.2.2" data-path="analyse-pmn-population.html"><a href="analyse-pmn-population.html#plot-known-markers-11"><i class="fa fa-check"></i><b>15.2.2</b> Plot known markers</a></li>
+</ul></li>
+<li class="chapter" data-level="15.3" data-path="analyse-pmn-population.html"><a href="analyse-pmn-population.html#find-hv-genes-11"><i class="fa fa-check"></i><b>15.3</b> Find HV genes</a></li>
+<li class="chapter" data-level="15.4" data-path="analyse-pmn-population.html"><a href="analyse-pmn-population.html#pca-on-pmn"><i class="fa fa-check"></i><b>15.4</b> PCA on pMN</a></li>
+<li class="chapter" data-level="15.5" data-path="analyse-pmn-population.html"><a href="analyse-pmn-population.html#specific-umap-11"><i class="fa fa-check"></i><b>15.5</b> Specific UMAP</a></li>
+<li class="chapter" data-level="15.6" data-path="analyse-pmn-population.html"><a href="analyse-pmn-population.html#clustering-11"><i class="fa fa-check"></i><b>15.6</b> Clustering</a></li>
+<li class="chapter" data-level="15.7" data-path="analyse-pmn-population.html"><a href="analyse-pmn-population.html#compare-btg2--and-btg2-populations-11"><i class="fa fa-check"></i><b>15.7</b> Compare Btg2- and Btg2+ populations</a>
+<ul>
+<li class="chapter" data-level="15.7.1" data-path="analyse-pmn-population.html"><a href="analyse-pmn-population.html#absolute-values-11"><i class="fa fa-check"></i><b>15.7.1</b> Absolute values</a></li>
+<li class="chapter" data-level="15.7.2" data-path="analyse-pmn-population.html"><a href="analyse-pmn-population.html#relative-values-11"><i class="fa fa-check"></i><b>15.7.2</b> Relative values</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="analyse-rp-population.html"><a href="analyse-rp-population.html"><i class="fa fa-check"></i><b>16</b> Analyse RP population</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="analyse-rp-population.html"><a href="analyse-rp-population.html#population-selection-12"><i class="fa fa-check"></i><b>16.1</b> Population selection</a></li>
+<li class="chapter" data-level="16.2" data-path="analyse-rp-population.html"><a href="analyse-rp-population.html#visualize-on-main-umap-12"><i class="fa fa-check"></i><b>16.2</b> Visualize on main UMAP</a>
+<ul>
+<li class="chapter" data-level="16.2.1" data-path="analyse-rp-population.html"><a href="analyse-rp-population.html#use-already-computed-values-12"><i class="fa fa-check"></i><b>16.2.1</b> Use already computed values</a></li>
+<li class="chapter" data-level="16.2.2" data-path="analyse-rp-population.html"><a href="analyse-rp-population.html#plot-known-markers-12"><i class="fa fa-check"></i><b>16.2.2</b> Plot known markers</a></li>
+</ul></li>
+<li class="chapter" data-level="16.3" data-path="analyse-rp-population.html"><a href="analyse-rp-population.html#find-hv-genes-12"><i class="fa fa-check"></i><b>16.3</b> Find HV genes</a></li>
+<li class="chapter" data-level="16.4" data-path="analyse-rp-population.html"><a href="analyse-rp-population.html#pca-on-rp"><i class="fa fa-check"></i><b>16.4</b> PCA on RP</a></li>
+<li class="chapter" data-level="16.5" data-path="analyse-rp-population.html"><a href="analyse-rp-population.html#specific-umap-12"><i class="fa fa-check"></i><b>16.5</b> Specific UMAP</a></li>
+<li class="chapter" data-level="16.6" data-path="analyse-rp-population.html"><a href="analyse-rp-population.html#clustering-12"><i class="fa fa-check"></i><b>16.6</b> Clustering</a></li>
+<li class="chapter" data-level="16.7" data-path="analyse-rp-population.html"><a href="analyse-rp-population.html#compare-btg2--and-btg2-populations-12"><i class="fa fa-check"></i><b>16.7</b> Compare Btg2- and Btg2+ populations</a>
+<ul>
+<li class="chapter" data-level="16.7.1" data-path="analyse-rp-population.html"><a href="analyse-rp-population.html#absolute-values-12"><i class="fa fa-check"></i><b>16.7.1</b> Absolute values</a></li>
+<li class="chapter" data-level="16.7.2" data-path="analyse-rp-population.html"><a href="analyse-rp-population.html#relative-values-12"><i class="fa fa-check"></i><b>16.7.2</b> Relative values</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="session-info.html"><a href="session-info.html"><i class="fa fa-check"></i><b>17</b> Session info</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="analyse-fp-population" class="section level1" number="10">
+<h1><span class="header-section-number">Chapter 10</span> Analyse FP population</h1>
+<div id="population-selection-6" class="section level2" number="10.1">
+<h2><span class="header-section-number">10.1</span> Population selection</h2>
+<div class="sourceCode" id="cb711"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb711-1"><a href="analyse-fp-population.html#cb711-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Idents</span>(data_seurat) <span class="ot">&lt;-</span> <span class="st">&#39;Type_step2&#39;</span></span>
+<span id="cb711-2"><a href="analyse-fp-population.html#cb711-2" aria-hidden="true" tabindex="-1"></a>data_sub <span class="ot">&lt;-</span> <span class="fu">subset</span>(data_seurat, <span class="at">idents =</span> pop)</span>
+<span id="cb711-3"><a href="analyse-fp-population.html#cb711-3" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(data_sub)</span></code></pre></div>
+<pre><code>## [1] 20082    92</code></pre>
+<div class="sourceCode" id="cb713"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb713-1"><a href="analyse-fp-population.html#cb713-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Idents</span>(data_seurat) <span class="ot">&lt;-</span> <span class="st">&#39;individual&#39;</span></span>
+<span id="cb713-2"><a href="analyse-fp-population.html#cb713-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_sub<span class="sc">@</span>meta.data<span class="sc">$</span>individual)</span></code></pre></div>
+<pre><code>## 
+##  9.5_1  9.5_2 10.5_1 10.5_2 11.5_1 11.5_2 12.5_1 12.5_2 12.5_3 13.5_1 13.5_2 
+##     22     21     21     14      1      4      1      2      3      2      0 
+## 13.5_3 
+##      1</code></pre>
+<div class="sourceCode" id="cb715"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb715-1"><a href="analyse-fp-population.html#cb715-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(data_sub<span class="sc">@</span>meta.data<span class="sc">$</span>individual))</span></code></pre></div>
+<p><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-133-1.png" width="960" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb716"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb716-1"><a href="analyse-fp-population.html#cb716-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_sub<span class="sc">@</span>meta.data<span class="sc">$</span>gender)</span></code></pre></div>
+<pre><code>## 
+##  F  M 
+## 62 30</code></pre>
+<div class="sourceCode" id="cb718"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb718-1"><a href="analyse-fp-population.html#cb718-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_sub<span class="sc">@</span>meta.data<span class="sc">$</span>seurat_clusters)</span></code></pre></div>
+<pre><code>## 
+##  0  1  2  3  4  5  6  7  8  9 10 11 
+##  0  0  6  0  3 83  0  0  0  0  0  0</code></pre>
+<div class="sourceCode" id="cb720"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb720-1"><a href="analyse-fp-population.html#cb720-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_sub<span class="sc">@</span>meta.data<span class="sc">$</span>kmeanClust_3)</span></code></pre></div>
+<pre><code>## 
+## Clust.2 Clust.3 
+##      63      29</code></pre>
+</div>
+<div id="visualize-on-main-umap-6" class="section level2" number="10.2">
+<h2><span class="header-section-number">10.2</span> Visualize on main UMAP</h2>
+<div id="use-already-computed-values-6" class="section level3" number="10.2.1">
+<h3><span class="header-section-number">10.2.1</span> Use already computed values</h3>
+<div class="sourceCode" id="cb722"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb722-1"><a href="analyse-fp-population.html#cb722-1" aria-hidden="true" tabindex="-1"></a>metadataD <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;individual&#39;</span>, <span class="st">&#39;gender&#39;</span>, <span class="st">&#39;Phase&#39;</span>, <span class="st">&#39;seurat_clusters&#39;</span>, <span class="st">&#39;timepoint&#39;</span>)</span>
+<span id="cb722-2"><a href="analyse-fp-population.html#cb722-2" aria-hidden="true" tabindex="-1"></a>metadataC <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;Pseudotime&#39;</span>, <span class="st">&#39;Progenitors_1&#39;</span>, <span class="st">&#39;Neurons_1&#39;</span>)</span>
+<span id="cb722-3"><a href="analyse-fp-population.html#cb722-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (md <span class="cf">in</span> metadataD){</span>
+<span id="cb722-4"><a href="analyse-fp-population.html#cb722-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">DimPlot</span>(<span class="at">object =</span> data_sub, <span class="at">group.by =</span> md))</span>
+<span id="cb722-5"><a href="analyse-fp-population.html#cb722-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-134-1.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-134-2.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-134-3.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-134-4.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-134-5.png" width="960" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb723"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb723-1"><a href="analyse-fp-population.html#cb723-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (mc <span class="cf">in</span> metadataC){</span>
+<span id="cb723-2"><a href="analyse-fp-population.html#cb723-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">FeaturePlot</span>(<span class="at">object =</span> data_sub,</span>
+<span id="cb723-3"><a href="analyse-fp-population.html#cb723-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">features =</span> mc,</span>
+<span id="cb723-4"><a href="analyse-fp-population.html#cb723-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">cols =</span> <span class="fu">c</span>(<span class="st">&quot;lightblue&quot;</span>, <span class="st">&quot;yellow2&quot;</span>, <span class="st">&quot;red&quot;</span>),</span>
+<span id="cb723-5"><a href="analyse-fp-population.html#cb723-5" aria-hidden="true" tabindex="-1"></a>                      <span class="at">reduction =</span> <span class="st">&quot;umap&quot;</span>))</span>
+<span id="cb723-6"><a href="analyse-fp-population.html#cb723-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-134-6.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-134-7.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-134-8.png" width="960" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb724"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb724-1"><a href="analyse-fp-population.html#cb724-1" aria-hidden="true" tabindex="-1"></a>plotBlend <span class="ot">&lt;-</span> <span class="fu">FeaturePlot</span>(<span class="at">object =</span> data_sub,</span>
+<span id="cb724-2"><a href="analyse-fp-population.html#cb724-2" aria-hidden="true" tabindex="-1"></a>                         <span class="at">features =</span> <span class="fu">c</span>(<span class="st">&quot;Sox2&quot;</span>, <span class="st">&quot;Btg2&quot;</span>),</span>
+<span id="cb724-3"><a href="analyse-fp-population.html#cb724-3" aria-hidden="true" tabindex="-1"></a>                         <span class="at">blend =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb724-4"><a href="analyse-fp-population.html#cb724-4" aria-hidden="true" tabindex="-1"></a>                         <span class="at">reduction =</span> <span class="st">&quot;umap&quot;</span>)</span>
+<span id="cb724-5"><a href="analyse-fp-population.html#cb724-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb724-6"><a href="analyse-fp-population.html#cb724-6" aria-hidden="true" tabindex="-1"></a>plotBlend[[<span class="dv">1</span>]]</span></code></pre></div>
+<p><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-134-9.png" width="960" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb725"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb725-1"><a href="analyse-fp-population.html#cb725-1" aria-hidden="true" tabindex="-1"></a>plotBlend[[<span class="dv">2</span>]]</span></code></pre></div>
+<p><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-134-10.png" width="960" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb726"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb726-1"><a href="analyse-fp-population.html#cb726-1" aria-hidden="true" tabindex="-1"></a>plotBlend[[<span class="dv">3</span>]]</span></code></pre></div>
+<p><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-134-11.png" width="960" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb727"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb727-1"><a href="analyse-fp-population.html#cb727-1" aria-hidden="true" tabindex="-1"></a>plotBlend[[<span class="dv">4</span>]]</span></code></pre></div>
+<p><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-134-12.png" width="960" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb728"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb728-1"><a href="analyse-fp-population.html#cb728-1" aria-hidden="true" tabindex="-1"></a><span class="co">#ggplot(data_sub@meta.data, aes(x = Neurons_1, y = Phase, color = Type_step2)) +</span></span>
+<span id="cb728-2"><a href="analyse-fp-population.html#cb728-2" aria-hidden="true" tabindex="-1"></a><span class="co">#   geom_point()</span></span></code></pre></div>
+</div>
+<div id="plot-known-markers-6" class="section level3" number="10.2.2">
+<h3><span class="header-section-number">10.2.2</span> Plot known markers</h3>
+<div class="sourceCode" id="cb729"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb729-1"><a href="analyse-fp-population.html#cb729-1" aria-hidden="true" tabindex="-1"></a>feat <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;Btg2&#39;</span>,</span>
+<span id="cb729-2"><a href="analyse-fp-population.html#cb729-2" aria-hidden="true" tabindex="-1"></a>          <span class="st">&#39;Sox1&#39;</span>,</span>
+<span id="cb729-3"><a href="analyse-fp-population.html#cb729-3" aria-hidden="true" tabindex="-1"></a>          <span class="st">&#39;Sox2&#39;</span>,</span>
+<span id="cb729-4"><a href="analyse-fp-population.html#cb729-4" aria-hidden="true" tabindex="-1"></a>          <span class="st">&#39;Sox3&#39;</span>,</span>
+<span id="cb729-5"><a href="analyse-fp-population.html#cb729-5" aria-hidden="true" tabindex="-1"></a>          <span class="st">&#39;Tubb3&#39;</span>,</span>
+<span id="cb729-6"><a href="analyse-fp-population.html#cb729-6" aria-hidden="true" tabindex="-1"></a>          <span class="st">&#39;Olig2&#39;</span>,</span>
+<span id="cb729-7"><a href="analyse-fp-population.html#cb729-7" aria-hidden="true" tabindex="-1"></a>          <span class="st">&#39;Pax6&#39;</span>,</span>
+<span id="cb729-8"><a href="analyse-fp-population.html#cb729-8" aria-hidden="true" tabindex="-1"></a>          <span class="st">&#39;Pax7&#39;</span>,</span>
+<span id="cb729-9"><a href="analyse-fp-population.html#cb729-9" aria-hidden="true" tabindex="-1"></a>          <span class="st">&#39;Isl1&#39;</span>,</span>
+<span id="cb729-10"><a href="analyse-fp-population.html#cb729-10" aria-hidden="true" tabindex="-1"></a>          <span class="st">&#39;Notch1&#39;</span>,</span>
+<span id="cb729-11"><a href="analyse-fp-population.html#cb729-11" aria-hidden="true" tabindex="-1"></a>          <span class="st">&#39;Dll1&#39;</span>,</span>
+<span id="cb729-12"><a href="analyse-fp-population.html#cb729-12" aria-hidden="true" tabindex="-1"></a>          <span class="st">&#39;Cdc25b&#39;</span>,</span>
+<span id="cb729-13"><a href="analyse-fp-population.html#cb729-13" aria-hidden="true" tabindex="-1"></a>          <span class="st">&#39;Mib1&#39;</span>,</span>
+<span id="cb729-14"><a href="analyse-fp-population.html#cb729-14" aria-hidden="true" tabindex="-1"></a>          <span class="st">&#39;Shh&#39;</span>,</span>
+<span id="cb729-15"><a href="analyse-fp-population.html#cb729-15" aria-hidden="true" tabindex="-1"></a>          <span class="st">&#39;Gli1&#39;</span>)</span>
+<span id="cb729-16"><a href="analyse-fp-population.html#cb729-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb729-17"><a href="analyse-fp-population.html#cb729-17" aria-hidden="true" tabindex="-1"></a>plotMarker <span class="ot">&lt;-</span> <span class="fu">FeaturePlot</span>(<span class="at">object =</span> data_sub,</span>
+<span id="cb729-18"><a href="analyse-fp-population.html#cb729-18" aria-hidden="true" tabindex="-1"></a>                          <span class="at">features =</span> feat,</span>
+<span id="cb729-19"><a href="analyse-fp-population.html#cb729-19" aria-hidden="true" tabindex="-1"></a>                          <span class="at">order =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb729-20"><a href="analyse-fp-population.html#cb729-20" aria-hidden="true" tabindex="-1"></a>                          <span class="at">cols =</span> <span class="fu">c</span>(<span class="st">&quot;lightblue&quot;</span>, <span class="st">&quot;yellow2&quot;</span>, <span class="st">&quot;red&quot;</span>),</span>
+<span id="cb729-21"><a href="analyse-fp-population.html#cb729-21" aria-hidden="true" tabindex="-1"></a>                          <span class="at">reduction =</span> <span class="st">&quot;umap&quot;</span>,</span>
+<span id="cb729-22"><a href="analyse-fp-population.html#cb729-22" aria-hidden="true" tabindex="-1"></a>                          <span class="at">ncol =</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb730"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb730-1"><a href="analyse-fp-population.html#cb730-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(plotMarker)){</span>
+<span id="cb730-2"><a href="analyse-fp-population.html#cb730-2" aria-hidden="true" tabindex="-1"></a>    plot1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data_sub<span class="sc">@</span>meta.data, <span class="fu">aes_string</span>(<span class="at">x =</span> <span class="st">&quot;timepoint&quot;</span>, <span class="at">y =</span> feat[i], <span class="at">color =</span> <span class="st">&quot;timepoint&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb730-3"><a href="analyse-fp-population.html#cb730-3" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb730-4"><a href="analyse-fp-population.html#cb730-4" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_jitter</span>(<span class="at">shape=</span><span class="dv">16</span>, <span class="at">position=</span><span class="fu">position_jitter</span>(<span class="fl">0.2</span>))</span>
+<span id="cb730-5"><a href="analyse-fp-population.html#cb730-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb730-6"><a href="analyse-fp-population.html#cb730-6" aria-hidden="true" tabindex="-1"></a>    plot2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data_sub<span class="sc">@</span>meta.data, <span class="fu">aes_string</span>(<span class="at">x =</span> <span class="st">&quot;as.numeric(Pseudotime)&quot;</span>, <span class="at">y =</span> feat[i], <span class="at">color =</span> <span class="st">&quot;Phase&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb730-7"><a href="analyse-fp-population.html#cb730-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb730-8"><a href="analyse-fp-population.html#cb730-8" aria-hidden="true" tabindex="-1"></a>        <span class="fu">scale_x_continuous</span>() <span class="sc">+</span></span>
+<span id="cb730-9"><a href="analyse-fp-population.html#cb730-9" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&#39;loess&#39;</span>, <span class="at">show.legend =</span> <span class="cn">TRUE</span>,  <span class="at">se=</span><span class="cn">FALSE</span>, <span class="at">fullrange=</span><span class="cn">FALSE</span>, <span class="at">level=</span><span class="fl">0.95</span>) <span class="sc">+</span></span>
+<span id="cb730-10"><a href="analyse-fp-population.html#cb730-10" aria-hidden="true" tabindex="-1"></a>        <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb730-11"><a href="analyse-fp-population.html#cb730-11" aria-hidden="true" tabindex="-1"></a>        <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;bottom&quot;</span>)</span>
+<span id="cb730-12"><a href="analyse-fp-population.html#cb730-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb730-13"><a href="analyse-fp-population.html#cb730-13" aria-hidden="true" tabindex="-1"></a>    plot2 <span class="ot">&lt;-</span> data_sub<span class="sc">@</span>meta.data <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="fu">get</span>(feat[i]) <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes_string</span>(<span class="at">x =</span> <span class="st">&quot;as.numeric(Pseudotime)&quot;</span>, <span class="at">y =</span> feat[i], <span class="at">color =</span> <span class="st">&quot;Phase&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb730-14"><a href="analyse-fp-population.html#cb730-14" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb730-15"><a href="analyse-fp-population.html#cb730-15" aria-hidden="true" tabindex="-1"></a>        <span class="fu">scale_x_continuous</span>() <span class="sc">+</span></span>
+<span id="cb730-16"><a href="analyse-fp-population.html#cb730-16" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&#39;loess&#39;</span>, <span class="at">show.legend =</span> <span class="cn">TRUE</span>,  <span class="at">se=</span><span class="cn">FALSE</span>, <span class="at">fullrange=</span><span class="cn">FALSE</span>, <span class="at">level=</span><span class="fl">0.95</span>) <span class="sc">+</span></span>
+<span id="cb730-17"><a href="analyse-fp-population.html#cb730-17" aria-hidden="true" tabindex="-1"></a>        <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb730-18"><a href="analyse-fp-population.html#cb730-18" aria-hidden="true" tabindex="-1"></a>        <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;bottom&quot;</span>)</span>
+<span id="cb730-19"><a href="analyse-fp-population.html#cb730-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb730-20"><a href="analyse-fp-population.html#cb730-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb730-21"><a href="analyse-fp-population.html#cb730-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(plot1)</span>
+<span id="cb730-22"><a href="analyse-fp-population.html#cb730-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(plot2)</span>
+<span id="cb730-23"><a href="analyse-fp-population.html#cb730-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(plotMarker[[i]])</span>
+<span id="cb730-24"><a href="analyse-fp-population.html#cb730-24" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-136-1.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-136-2.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-136-3.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-136-4.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-136-5.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-136-6.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-136-7.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-136-8.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-136-9.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-136-10.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-136-11.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-136-12.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-136-13.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-136-14.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-136-15.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-136-16.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-136-17.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-136-18.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-136-19.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-136-20.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-136-21.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-136-22.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-136-23.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-136-24.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-136-25.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-136-26.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-136-27.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-136-28.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-136-29.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-136-30.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-136-31.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-136-32.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-136-33.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="find-hv-genes-6" class="section level2" number="10.3">
+<h2><span class="header-section-number">10.3</span> Find HV genes</h2>
+<div class="sourceCode" id="cb731"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb731-1"><a href="analyse-fp-population.html#cb731-1" aria-hidden="true" tabindex="-1"></a><span class="co"># prepare data</span></span>
+<span id="cb731-2"><a href="analyse-fp-population.html#cb731-2" aria-hidden="true" tabindex="-1"></a>data_sub <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb731-3"><a href="analyse-fp-population.html#cb731-3" aria-hidden="true" tabindex="-1"></a><span class="fu">Idents</span>(data_seurat) <span class="ot">&lt;-</span> <span class="st">&#39;Type_step2&#39;</span></span>
+<span id="cb731-4"><a href="analyse-fp-population.html#cb731-4" aria-hidden="true" tabindex="-1"></a>data_sub <span class="ot">&lt;-</span> <span class="fu">subset</span>(data_seurat, <span class="at">idents =</span> pop)</span>
+<span id="cb731-5"><a href="analyse-fp-population.html#cb731-5" aria-hidden="true" tabindex="-1"></a>data_sub <span class="ot">&lt;-</span> <span class="fu">CreateSeuratObject</span>(<span class="at">counts =</span> data_sub<span class="sc">@</span>assays<span class="sc">$</span>RNA<span class="sc">@</span>counts,</span>
+<span id="cb731-6"><a href="analyse-fp-population.html#cb731-6" aria-hidden="true" tabindex="-1"></a>                               <span class="at">meta.data =</span> data_sub<span class="sc">@</span>meta.data,</span>
+<span id="cb731-7"><a href="analyse-fp-population.html#cb731-7" aria-hidden="true" tabindex="-1"></a>                               <span class="at">min.cells =</span> <span class="dv">2</span>)</span>
+<span id="cb731-8"><a href="analyse-fp-population.html#cb731-8" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(data_sub)</span></code></pre></div>
+<pre><code>## [1] 11657    92</code></pre>
+<div class="sourceCode" id="cb733"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb733-1"><a href="analyse-fp-population.html#cb733-1" aria-hidden="true" tabindex="-1"></a><span class="co"># scale data before clustering</span></span>
+<span id="cb733-2"><a href="analyse-fp-population.html#cb733-2" aria-hidden="true" tabindex="-1"></a>data_sub <span class="ot">&lt;-</span> <span class="fu">NormalizeData</span>(<span class="at">object =</span> data_sub, <span class="at">normalization.method =</span> <span class="st">&quot;LogNormalize&quot;</span>, <span class="at">scale.factor =</span> <span class="fl">1e4</span>)</span>
+<span id="cb733-3"><a href="analyse-fp-population.html#cb733-3" aria-hidden="true" tabindex="-1"></a>data_sub <span class="ot">&lt;-</span> <span class="fu">ScaleData</span>(data_sub, <span class="at">vars.to.regress =</span> <span class="fu">c</span>(<span class="st">&quot;pct_counts_MT&quot;</span>, <span class="st">&quot;gender&quot;</span>))</span>
+<span id="cb733-4"><a href="analyse-fp-population.html#cb733-4" aria-hidden="true" tabindex="-1"></a>data_sub <span class="ot">&lt;-</span> <span class="fu">FindVariableFeatures</span>(data_sub, <span class="at">selection.method =</span> <span class="st">&quot;vst&quot;</span>, <span class="at">nfeatures =</span> <span class="dv">2000</span>)</span>
+<span id="cb733-5"><a href="analyse-fp-population.html#cb733-5" aria-hidden="true" tabindex="-1"></a>top <span class="ot">&lt;-</span> <span class="fu">head</span>(<span class="fu">VariableFeatures</span>(data_sub), <span class="dv">30</span>)</span>
+<span id="cb733-6"><a href="analyse-fp-population.html#cb733-6" aria-hidden="true" tabindex="-1"></a>plot1 <span class="ot">&lt;-</span> <span class="fu">VariableFeaturePlot</span>(data_sub)</span>
+<span id="cb733-7"><a href="analyse-fp-population.html#cb733-7" aria-hidden="true" tabindex="-1"></a>plot2 <span class="ot">&lt;-</span> <span class="fu">LabelPoints</span>(<span class="at">plot =</span> plot1, <span class="at">points =</span> top, <span class="at">repel =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb733-8"><a href="analyse-fp-population.html#cb733-8" aria-hidden="true" tabindex="-1"></a>plot2</span></code></pre></div>
+<p><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-137-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="pca-on-fp" class="section level2" number="10.4">
+<h2><span class="header-section-number">10.4</span> PCA on FP</h2>
+<div class="sourceCode" id="cb734"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb734-1"><a href="analyse-fp-population.html#cb734-1" aria-hidden="true" tabindex="-1"></a>data_sub <span class="ot">&lt;-</span> <span class="fu">RunPCA</span>(data_sub, <span class="at">features =</span> <span class="fu">VariableFeatures</span>(<span class="at">object =</span> data_sub), <span class="at">npcs =</span> <span class="dv">30</span>)</span>
+<span id="cb734-2"><a href="analyse-fp-population.html#cb734-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ElbowPlot</span>(data_sub, <span class="at">ndims =</span> <span class="dv">30</span>, <span class="at">reduction =</span> <span class="st">&#39;pca&#39;</span>)</span></code></pre></div>
+<p><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-139-1.png" width="960" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb735"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb735-1"><a href="analyse-fp-population.html#cb735-1" aria-hidden="true" tabindex="-1"></a><span class="fu">VizDimLoadings</span>(data_sub, <span class="at">dims =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">reduction =</span> <span class="st">&quot;pca&quot;</span>)</span></code></pre></div>
+<p><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-139-2.png" width="960" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb736"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb736-1"><a href="analyse-fp-population.html#cb736-1" aria-hidden="true" tabindex="-1"></a><span class="fu">VizDimLoadings</span>(data_sub, <span class="at">dims =</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">reduction =</span> <span class="st">&quot;pca&quot;</span>)</span></code></pre></div>
+<p><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-139-3.png" width="960" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb737"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb737-1"><a href="analyse-fp-population.html#cb737-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (md <span class="cf">in</span> metadataD){</span>
+<span id="cb737-2"><a href="analyse-fp-population.html#cb737-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">DimPlot</span>(<span class="at">object =</span> data_sub, <span class="at">group.by =</span> md, <span class="at">reduction =</span> <span class="st">&quot;pca&quot;</span>, <span class="at">dims =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)))</span>
+<span id="cb737-3"><a href="analyse-fp-population.html#cb737-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">DimPlot</span>(<span class="at">object =</span> data_sub, <span class="at">group.by =</span> md, <span class="at">reduction =</span> <span class="st">&quot;pca&quot;</span>, <span class="at">dims =</span> <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">4</span>)))</span>
+<span id="cb737-4"><a href="analyse-fp-population.html#cb737-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-139-4.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-139-5.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-139-6.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-139-7.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-139-8.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-139-9.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-139-10.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-139-11.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-139-12.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-139-13.png" width="960" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb738"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb738-1"><a href="analyse-fp-population.html#cb738-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">1</span>)){</span>
+<span id="cb738-2"><a href="analyse-fp-population.html#cb738-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">DimHeatmap</span>(data_sub, <span class="at">dims =</span> i, <span class="at">balanced =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb738-3"><a href="analyse-fp-population.html#cb738-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-139-14.png" width="960" style="display: block; margin: auto;" /></p>
+<pre><code>## NULL</code></pre>
+<p><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-139-15.png" width="960" style="display: block; margin: auto;" /></p>
+<pre><code>## NULL</code></pre>
+<p><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-139-16.png" width="960" style="display: block; margin: auto;" /></p>
+<pre><code>## NULL</code></pre>
+<p><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-139-17.png" width="960" style="display: block; margin: auto;" /></p>
+<pre><code>## NULL</code></pre>
+<div class="sourceCode" id="cb743"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb743-1"><a href="analyse-fp-population.html#cb743-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (md <span class="cf">in</span> metadataD){</span>
+<span id="cb743-2"><a href="analyse-fp-population.html#cb743-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">FeatureScatter</span>(<span class="at">object =</span> data_sub, <span class="st">&quot;Btg2&quot;</span>, <span class="st">&quot;Sox2&quot;</span>, <span class="at">group.by =</span> md))</span>
+<span id="cb743-3"><a href="analyse-fp-population.html#cb743-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-139-18.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-139-19.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-139-20.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-139-21.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-139-22.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="specific-umap-6" class="section level2" number="10.5">
+<h2><span class="header-section-number">10.5</span> Specific UMAP</h2>
+<div class="sourceCode" id="cb744"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb744-1"><a href="analyse-fp-population.html#cb744-1" aria-hidden="true" tabindex="-1"></a>data_sub <span class="ot">&lt;-</span> <span class="fu">RunUMAP</span>(data_sub, <span class="at">features =</span> <span class="fu">VariableFeatures</span>(<span class="at">object =</span> data_sub))</span>
+<span id="cb744-2"><a href="analyse-fp-population.html#cb744-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb744-3"><a href="analyse-fp-population.html#cb744-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (md <span class="cf">in</span> metadataD){</span>
+<span id="cb744-4"><a href="analyse-fp-population.html#cb744-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">DimPlot</span>(<span class="at">object =</span> data_sub, <span class="at">group.by =</span> md, <span class="at">reduction =</span> <span class="st">&quot;umap&quot;</span>))</span>
+<span id="cb744-5"><a href="analyse-fp-population.html#cb744-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-141-1.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-141-2.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-141-3.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-141-4.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-141-5.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="clustering-6" class="section level2" number="10.6">
+<h2><span class="header-section-number">10.6</span> Clustering</h2>
+<div class="sourceCode" id="cb745"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb745-1"><a href="analyse-fp-population.html#cb745-1" aria-hidden="true" tabindex="-1"></a><span class="co"># clustering</span></span>
+<span id="cb745-2"><a href="analyse-fp-population.html#cb745-2" aria-hidden="true" tabindex="-1"></a>data_sub <span class="ot">&lt;-</span> <span class="fu">FindNeighbors</span>(data_sub, <span class="at">dims =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>)</span>
+<span id="cb745-3"><a href="analyse-fp-population.html#cb745-3" aria-hidden="true" tabindex="-1"></a>data_sub <span class="ot">&lt;-</span> <span class="fu">FindClusters</span>(data_sub, <span class="at">resolution =</span> <span class="fl">0.6</span>)</span></code></pre></div>
+<pre><code>## Modularity Optimizer version 1.3.0 by Ludo Waltman and Nees Jan van Eck
+## 
+## Number of nodes: 92
+## Number of edges: 3373
+## 
+## Running Louvain algorithm...
+## Maximum modularity in 10 random starts: 0.4296
+## Number of communities: 2
+## Elapsed time: 0 seconds</code></pre>
+<div class="sourceCode" id="cb747"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb747-1"><a href="analyse-fp-population.html#cb747-1" aria-hidden="true" tabindex="-1"></a><span class="fu">DimPlot</span>(data_sub, <span class="at">reduction =</span> <span class="st">&quot;umap&quot;</span>)</span></code></pre></div>
+<p><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-143-1.png" width="960" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb748"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb748-1"><a href="analyse-fp-population.html#cb748-1" aria-hidden="true" tabindex="-1"></a>markers <span class="ot">&lt;-</span> <span class="fu">FindAllMarkers</span>(data_sub, <span class="at">only.pos =</span> <span class="cn">TRUE</span>, <span class="at">min.pct =</span> <span class="fl">0.25</span>, <span class="at">logfc.threshold =</span> <span class="fl">0.25</span>)</span>
+<span id="cb748-2"><a href="analyse-fp-population.html#cb748-2" aria-hidden="true" tabindex="-1"></a>top10 <span class="ot">&lt;-</span> markers <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(cluster) <span class="sc">%&gt;%</span> <span class="fu">top_n</span>(<span class="at">n =</span> <span class="dv">10</span>, <span class="at">wt =</span> avg_log2FC)</span>
+<span id="cb748-3"><a href="analyse-fp-population.html#cb748-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">DoHeatmap</span>(data_sub, <span class="at">features =</span> top10<span class="sc">$</span>gene, <span class="at">draw.lines =</span> <span class="cn">TRUE</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span> </span>
+<span id="cb748-4"><a href="analyse-fp-population.html#cb748-4" aria-hidden="true" tabindex="-1"></a>      <span class="fu">NoLegend</span>())</span></code></pre></div>
+<p><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-143-2.png" width="960" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb749"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb749-1"><a href="analyse-fp-population.html#cb749-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(markers, <span class="at">file =</span> <span class="fu">paste0</span>(<span class="st">&quot;../../&quot;</span>, path_output, <span class="st">&quot;markers_&quot;</span>, pop, <span class="st">&quot;.tsv&quot;</span>), <span class="at">sep =</span> <span class="st">&#39;</span><span class="sc">\t</span><span class="st">&#39;</span>, <span class="at">quote=</span><span class="cn">FALSE</span>, <span class="at">row.names =</span> <span class="cn">TRUE</span>, <span class="at">col.names =</span> <span class="cn">NA</span>)</span>
+<span id="cb749-2"><a href="analyse-fp-population.html#cb749-2" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(markers, <span class="at">file =</span> <span class="fu">paste0</span>(<span class="st">&quot;../../&quot;</span>, path_output, <span class="st">&quot;markers_&quot;</span>, pop, <span class="st">&quot;.rds&quot;</span>))</span>
+<span id="cb749-3"><a href="analyse-fp-population.html#cb749-3" aria-hidden="true" tabindex="-1"></a>ordered <span class="ot">&lt;-</span> markers[<span class="fu">order</span>(markers<span class="sc">$</span>avg_log2FC, <span class="at">decreasing =</span> <span class="cn">TRUE</span>),]</span>
+<span id="cb749-4"><a href="analyse-fp-population.html#cb749-4" aria-hidden="true" tabindex="-1"></a>DT<span class="sc">::</span><span class="fu">datatable</span>(ordered, <span class="at">options =</span> <span class="fu">list</span>(<span class="at">scrollX =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
+<div id="htmlwidget-466d62322b30683bf1b7" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-466d62322b30683bf1b7">{"x":{"filter":"none","data":[["Cenpf","Top2a","Cks2","Birc5","Ube2c","Hmgb2","Arl6ip1","Tpx2","Mki67","Prc1","Dcn","Cdca8","Spc25","Hist1h2ap","Pclaf","Smc4","Cdk1","Smc2","Hmmr","Slit2","Ube2s","Cenpa","Nusap1","Ezh2","Nasp","Hist1h1e","Nucks1","Alcam","Dek","H2afz","Pcsk1n","Cenpe","Ncl","Aspm","Chchd10","Anp32b","Ccnb1","Pttg1","Ntn1","H2afx","Irs1","Cks1b","Cdc20","Lsm3","Lyar","Nrp2","Hist1h1b","Sulf1","Nectin3","Selenoh","Kif4","Hnrnpd","Tmem100","Gmnn","Eef2","Hmga2","Frmd4b","Ccnb2","Hist2h2ac","H1fx","Tshz2","Fam183b","Mis18bp1","Enpp2","Cdca3","Snrpd1","Cenpq","Gpx3","Scaf11","Ckap2l","Smc1a","Stmn1","Smchd1","Lig1","Kpna2","Trim59","Fam210b","Dbf4","Usp1","Knstrn","Plk1","Sgol2a","Plk4","Sgol1","Tmpo","Tacc3","Eif3e","Racgap1","Knl1","Fam174b","Dlgap5","Tsc22d1","Hp1bp3","Fam64a","Prdx4","Dctpp1","Shh","Efnb3","Smarcd1","Hn1","Ogt","Smarca5","Larp7","Qk","Spon1","Atp6v0e","Tuba1c","Nrep","Gins2","Hnrnpab","Dnajc9","Dmrtb1","Lockd","Pfdn6","Hmgb1","Ccna2","Cenpm","Set","Anp32e","Smc6","Cdv3","Eef1a1","Nop58","Kif11","Gspt1","Dut","Tubb4b","Ssb","Psip1","Hoxb8","Kif20b","Lsm5","Calm2","1190002N15Rik","Sptssa","Cbx1","U2af1","Rrm2","Hist1h2ae","Ranbp1","Hsp90aa1","Kif2c","Ckap5","Exosc8","Nhp2","Akirin2","Ik","Gabarap","Map1lc3b","Cacybp","Incenp","Ect2","Cox7a2l","Ppid","Sod2","Arl4a","Apex1","Ppig","Dynll2","Gpx8","Adat1","Itsn1","G2e3","Exosc7","mt-Nd6","Pbk","Mad2l1","Aurka","Ctnnb1","Ednra","Ncapg","Dtymk","Lgmn","Dnmt1","Cep55","Ildr2","Ift27","Tpr","Spc24","Rrm1","Ctcf","Igfbp2","Pcnp","Ska2","Ak1","Ube2l3","Thrap3","Mcm5","mt-Nd5","Sulf2","Atp6v0d1","Ppdpf","Trabd2b","Ran","Zc3h15","Ccdc28b","Rnps1","Tpm4","Phactr2","Pds5b","Wbp11","Abcf1","Agpat4","Mis18a","6330403K07Rik","Fgfr2","Tuba1b","Cenpk","Ppil1","Lsm2","Hnrnpul2","Haghl","Nup50","Mier1","Spdl1","Rad51","Mrps15","Chmp4b","Mybbp1a","Sdpr","Hells","Dhrs3","Pim1","Denr","Pcm1","Rad51ap1","Anln","Zmat2","Bub1","Gemin6","Bms1","Rbms1","Eif1ad","Hsp90b1","Lsm6","Rnf219","Pcp4","Plekha2","Hmgn2","Txnl1","Npm3","Nde1","Hnrnpul1","Kif18a","Ccdc59","Utp18","Cenph","Topbp1","Uck2","Dnajc2","Eif3f","Prim1","Zcrb1","Ccdc50","Tcerg1","Hat1","Trip13","Lmnb1","Pltp","Itgb3bp","Sept11","Nme1","Nsmce4a","Nuf2","Pcnt","Hist1h1a","Ndufaf4","Ube2k","Srrm2","Polr2b","Pds5a","Snrnp200","Siva1","Ccdc34","Esf1","Npm1","Blm","Ccdc18","Clspn","Eme1","C330027C09Rik","Ssrp1","Pbdc1","Depdc1a","Cmc2","Atad2","Kif23","Itpa","Hpf1","Rfc1","Jagn1","Cdkn2d","Rbpj","Hspe1","Lrr1","Kdelr1","Dnttip2","Hist1h1c","Parp2","Kif15","Parp1","Mrps18a","Cep135","Arhgap5","Ccne1","Fam178a","Serbp1","Ypel5","Eml4","Ptma","Xrn2","Apitd1","Sap18","Aurkb","Cenpw","Rif1","Bdp1","Mpp5","Gm45902","Snrnp70","Mpdz","Utp3","Nip7","Terf1","Mif","Arhgap11a","Smc3","Mrpl12","Dynll1","Eif5b","Ptbp1","Ddx1","Igf2bp1","Snrnp25","Rfc3","Cand1","Ssna1","Tmem138","Wwp1","Pdap1","Tex10","Exo1","Rpa2","Mrpl18","Slc9a3r1","U2surp","Tceal9","Vrk1","Dazap1","St3gal2","Fbxo22","mt-Nd2","Snrpd3","Naa10","Cnot9","Ccnf","Mrpl58","Pebp1","Wdr76","Tcof1","Cox7a2","Esco2","Wdr3","Tex30","Pmf1","Stag1","Zfp131","Rfc5","Bub1b","Rpl27","Eif5","Kmt5a","Ubr5","Jtb","Mpp6","Tlk2","Magoh","Tbc1d16","Dtx4","Orc6","Mcm6","R3hdm2","Hist1h4i","Vgll3","Sclt1","Ncapd2","Gpatch4","Snrpe","Mns1","Cep83","Thoc7","Filip1l","Ddx21","Net1","Cdc25a","Rpl4","Rsrc1","Psma4","Eif3d","Atp5e","Lbr","Ttf2","Hnrnpa2b1","Gm12166","Oser1","Atf2","Chaf1a","Psat1","1810041H14Rik","Btg2","Smc5","Hspa8","Appl1","Eif4g1","Uchl3","Rpl22l1","Zmynd8","Etaa1","Cit","Tyms","Cep70","Grrp1","Mis12","Rnaseh2a","Banf1","Taf1d","Melk","Sac3d1","Hsph1","Mcm3","Snrpb","Rev3l","Brca1","Hars","Cox6c","Hnrnpr","Tubb5","Mrpl51","Api5","Fam206a","Uhrf1","Dnaaf2","Pkig","Cntln","Pold3","Msh6","Nmral1","Cdca5","Ash2l","Ranbp2","Paip2b","Hmgn1","Gars","Dna2","N4bp2l2","Gpatch11","Vars","Fign","Mdm1","Lims1","Dnajc21","Spag5","Zfp729b","Utp11","Pgp","Dhx29","Caml","Ska1","Ammecr1","Rbmx2","Vps35","Nap1l1","H2afv","Exosc5","Prpsap1","Washc4","Ttk","Hnrnpdl","9130401M01Rik","Hyou1","Snw1","Eprs","Mybl2","Iws1","Kif1b","Grb2","Anapc1","Iqcc","Zfp811","Traf3ip1","Btaf1","Zfyve9","Iars2","Pcgf6","Prr11","Ginm1","Zfp593","Cdkn2aipnl","Hmgxb4","Fbxo5","N4bp1","Acsl3","Gtse1","Cenpu","1110008F13Rik","Nup62","Ythdc2","Agl","Znhit3","Shcbp1","Tk1","Brca2","Cpsf1","Erh","Haus6","Ankrd26","Znhit6","Phf5a","Ndc80","Sapcd2","Lrch3","Tbc1d1","Tiparp","Cdc25c","Ssx2ip","Hist1h4d","Plch1","Ppia","Rpl15","Serf2","Terf2","Gins4","Bahcc1","Gm43672","Nom1","Nup107","Daxx","Rev1","Eea1","Cebpg","Oaz1","Zfhx2","Stil","Sos1","Gtf2h2","Bard1","Rps27","Rpl37","Prim2","Ftl1","Metap1"],[1.53464782738736e-11,3.40995085660833e-10,1.33808393930119e-10,7.30550045775775e-13,6.41145453994302e-08,1.85450447376655e-10,2.72580619017607e-07,3.07929193671138e-10,1.29943379112521e-10,2.0709450233101e-08,0.00679110932307923,6.04135706076103e-10,7.30381509896376e-11,1.26791874546293e-05,6.23155087528728e-10,1.98541790043647e-10,4.19242548168952e-09,4.32381813139693e-11,2.56900396681334e-09,0.00337745989942882,1.16366625624561e-08,6.85715640841627e-08,2.78894720482394e-08,2.21515186763634e-09,1.34246617850734e-08,1.35575950825458e-06,7.72176063677324e-08,0.00117038316367087,1.60598332762781e-08,1.29992578443953e-11,0.00067491552856672,8.12214601279007e-08,1.02177835223957e-06,4.62219313248642e-09,0.00090557201402567,1.15164675743255e-08,1.45048079401928e-05,4.62655172257396e-07,0.000432027618151749,3.84425955152545e-05,0.000966008292377168,1.06557106858439e-07,6.92446561654993e-07,1.79774984823047e-08,4.60305791330734e-08,0.00737160624439433,1.13614117916387e-06,0.00105756961393185,0.000691391032632403,9.81187999693747e-09,2.99173951727396e-08,4.08522912927587e-08,0.00853089754601778,6.67435832365672e-07,4.65756134229519e-05,0.00010770660941508,0.000666381708590293,8.75374929975996e-07,1.72933069940782e-05,0.000137858969539381,0.000173763562849847,0.00109147005547416,7.94755450886122e-08,0.00151840476945765,5.31823915449175e-06,6.77279790108931e-08,6.82294633659621e-07,0.000470097282196748,2.29149773681637e-05,3.05166059615565e-07,1.98479271587464e-06,3.26785008206433e-06,8.45924581913347e-05,1.99754359052516e-06,1.174178147604e-05,2.01071654694623e-06,0.000878396202390428,1.06632509808559e-06,6.12378151460702e-06,1.41719415560051e-05,1.24460146918858e-06,4.61465741814098e-07,6.17740648736517e-06,3.16771233775274e-07,3.18898815709234e-05,2.65193185630735e-07,2.87362372830681e-05,7.31726998094837e-06,4.015981195385e-07,0.00314765068691427,2.96135259605549e-07,0.00255705530102214,4.28945354147824e-05,1.42207680413434e-05,0.000160908871378906,0.000265251572647155,0.00544108287027121,0.00486716343947318,3.63683866499287e-05,0.000464534295000829,0.000331371163771155,1.05346755110647e-05,2.0419066320643e-05,0.00429683486961972,0.00307602595795861,8.29815296925e-05,4.97989884205708e-05,0.000833641652495113,2.34057585890958e-05,3.41097295665897e-06,0.000109681358069918,0.000526745279027971,3.93241431880296e-05,0.00010314051932644,9.1917434672224e-08,8.01691867170229e-05,1.08578671037732e-05,2.64963526575146e-05,2.47862809787699e-05,0.000118551131492236,5.68368499828145e-05,1.07562560541628e-05,0.000572085090902195,5.27092804164559e-07,0.00021917280423573,0.000484187195558176,0.000109674518826862,0.000484535985935233,0.000277429618962074,0.00685974393841894,3.71899870413789e-05,0.000152306361971098,1.07562560541628e-05,0.00369714927085415,0.00118010965446174,3.73528253289796e-05,2.26689227971436e-05,1.59497539586578e-05,0.000279167166875787,2.60524731188121e-05,4.3540959363909e-05,2.12952912049344e-06,9.21325743095717e-05,0.00035778207371194,0.000199522542304412,0.00369386573523959,0.000150762349000567,7.60837248843826e-05,0.00239029792993635,0.0011390282855909,1.32966791203976e-05,0.000242834561956751,4.06917361500058e-05,0.000340596926535239,0.00204975491155858,0.00169111777376017,0.000916877179501481,0.000550181607859372,0.000194602799071874,0.00121129920351399,0.00641722622721008,0.00154445046037633,0.00147068170587295,0.000241662598430349,0.000101495508538396,5.16610033976375e-05,4.64714490104764e-06,2.39990607846617e-05,0.00259569858620785,0.00113786337722416,6.1470258314736e-05,0.000141214292669016,0.0053067451879726,0.00182517887514894,2.46592329100358e-06,9.80499860870719e-06,4.51537246477369e-05,0.00101956216224919,0.000592921794325332,2.41577251731522e-05,0.000394981821506977,0.00157163165683067,0.00349711828090978,0.00225806860116062,3.8845404234581e-05,0.000663763431842968,5.17696000419944e-05,0.000159297988944947,0.00564954691669084,0.00664550664045131,0.00475068231832309,2.98791062091799e-05,0.00101362281283545,1.33460922480642e-05,0.000324179619541653,0.00253904174778092,0.000298605725903873,0.0010875294854662,0.000995245482603299,8.54114303563913e-05,0.000470097282196748,0.000526686380089753,0.00698582294875399,0.0028546912816136,0.000731774240681461,0.00173266478108242,1.03709786524281e-05,1.3472074091902e-05,0.000425589912778448,0.00345968848724487,0.000755486732013538,0.00372690399556906,0.000450541490596312,0.0038297483818157,2.35695437172441e-05,1.01924255348644e-05,0.00868520831879329,0.00564946657650542,0.00181880179158974,0.00827923896773095,0.00054494606463569,0.00236192278014015,7.9688953462225e-05,0.00232329036838986,0.00240417190827947,3.67327795950069e-06,0.000565627935408928,0.00306618541766903,0.00686696455720489,0.000915272587849204,0.00297952787964763,0.000871410246594963,0.00103847823431843,0.00454025206918914,6.38167322270215e-05,0.000317480095673307,0.00701924839417095,0.00169318454584979,0.000760771377062264,0.00163975451794962,0.00132324965033853,0.000802870423704447,0.00612844168142292,0.000112677122825991,0.000498126979454367,0.000284998953642819,0.000158471994181152,0.0010290703275917,0.00411603620282857,0.000595131450124837,0.00293211165101655,8.52622929336333e-05,0.00708076011506477,0.00679110932307923,0.000360639658727747,0.00120523342960985,0.000611133741353066,0.00253034818457457,0.00366462673846327,0.00644317715262726,0.00278524055957311,0.00377507788881968,0.00659261230893248,0.00119845338126418,0.000120665060992307,0.00029624834196073,0.00118091655560428,0.00834664487684278,0.00229120622189326,0.0011865566515712,0.00841457379243285,0.000910889355933777,0.000876149525673011,0.00358347187737325,0.00150808927539846,0.00332931450340653,9.90567462082498e-05,0.000260118681130922,0.000319292459458889,0.000132001306825804,1.37774993482729e-05,0.00466180286404292,0.00279731426512545,0.000132001306825804,0.00333755918336643,0.00033789289214624,0.000326124063854805,0.00871193246712143,0.00103414370058018,0.00496199939816917,0.00776545333981377,0.000563702328942584,0.00697883361143389,0.00112617940041429,9.08185059219918e-05,0.00828703908348065,0.00120415217407694,0.00376226210652897,0.00595089979100526,0.00198761602134883,0.00785974403740401,0.000958364440007451,0.000294492616924119,0.00495537167645227,0.00547421037501484,0.00832599673690984,0.000876149525673011,0.00233345074184909,0.00967356932013985,6.08595348568018e-05,0.00492359435066228,0.0014740511757433,0.00651881381908623,6.79307404923568e-05,0.000167461652005002,0.00496225927914227,0.000251928704671205,0.000701339218394124,0.000292606945334558,0.00818072022988955,0.000394597821817843,0.00916846118409717,0.000145546171082551,0.00576114064848644,0.00354576481998501,0.000132001306825804,0.00268571429902639,0.00384326738758152,0.000181879595060176,0.00913652251559351,0.00241902590665985,0.00662797848269178,0.00242047414275896,0.00475619401137875,0.00143809913961308,0.00270997326737484,0.00732699899459955,0.00628781411808821,0.000782927019695847,0.000781948724172787,0.000158471994181152,3.65849817427292e-05,0.0055904076270802,0.00518270078831014,0.00159995912942204,0.00700518520835478,0.00483198051253106,0.00191100032989556,0.000936654724854614,0.00303649984001476,0.00780862576637307,0.000980235462729037,0.00224997019145448,0.000568291955767415,0.000142352528996568,0.00011017279136909,0.00765145681395971,0.00132774654718938,0.00011762552543813,0.00302080247275779,0.00106554490517035,0.000567264822240795,0.000507403306021913,0.000184693622881504,0.00545013807155328,0.00737078932143623,0.00722245871116511,0.00654118659340632,0.000172867830658012,0.00132774654718938,0.00244847392235598,0.00122752567758451,0.00253482210441808,0.00515779616421733,0.00502321675274783,0.00126946990008785,0.00342154920745452,0.00596291515814093,0.00447807019406054,0.00489230245096932,0.00715011615479241,0.00326563732474343,0.00690000405510846,0.00108606313234259,0.000930066526514842,0.0029877945886033,0.00275093883267457,0.00483263418233096,0.00662856186667732,0.00860552015369839,0.00528720639316354,0.000406463400504004,0.00357081548299562,0.00966923433816427,0.00479612288632656,0.000306570723622645,0.00262726931972476,0.00806701951674228,0.00840403076076576,0.00244856855003194,0.000736329248103154,0.000578488423288942,0.00532524061093888,0.00162552184509549,0.000472103564986384,0.00189842908874817,0.00628106613521788,0.0066937135426722,0.00251217130571232,0.00872799891955155,0.00302080247275779,0.00645101276837995,0.00263272830264763,0.00763762030324197,0.00239896460866131,0.00377494362467422,0.00260143948177702,0.00250076014963359,0.00333735596364383,0.00362540692506736,0.00145801438232367,0.00317947687925897,0.000512286062874613,0.00465214274493889,0.00920555789366408,0.00314963461501276,0.000207230095353166,0.00330175336796996,0.00847021229623243,0.00837639295326818,0.00532576992837864,0.00340193218220116,0.00233227380907899,0.00181802072551289,0.000288542661979125,0.00996096297380635,0.00332931450340653,0.00249893991146125,0.00972323387478198,0.00215489280887273,0.000798138827440493,0.00227228593610713,0.00866527394978375,0.00350372117688674,0.00509551622713141,0.000179418040202273,0.00637950901324637,0.00012679415227839,0.00891959485812851,0.00285043036848784,0.00156594647159409,0.000438705761349616,0.00732479558358697,0.00012679415227839,0.00887614623207771,0.00166466085224176,0.00120415217407694,0.00145853631832419,0.000333086441467694,0.00487251093234548,0.00769713672464015,0.000553625058442089,0.000420939690672194,0.0049374674782205,0.00206298629758766,1.78089102719225e-05,0.00198008095843048,0.000225992571758192,0.000738566306988431,0.00328086202469471,0.00159500518201553,0.0093628803841497,0.00709046514322118,0.00251261930977197,0.00478135048830559,0.00415695147336121,0.00121120563120621,0.00528720639316354,0.00529721993584173,0.00216283955074978,0.0065238989902677,0.00718215008972004,0.00195169467905523,0.000916119598421741,0.00538942598659189,0.00616535047730875,0.00372690399556906,0.00625345827473895,0.00733686738433169,0.0011840425822835,0.000585958661682501,0.00189143810598201,0.00694909138603761,0.00289554498182516,0.00181506116743303,0.00827923896773095,0.00631923312516367,0.00697543289746249,0.00607913352173255,0.00234308175272889,0.00295021617381466,0.00749302560491721,0.00426728306539831,0.000353939300138762,0.00290098976378228,0.000890665212211357,0.0070651363689299,0.0055763467751279,0.00588294771510835,0.00137946307162429,0.00102347159611369,0.00128163815217977,0.000323893657715981,0.0061514560476363,0.00226977492023997,0.00347139034438653,0.00782149914972219,0.00596356271844006,0.00235330227021536,0.00694909138603761,0.00957572782883833,0.000941285828041829,0.00661988666430127,0.00291639399252001,0.00344147529394897,0.00012679415227839,0.00714233210200904,0.00676405736376775,0.008347162841083,0.00660597252592059,0.00482847226293449,0.00507698552127376,0.00365474384918409,0.00351575263500728,0.00517778911238473,0.00265710874107357,0.00181506116743303,0.00154203010982643,0.00485542443306295,0.00734812106619559,0.00198588728342835,0.00981186982543205,0.00227952479096759,0.00952261497836669,0.00240377794338796,0.00171540863440338,0.000760771377062264,0.00238577519134928,0.00335742581390713,0.00140201043369583,0.00870637561282156],[2.1623530814853,2.00138133631396,1.79878538958325,1.78088198644976,1.77416191790066,1.63220798080521,1.54035510825435,1.53144053140462,1.52415623354174,1.4937274539813,1.47559561770797,1.46030667604957,1.42712870480351,1.42297251223398,1.4180776669417,1.3645576996869,1.32308047885348,1.27180049563803,1.27006032393118,1.26947006227231,1.24931846343104,1.24510640913207,1.23398131375965,1.22843993765206,1.21799133181399,1.20301592835972,1.19957764065563,1.19678210824943,1.18780538357153,1.17137642873229,1.16467984307218,1.1278979823264,1.1145279027988,1.08795284092026,1.05151980663495,1.03850412824758,1.02494256620425,1.01729115394525,1.01121292158204,0.995642012642226,0.993521848254239,0.989574815324218,0.984286298410843,0.97461123362265,0.962290610344165,0.960571151250986,0.95556522917457,0.945831259031523,0.94048270371971,0.933943077980126,0.930533511172992,0.922845499354276,0.917395466220693,0.914005372177476,0.910662766664119,0.910242397241514,0.905314899375512,0.896589868533763,0.889778520028036,0.889715765764267,0.886376670998891,0.884827141805257,0.880859065456611,0.873069102545561,0.859333366275124,0.838871131354181,0.836452269470327,0.831597329782231,0.828277580136181,0.820950940187496,0.820440768738773,0.820223559158407,0.81924443125467,0.818972786041263,0.81591382293369,0.814455660086414,0.805012908501339,0.802768051645632,0.798974381489688,0.795726711525614,0.79451864777356,0.791733556167639,0.788533040660296,0.788415842569076,0.77864945632543,0.776718808504902,0.773672472084592,0.769035884979513,0.767896138805366,0.767492361765861,0.7650587027441,0.764119113696603,0.751654605339119,0.75089166998886,0.749557286319119,0.74902693981514,0.747441859603448,0.746751200041032,0.745528922586379,0.745167811622752,0.744791954881166,0.744102091532973,0.743174436775162,0.740981467368044,0.73944305078865,0.737689636501047,0.729885151175895,0.728456749179984,0.72838304080035,0.726484836072596,0.720617584759135,0.707736412991891,0.704956762869466,0.702189086972777,0.702158402873686,0.692974027692079,0.691621036288197,0.687382628011721,0.683889268855802,0.683748574147686,0.683188063230784,0.681548406654254,0.678587542273528,0.676601303501209,0.676072158901823,0.673308220792398,0.672087863342719,0.666965620898786,0.665640641046094,0.664627839486154,0.664455045850727,0.661505706116103,0.661298427701219,0.659338323068147,0.655587047562136,0.654567329350275,0.644788851738753,0.640636690590313,0.637371806249486,0.634500878601935,0.634341256349777,0.6341528001318,0.632947379920721,0.631945747511121,0.62866410514764,0.627613752832847,0.624866828795754,0.623619192008959,0.619407746060024,0.618656343326994,0.618655217276681,0.61830698059075,0.61798899180815,0.614223858630906,0.612883530216119,0.612167996589503,0.608067479865948,0.603513365463809,0.601390513263983,0.601211052360396,0.600385255485515,0.595943830750803,0.594316648409536,0.592759062528229,0.592019043866513,0.59165547480468,0.588451985263275,0.586216311400587,0.585052001573444,0.583837206535905,0.582814843028406,0.582588699486513,0.581891956187716,0.580027542463483,0.578747289514712,0.578472018514493,0.577061333494177,0.577009573976292,0.576831359567753,0.57620009084708,0.573385189143314,0.57114489909914,0.5706212992271,0.570236734458724,0.568833167708073,0.568384286637025,0.56818950609638,0.567413701637135,0.564668839925527,0.564225386619528,0.564071361649449,0.560404893047505,0.560160226382512,0.556860729179721,0.552655055845165,0.552210266098155,0.551885600035883,0.551627979252248,0.55137321584311,0.549814296503214,0.549421702556391,0.549403905675502,0.546862713505394,0.542527189782452,0.540425230951517,0.538682770120404,0.537073439953549,0.536093837743119,0.534416612772327,0.534120781513952,0.530126326850564,0.529873136730468,0.528947824795607,0.527980166253913,0.526583034171551,0.52604184933947,0.523177013922126,0.523144914104316,0.521890210537918,0.521414120285496,0.520355530921537,0.518442455057688,0.518296102063506,0.518014994778715,0.517915145703328,0.517544908263408,0.517416907032277,0.513183119887131,0.513175347806556,0.513084985645185,0.511791378357674,0.511010242190686,0.510604461919324,0.510342826296806,0.509570353833085,0.509442027349096,0.508962465382453,0.508708019003959,0.508090319844418,0.506966860552397,0.50334040897719,0.502639898700108,0.502318961689648,0.500427256099415,0.497544355601297,0.497363706197991,0.494660629615473,0.494656692678289,0.492901692126716,0.492686352037705,0.490879195966774,0.489751135751814,0.48869795644183,0.48858933194163,0.486566446797944,0.484809987602071,0.484410791623849,0.483987017058136,0.483777966879721,0.482143335093308,0.480775810941543,0.480690750924059,0.480091299050068,0.47928197209467,0.479056304170759,0.47891422759483,0.476206402055694,0.47602804649702,0.475928084480982,0.475089794052516,0.475022568323229,0.472092716417455,0.471834864252137,0.47143980177921,0.471115873947185,0.47097734992987,0.470949625511318,0.470400385877124,0.469918003268713,0.469227143862397,0.468667175134472,0.468145729058115,0.467881831275108,0.467105213463555,0.466252690576224,0.46469626253421,0.464048553162805,0.463943315529277,0.462797474650016,0.46248124359236,0.460152930361133,0.459791812589325,0.458004723383027,0.457912116118127,0.457837081726356,0.456142590322175,0.456137937625528,0.454944830471891,0.454378873697121,0.453031055257529,0.452999697958868,0.45270487908908,0.452361870244042,0.451735989057325,0.451378462239541,0.451143870255669,0.44884167662404,0.448764776667276,0.448085453301736,0.44786455340335,0.446897481558996,0.446346884656827,0.445820658655148,0.445658648397639,0.445515037668925,0.444732290381357,0.443062224373992,0.442265657237001,0.441903936520198,0.441780551382962,0.441456749284407,0.44103095340386,0.44097398776501,0.440951104970485,0.439828275273606,0.439145513301897,0.438782837341313,0.438345588784127,0.436710278508248,0.434647308861414,0.434108424545035,0.433998999196238,0.433687879181852,0.432984844736872,0.432828973092831,0.432357934863729,0.43221605980244,0.431274310048122,0.430079091542798,0.429820790315675,0.429069446328331,0.42759745733435,0.42684768907196,0.426819848391795,0.425388161063377,0.424831068943157,0.424440733217572,0.424422862535618,0.424228284230285,0.423256941049842,0.421431501542562,0.420854326829636,0.420390464197028,0.420228646200181,0.420194687937807,0.420086027508072,0.419622299618313,0.419167240169523,0.418630930924371,0.418324545780231,0.417678938925305,0.415798060732441,0.415220798583314,0.413786303195811,0.412168329855528,0.41063415747063,0.409121027643072,0.408251409441124,0.407671306529245,0.407041396495594,0.406639185337951,0.404848823672081,0.403408844811511,0.401624289596643,0.401400269232664,0.401212552669625,0.400725989531397,0.400472199896102,0.399603302571025,0.399592614432447,0.398832793632812,0.397910491594011,0.396419358402528,0.394841706422881,0.394770784393481,0.393574045450869,0.393343908907814,0.392979869676437,0.392885094110849,0.391924916845181,0.391789438973042,0.391646641188658,0.389776115472174,0.389413178155204,0.389264365803487,0.387994139955914,0.387319651089217,0.386354102125994,0.385055854258005,0.384425841726508,0.38438826665696,0.384100613250161,0.382839179085435,0.382670723021237,0.379743156566203,0.379192592569466,0.378846733791202,0.378307176030645,0.378188118482406,0.377815480410488,0.377502927286789,0.37729732810044,0.376488278510743,0.376294728728757,0.373989745587875,0.373632425942263,0.373553887754453,0.372659233273831,0.372208938394585,0.371114166301545,0.370905594410399,0.370396558436856,0.369749619960418,0.368721620589535,0.367676641657472,0.367418703380834,0.365058947117143,0.364795430908818,0.362600202763202,0.362366500482259,0.360812271072231,0.359501134646688,0.359224737766016,0.359008123465274,0.358589730985162,0.356098860161872,0.355856980888819,0.35549459730841,0.355306794115262,0.355306653371021,0.354934625115848,0.354896241066153,0.35425100900434,0.352826326851229,0.352139275013048,0.352096805195952,0.350760648524009,0.35073236686637,0.350066545472171,0.350054819628788,0.349800381920801,0.348825751570797,0.34822286984317,0.34809824986786,0.348079973450664,0.347480078116219,0.34699356625383,0.346958942227596,0.346739117779292,0.346621818475728,0.345526491290332,0.345069600299959,0.343822080032291,0.343401060719856,0.342971414847426,0.342817564825116,0.342655483916903,0.341992197618233,0.340839215244243,0.340508661511745,0.338436212052992,0.338322245110537,0.337739959648958,0.335859288250819,0.334091543739758,0.331196685750658,0.33100483249697,0.330566693073012,0.329216325000116,0.328968234973832,0.32846589737497,0.327459667984565,0.327068136443069,0.326284235245891,0.326227706472469,0.32490499637244,0.324896893606853,0.323629829099019,0.320581954995855,0.319994294622618,0.319584665274665,0.318112681868444,0.317680020762341,0.316675636468125,0.315445924257902,0.315299999788658,0.314499928251712,0.314368763743537,0.313796421011503,0.313337384486984,0.312711882059904,0.311650626802088,0.311024152754738,0.310977826281369,0.309660726111029,0.308706272444775,0.308275312711396,0.307712512954298,0.306492351831071,0.305168478081874,0.300198968530633,0.299738879216095,0.299022511920667,0.298437526390643,0.296259537299073,0.295353690045868,0.294229352433435,0.293526180100862,0.292926435774095,0.292477920082511,0.291159312968548,0.290581364512061,0.289187708959843,0.287155797331238,0.284228160758923,0.282418893397018,0.281486853792758,0.280604956064204,0.279462936654119,0.276489422569286,0.273528497928863,0.272719722268992,0.272396677562069,0.272211317880975,0.271042610955418,0.269487263516067,0.267347506161898,0.267296277306034,0.26650167761431,0.266164753516088,0.264217317871543,0.264107666937026,0.264051770452087,0.262557272118343,0.262235238499784,0.261372313354469,0.258676083829079,0.258230874173616,0.253373768436553,0.251750815418982,0.251099188201563],[0.96,0.9,0.98,0.96,0.9,1,0.96,0.88,0.9,0.78,0.619,0.88,0.86,0.78,1,0.92,0.8,0.96,0.78,0.69,0.98,0.92,0.84,0.94,0.96,0.8,0.94,0.524,0.94,1,0.714,0.82,1,0.74,0.643,0.98,0.64,0.9,0.833,0.88,0.571,0.96,0.74,1,0.84,0.81,0.68,0.857,0.786,1,0.68,0.88,0.476,0.8,1,0.8,0.881,0.78,0.46,0.9,0.857,0.595,0.72,0.452,0.8,1,0.6,0.857,0.88,0.6,0.9,1,0.76,0.78,0.58,0.76,0.738,0.72,0.82,0.7,0.64,0.52,0.6,0.68,0.96,0.68,0.952,0.66,0.68,0.333,0.64,0.905,0.98,0.72,0.82,0.88,0.905,0.595,0.86,0.96,0.714,0.98,0.86,0.857,0.952,0.881,0.42,0.976,0.64,1,0.88,0.524,0.74,0.86,1,0.66,0.72,0.98,0.94,0.76,0.88,1,0.8,0.58,0.86,0.88,0.92,0.86,0.96,0.881,0.56,0.98,1,0.619,0.857,0.98,1,0.72,0.4,0.96,0.98,0.46,0.78,0.72,0.9,0.8,0.76,0.905,0.881,0.9,0.58,0.5,1,0.68,0.643,0.62,0.8,0.9,0.84,0.786,0.381,0.69,0.46,0.66,0.54,0.54,0.66,0.46,0.929,0.333,0.44,0.92,0.5,0.7,0.52,0.56,0.7,0.94,0.82,0.68,0.8,0.881,0.786,0.54,0.524,0.94,0.84,0.5,0.86,0.881,0.5,0.976,0.429,1,0.96,0.524,0.9,0.84,0.5,0.7,0.88,0.9,0.524,0.48,0.905,0.44,1,0.52,0.66,0.9,0.66,0.476,0.52,0.72,0.44,0.54,0.78,0.786,0.6,0.286,0.68,0.286,0.4,0.92,0.86,0.46,0.38,0.86,0.52,0.46,0.5,0.7,0.7,0.98,0.98,0.68,0.714,0.357,1,0.82,0.8,0.52,0.76,0.36,0.76,0.58,0.48,0.66,0.42,0.82,1,0.6,0.84,0.68,0.72,0.56,0.38,0.72,0.357,0.66,0.64,0.98,0.78,0.46,0.48,0.32,0.68,0.8,0.98,0.54,0.58,0.72,0.98,0.98,0.76,1,0.48,0.38,0.56,0.38,0.48,0.84,0.84,0.38,0.82,0.58,0.42,0.72,0.78,0.76,0.5,0.52,0.58,0.98,0.4,0.619,0.58,0.36,0.68,0.52,0.92,0.8,0.38,0.7,0.34,0.52,0.98,0.381,0.64,1,0.68,0.54,0.68,0.36,0.8,0.66,0.5,0.56,0.54,0.76,0.48,0.72,0.66,0.46,0.98,0.38,0.92,0.84,1,0.92,0.78,0.78,0.88,0.8,0.64,0.6,0.78,0.56,0.46,0.96,0.48,0.34,0.48,0.9,0.54,0.86,0.96,0.44,0.56,0.333,0.476,1,0.96,0.62,0.52,0.44,0.88,1,0.4,0.54,1,0.42,0.42,0.52,0.7,0.82,0.44,0.46,0.46,1,1,0.68,0.5,0.76,0.58,0.6,0.92,0.548,0.762,0.68,0.56,0.56,0.58,0.286,0.36,0.44,0.62,1,0.56,0.42,0.94,0.36,0.62,0.52,0.42,1,0.66,0.92,0.64,1,0.5,0.3,1,0.262,0.48,0.62,0.42,0.54,0.262,0.429,0.56,1,0.6,0.8,0.68,1,0.58,0.56,0.46,0.66,0.36,0.36,0.46,0.56,0.9,0.68,0.48,0.52,0.54,0.56,1,0.36,0.36,0.38,1,0.92,1,0.92,0.52,0.46,0.56,0.5,0.86,0.32,0.42,0.34,0.58,0.3,0.66,0.52,0.4,1,0.64,0.3,0.78,0.5,0.6,0.34,0.38,0.54,0.54,0.3,0.26,0.78,0.58,0.54,0.44,0.32,0.36,0.44,0.72,1,1,0.48,0.56,0.36,0.36,0.96,0.34,0.38,0.9,0.82,0.3,0.64,0.82,0.52,0.5,0.262,0.5,0.32,0.4,0.34,0.26,0.44,0.36,0.286,0.38,0.52,0.5,0.5,0.46,0.62,0.26,0.32,0.96,0.54,0.3,0.42,0.5,0.28,0.4,0.32,0.32,1,0.34,0.38,0.38,0.88,0.34,0.26,0.32,0.34,0.64,0.34,0.28,0.3,0.38,1,1,1,0.3,0.56,0.4,0.286,0.44,0.3,0.36,0.42,0.4,0.6,0.98,0.36,0.3,0.36,0.26,0.26,1,1,0.34,1,0.32],[0.405,0.357,0.524,0.31,0.452,0.762,0.69,0.262,0.31,0.167,0.48,0.262,0.143,0.405,0.548,0.381,0.19,0.429,0.143,0.56,0.738,0.452,0.214,0.571,0.595,0.286,0.619,0.24,0.667,1,0.44,0.214,0.952,0.119,0.38,0.929,0.167,0.452,0.64,0.571,0.34,0.786,0.19,0.714,0.429,0.62,0.167,0.66,0.7,0.976,0.095,0.786,0.28,0.31,0.96,0.5,0.78,0.238,0.048,0.571,0.72,0.32,0.143,0.16,0.357,0.905,0.095,0.7,0.619,0.071,0.524,0.833,0.452,0.31,0.119,0.262,0.62,0.167,0.286,0.214,0.119,0.024,0.143,0.143,0.69,0.119,0.88,0.143,0.119,0.1,0.095,0.86,0.762,0.214,0.5,0.643,0.92,0.46,0.571,0.905,0.48,0.881,0.452,0.82,0.88,0.76,0.048,0.82,0.214,0.976,0.548,0.22,0.262,0.619,1,0.214,0.214,0.929,0.738,0.476,0.643,1,0.548,0.071,0.524,0.643,0.5,0.857,0.81,0.78,0.143,0.833,1,0.44,0.78,0.929,0.929,0.214,0.071,0.976,1,0.024,0.333,0.31,0.762,0.476,0.405,0.9,0.86,0.738,0.119,0.119,0.98,0.286,0.48,0.262,0.524,0.786,0.69,0.62,0.16,0.6,0.167,0.238,0.143,0.119,0.143,0.071,0.86,0.08,0.071,0.738,0.28,0.405,0.048,0.095,0.238,0.762,0.405,0.262,0.452,0.72,0.74,0.238,0.12,0.833,0.571,0.143,0.714,0.8,0.3,0.92,0.14,0.976,0.857,0.3,0.643,0.643,0.22,0.31,0.643,0.643,0.34,0.19,0.86,0.143,0.929,0.071,0.286,0.738,0.31,0.26,0.143,0.524,0.048,0.071,0.571,0.68,0.286,0.08,0.31,0.06,0.048,0.714,0.714,0.024,0.071,0.667,0.238,0.143,0.214,0.357,0.333,0.881,0.881,0.333,0.44,0.1,0.976,0.548,0.643,0.143,0.5,0.024,0.405,0.19,0.095,0.333,0.143,0.571,0.96,0.167,0.619,0.381,0.357,0.19,0.071,0.452,0.12,0.357,0.357,1,0.476,0.143,0.095,0.024,0.333,0.738,0.881,0.214,0.31,0.333,0.952,0.857,0.429,1,0.095,0.048,0.143,0.048,0.048,0.667,0.595,0.048,0.524,0.19,0.071,0.357,0.524,0.548,0.28,0.167,0.286,1,0.048,0.42,0.238,0.095,0.357,0.19,0.762,0.381,0.048,0.357,0.095,0.262,0.952,0.12,0.381,1,0.405,0.214,0.429,0.024,0.31,0.476,0.119,0.19,0.167,0.5,0.119,0.429,0.238,0.19,0.976,0.048,0.81,0.619,1,0.929,0.524,0.5,0.571,0.476,0.31,0.31,0.524,0.262,0.119,0.929,0.095,0,0.19,0.786,0.19,0.714,0.976,0.143,0.19,0.1,0.24,1,0.81,0.214,0.119,0.071,0.667,1,0.048,0.238,1,0.095,0.095,0.143,0.381,0.548,0.19,0.167,0.095,0.98,0.952,0.31,0.19,0.5,0.262,0.262,0.619,0.32,0.68,0.381,0.238,0.262,0.262,0.04,0.071,0.143,0.262,0.976,0.262,0.167,0.81,0.048,0.286,0.238,0.143,1,0.31,0.786,0.333,0.98,0.143,0.024,0.929,0.04,0.119,0.31,0.143,0.262,0.04,0.2,0.214,0.952,0.262,0.571,0.333,0.976,0.238,0.238,0.143,0.286,0.071,0.095,0.119,0.238,0.69,0.333,0.095,0.19,0.262,0.262,1,0.095,0.071,0.095,1,0.833,0.952,0.69,0.262,0.143,0.167,0.167,0.786,0.071,0.143,0.024,0.262,0,0.333,0.19,0.095,1,0.31,0,0.548,0.167,0.214,0.071,0.048,0.238,0.238,0.024,0,0.5,0.238,0.071,0.119,0.024,0.071,0.143,0.357,0.952,1,0.167,0.238,0.095,0.071,0.786,0.095,0.095,0.667,0.619,0.048,0.238,0.571,0.238,0.19,0.06,0.19,0.048,0.071,0.071,0.048,0.143,0.071,0.08,0.119,0.214,0.214,0.167,0.143,0.31,0.048,0.024,0.762,0.167,0.071,0.143,0.19,0.024,0.095,0.048,0.024,1,0.071,0.095,0.119,0.881,0.071,0.048,0.095,0.048,0.31,0.071,0.048,0,0.119,1,0.98,1,0.071,0.262,0.119,0.06,0.143,0.048,0.071,0.095,0.119,0.262,1,0.119,0.048,0.119,0.024,0.024,1,1,0.071,1,0.095],[1.78893897238545e-07,3.97497971354833e-06,1.5598044480434e-06,8.51602188360822e-09,0.000747383255721158,2.16179586506967e-06,0.00317747227588825,3.58953061062446e-06,1.51474997031466e-06,0.000241410061367259,1,7.04240992572913e-06,8.51405726086206e-07,0.147801288158614,7.26411885532238e-06,2.31440164653879e-06,4.88711038400547e-05,5.0402747957694e-07,2.99468792411431e-05,1,0.000135648575490551,0.000799338722529084,0.000325107575666327,2.58220253210368e-05,0.000156491282428601,0.0158040885877237,0.000900125637428656,1,0.000187209476501574,1.51532348692116e-07,1,0.000946798560710938,0.0119108702520567,5.38809053453942e-05,1,0.000134247462513912,0.169082546158828,0.00539317134300446,1,0.448125335921322,1,0.00124213619464882,0.00807184956921225,0.000209563699808225,0.000536578460954237,1,0.0132439977255132,1,1,0.0001143770851243,0.000348747075528625,0.000476215159599688,1,0.00778029949788664,0.54293192567135,1,1,0.0102042455587302,0.201588079629969,1,1,1,0.000926446429097953,1,0.0619947138239103,0.00078950505132998,0.00795350854457021,1,0.267119891180685,0.00355732075693865,0.0231367286889507,0.0380933284066239,0.986094285136389,0.0232853656347518,0.136873946666199,0.0234389227877523,1,0.0124301516683837,0.0713849211157741,0.165202322718351,0.0145083193263313,0.00537930615232694,0.0720100274232157,0.00369260227211837,0.371740349472254,0.00309135696489748,0.334978318008725,0.0852974161679152,0.00468142927946029,1,0.00345204872122188,1,0.500021599330119,0.165771493057939,1,1,1,1,0.423946283178219,1,1,0.122802712432482,0.238025056099736,1,1,0.967315691625472,0.580506808018593,1,0.27284092787309,0.0397617117557736,1,1,0.458401537142861,1,0.00107148153597411,0.934532209560336,0.126570156828684,0.308867982928648,0.288933677369521,1,0.662547160249668,0.125385676823375,1,0.00614432081814627,1,1,1,1,1,1,0.433523678941354,1,0.125385676823375,1,1,0.435421884859916,0.264251633046303,0.185926281896074,1,0.303693679145993,0.507556963305087,0.024823920957592,1,1,1,1,1,0.886907980977248,1,1,0.154999388506474,1,0.474343568300617,1,1,1,1,1,1,1,1,1,1,1,1,0.60221231660626,0.0541717681115123,0.279757051566801,1,1,0.716558801174877,1,1,1,0.0287452678032287,0.1142968687817,0.526356968218669,1,1,0.281606602343436,1,1,1,1,0.452820877162511,1,0.603478227689528,1,1,1,1,0.34830074108041,1,0.155575397335685,1,1,1,1,1,0.995641043664453,1,1,1,1,1,1,0.120894498151354,0.157043967689302,1,1,1,1,1,1,0.274750171111914,0.118813104459914,1,1,1,1,1,1,0.928934130509157,1,1,0.0428194011738995,1,1,1,1,1,1,1,1,0.74391164757039,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0.993902548727363,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0.160604309902817,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0.709439597825739,1,1,1,0.791868641919403,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0.426471132174995,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0.2075984670398,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],["0","0","0","0","0","0","0","0","0","0","1","0","0","0","0","0","0","0","0","1","0","0","0","0","0","0","0","1","0","0","1","0","0","0","1","0","0","0","1","0","1","0","0","0","0","1","0","1","1","0","0","0","1","0","1","0","1","0","0","0","1","1","0","1","0","0","0","1","0","0","0","0","0","0","0","0","1","0","0","0","0","0","0","0","0","0","1","0","0","1","0","1","0","0","0","0","1","1","0","0","1","0","0","1","1","1","0","1","0","0","0","1","0","0","0","0","0","0","0","0","0","1","0","0","0","0","0","0","0","1","0","0","0","1","1","0","0","0","0","0","0","0","0","0","0","0","0","1","1","0","0","0","1","0","1","0","0","0","0","1","1","1","0","0","0","0","0","0","1","1","0","0","1","0","0","0","0","0","0","0","0","1","1","0","1","0","0","0","0","1","1","1","1","0","0","1","0","0","1","0","0","0","1","0","1","0","0","0","0","0","0","1","0","0","0","0","0","1","0","1","0","1","0","0","0","0","0","0","0","0","0","0","0","0","0","0","1","1","0","0","0","0","0","0","0","0","0","0","0","0","1","0","0","0","0","0","0","0","1","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","1","0","0","0","0","1","0","0","0","0","0","0","0","0","0","0","0","1","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","1","1","0","0","0","0","0","0","1","0","0","0","0","0","0","0","0","0","0","0","1","0","0","0","0","0","0","0","1","1","0","0","0","0","1","0","0","0","0","0","0","0","0","0","0","0","1","0","0","0","1","0","0","0","1","0","0","0","0","1","1","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","1","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","1","0","0","0","0","0","0","0","1","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","1","1","0","0","0","1","0","0","0","0","0","0","0","0","0","0","0","0","1","1","0","1","0"],["Cenpf","Top2a","Cks2","Birc5","Ube2c","Hmgb2","Arl6ip1","Tpx2","Mki67","Prc1","Dcn","Cdca8","Spc25","Hist1h2ap","Pclaf","Smc4","Cdk1","Smc2","Hmmr","Slit2","Ube2s","Cenpa","Nusap1","Ezh2","Nasp","Hist1h1e","Nucks1","Alcam","Dek","H2afz","Pcsk1n","Cenpe","Ncl","Aspm","Chchd10","Anp32b","Ccnb1","Pttg1","Ntn1","H2afx","Irs1","Cks1b","Cdc20","Lsm3","Lyar","Nrp2","Hist1h1b","Sulf1","Nectin3","Selenoh","Kif4","Hnrnpd","Tmem100","Gmnn","Eef2","Hmga2","Frmd4b","Ccnb2","Hist2h2ac","H1fx","Tshz2","Fam183b","Mis18bp1","Enpp2","Cdca3","Snrpd1","Cenpq","Gpx3","Scaf11","Ckap2l","Smc1a","Stmn1","Smchd1","Lig1","Kpna2","Trim59","Fam210b","Dbf4","Usp1","Knstrn","Plk1","Sgol2a","Plk4","Sgol1","Tmpo","Tacc3","Eif3e","Racgap1","Knl1","Fam174b","Dlgap5","Tsc22d1","Hp1bp3","Fam64a","Prdx4","Dctpp1","Shh","Efnb3","Smarcd1","Hn1","Ogt","Smarca5","Larp7","Qk","Spon1","Atp6v0e","Tuba1c","Nrep","Gins2","Hnrnpab","Dnajc9","Dmrtb1","Lockd","Pfdn6","Hmgb1","Ccna2","Cenpm","Set","Anp32e","Smc6","Cdv3","Eef1a1","Nop58","Kif11","Gspt1","Dut","Tubb4b","Ssb","Psip1","Hoxb8","Kif20b","Lsm5","Calm2","1190002N15Rik","Sptssa","Cbx1","U2af1","Rrm2","Hist1h2ae","Ranbp1","Hsp90aa1","Kif2c","Ckap5","Exosc8","Nhp2","Akirin2","Ik","Gabarap","Map1lc3b","Cacybp","Incenp","Ect2","Cox7a2l","Ppid","Sod2","Arl4a","Apex1","Ppig","Dynll2","Gpx8","Adat1","Itsn1","G2e3","Exosc7","mt-Nd6","Pbk","Mad2l1","Aurka","Ctnnb1","Ednra","Ncapg","Dtymk","Lgmn","Dnmt1","Cep55","Ildr2","Ift27","Tpr","Spc24","Rrm1","Ctcf","Igfbp2","Pcnp","Ska2","Ak1","Ube2l3","Thrap3","Mcm5","mt-Nd5","Sulf2","Atp6v0d1","Ppdpf","Trabd2b","Ran","Zc3h15","Ccdc28b","Rnps1","Tpm4","Phactr2","Pds5b","Wbp11","Abcf1","Agpat4","Mis18a","6330403K07Rik","Fgfr2","Tuba1b","Cenpk","Ppil1","Lsm2","Hnrnpul2","Haghl","Nup50","Mier1","Spdl1","Rad51","Mrps15","Chmp4b","Mybbp1a","Sdpr","Hells","Dhrs3","Pim1","Denr","Pcm1","Rad51ap1","Anln","Zmat2","Bub1","Gemin6","Bms1","Rbms1","Eif1ad","Hsp90b1","Lsm6","Rnf219","Pcp4","Plekha2","Hmgn2","Txnl1","Npm3","Nde1","Hnrnpul1","Kif18a","Ccdc59","Utp18","Cenph","Topbp1","Uck2","Dnajc2","Eif3f","Prim1","Zcrb1","Ccdc50","Tcerg1","Hat1","Trip13","Lmnb1","Pltp","Itgb3bp","Sept11","Nme1","Nsmce4a","Nuf2","Pcnt","Hist1h1a","Ndufaf4","Ube2k","Srrm2","Polr2b","Pds5a","Snrnp200","Siva1","Ccdc34","Esf1","Npm1","Blm","Ccdc18","Clspn","Eme1","C330027C09Rik","Ssrp1","Pbdc1","Depdc1a","Cmc2","Atad2","Kif23","Itpa","Hpf1","Rfc1","Jagn1","Cdkn2d","Rbpj","Hspe1","Lrr1","Kdelr1","Dnttip2","Hist1h1c","Parp2","Kif15","Parp1","Mrps18a","Cep135","Arhgap5","Ccne1","Fam178a","Serbp1","Ypel5","Eml4","Ptma","Xrn2","Apitd1","Sap18","Aurkb","Cenpw","Rif1","Bdp1","Mpp5","Gm45902","Snrnp70","Mpdz","Utp3","Nip7","Terf1","Mif","Arhgap11a","Smc3","Mrpl12","Dynll1","Eif5b","Ptbp1","Ddx1","Igf2bp1","Snrnp25","Rfc3","Cand1","Ssna1","Tmem138","Wwp1","Pdap1","Tex10","Exo1","Rpa2","Mrpl18","Slc9a3r1","U2surp","Tceal9","Vrk1","Dazap1","St3gal2","Fbxo22","mt-Nd2","Snrpd3","Naa10","Cnot9","Ccnf","Mrpl58","Pebp1","Wdr76","Tcof1","Cox7a2","Esco2","Wdr3","Tex30","Pmf1","Stag1","Zfp131","Rfc5","Bub1b","Rpl27","Eif5","Kmt5a","Ubr5","Jtb","Mpp6","Tlk2","Magoh","Tbc1d16","Dtx4","Orc6","Mcm6","R3hdm2","Hist1h4i","Vgll3","Sclt1","Ncapd2","Gpatch4","Snrpe","Mns1","Cep83","Thoc7","Filip1l","Ddx21","Net1","Cdc25a","Rpl4","Rsrc1","Psma4","Eif3d","Atp5e","Lbr","Ttf2","Hnrnpa2b1","Gm12166","Oser1","Atf2","Chaf1a","Psat1","1810041H14Rik","Btg2","Smc5","Hspa8","Appl1","Eif4g1","Uchl3","Rpl22l1","Zmynd8","Etaa1","Cit","Tyms","Cep70","Grrp1","Mis12","Rnaseh2a","Banf1","Taf1d","Melk","Sac3d1","Hsph1","Mcm3","Snrpb","Rev3l","Brca1","Hars","Cox6c","Hnrnpr","Tubb5","Mrpl51","Api5","Fam206a","Uhrf1","Dnaaf2","Pkig","Cntln","Pold3","Msh6","Nmral1","Cdca5","Ash2l","Ranbp2","Paip2b","Hmgn1","Gars","Dna2","N4bp2l2","Gpatch11","Vars","Fign","Mdm1","Lims1","Dnajc21","Spag5","Zfp729b","Utp11","Pgp","Dhx29","Caml","Ska1","Ammecr1","Rbmx2","Vps35","Nap1l1","H2afv","Exosc5","Prpsap1","Washc4","Ttk","Hnrnpdl","9130401M01Rik","Hyou1","Snw1","Eprs","Mybl2","Iws1","Kif1b","Grb2","Anapc1","Iqcc","Zfp811","Traf3ip1","Btaf1","Zfyve9","Iars2","Pcgf6","Prr11","Ginm1","Zfp593","Cdkn2aipnl","Hmgxb4","Fbxo5","N4bp1","Acsl3","Gtse1","Cenpu","1110008F13Rik","Nup62","Ythdc2","Agl","Znhit3","Shcbp1","Tk1","Brca2","Cpsf1","Erh","Haus6","Ankrd26","Znhit6","Phf5a","Ndc80","Sapcd2","Lrch3","Tbc1d1","Tiparp","Cdc25c","Ssx2ip","Hist1h4d","Plch1","Ppia","Rpl15","Serf2","Terf2","Gins4","Bahcc1","Gm43672","Nom1","Nup107","Daxx","Rev1","Eea1","Cebpg","Oaz1","Zfhx2","Stil","Sos1","Gtf2h2","Bard1","Rps27","Rpl37","Prim2","Ftl1","Metap1"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>p_val<\/th>\n      <th>avg_log2FC<\/th>\n      <th>pct.1<\/th>\n      <th>pct.2<\/th>\n      <th>p_val_adj<\/th>\n      <th>cluster<\/th>\n      <th>gene<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"scrollX":true,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="compare-btg2--and-btg2-populations-6" class="section level2" number="10.7">
+<h2><span class="header-section-number">10.7</span> Compare Btg2- and Btg2+ populations</h2>
+<div id="absolute-values-6" class="section level3" number="10.7.1">
+<h3><span class="header-section-number">10.7.1</span> Absolute values</h3>
+<div id="btg2-binarized-6" class="section level4" number="10.7.1.1">
+<h4><span class="header-section-number">10.7.1.1</span> Btg2 binarized</h4>
+<div class="sourceCode" id="cb750"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb750-1"><a href="analyse-fp-population.html#cb750-1" aria-hidden="true" tabindex="-1"></a>plotBlend <span class="ot">&lt;-</span> <span class="fu">FeaturePlot</span>(<span class="at">object =</span> data_sub,</span>
+<span id="cb750-2"><a href="analyse-fp-population.html#cb750-2" aria-hidden="true" tabindex="-1"></a>                         <span class="at">features =</span> <span class="fu">c</span>(<span class="st">&quot;Sox2&quot;</span>, <span class="st">&quot;Btg2&quot;</span>),</span>
+<span id="cb750-3"><a href="analyse-fp-population.html#cb750-3" aria-hidden="true" tabindex="-1"></a>                         <span class="at">blend =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb750-4"><a href="analyse-fp-population.html#cb750-4" aria-hidden="true" tabindex="-1"></a>                         <span class="at">reduction =</span> <span class="st">&quot;umap&quot;</span>)</span>
+<span id="cb750-5"><a href="analyse-fp-population.html#cb750-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb750-6"><a href="analyse-fp-population.html#cb750-6" aria-hidden="true" tabindex="-1"></a>plotBlend[[<span class="dv">1</span>]]</span></code></pre></div>
+<p><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-145-1.png" width="960" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb751"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb751-1"><a href="analyse-fp-population.html#cb751-1" aria-hidden="true" tabindex="-1"></a>plotBlend[[<span class="dv">2</span>]]</span></code></pre></div>
+<p><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-145-2.png" width="960" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb752"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb752-1"><a href="analyse-fp-population.html#cb752-1" aria-hidden="true" tabindex="-1"></a>plotBlend[[<span class="dv">3</span>]]</span></code></pre></div>
+<p><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-145-3.png" width="960" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb753"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb753-1"><a href="analyse-fp-population.html#cb753-1" aria-hidden="true" tabindex="-1"></a>plotBlend[[<span class="dv">4</span>]]</span></code></pre></div>
+<p><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-145-4.png" width="960" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb754"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb754-1"><a href="analyse-fp-population.html#cb754-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(data_sub<span class="sc">@</span>assays<span class="sc">$</span>RNA<span class="sc">@</span>counts[<span class="st">&#39;Btg2&#39;</span>,], <span class="at">breaks =</span> <span class="dv">100</span>)</span></code></pre></div>
+<p><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-145-5.png" width="960" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb755"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb755-1"><a href="analyse-fp-population.html#cb755-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(data_sub<span class="sc">@</span>meta.data<span class="sc">$</span>Btg2, <span class="at">breaks =</span> <span class="dv">100</span>)</span></code></pre></div>
+<p><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-145-6.png" width="960" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb756"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb756-1"><a href="analyse-fp-population.html#cb756-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(data_sub<span class="sc">@</span>meta.data<span class="sc">$</span>Sox2, <span class="at">breaks =</span> <span class="dv">30</span>)</span></code></pre></div>
+<p><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-145-7.png" width="960" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb757"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb757-1"><a href="analyse-fp-population.html#cb757-1" aria-hidden="true" tabindex="-1"></a>sox2_df <span class="ot">&lt;-</span> data_sub<span class="sc">@</span>meta.data<span class="sc">$</span>Sox2</span>
+<span id="cb757-2"><a href="analyse-fp-population.html#cb757-2" aria-hidden="true" tabindex="-1"></a>btg2_df <span class="ot">&lt;-</span> data_sub<span class="sc">@</span>meta.data<span class="sc">$</span>Btg2</span>
+<span id="cb757-3"><a href="analyse-fp-population.html#cb757-3" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">which</span>(btg2_df <span class="sc">&gt;</span> <span class="dv">0</span>))</span></code></pre></div>
+<pre><code>## [1] 28</code></pre>
+<div class="sourceCode" id="cb759"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb759-1"><a href="analyse-fp-population.html#cb759-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">which</span>(sox2_df <span class="sc">&gt;</span> <span class="dv">0</span>))</span></code></pre></div>
+<pre><code>## [1] 92</code></pre>
+<div class="sourceCode" id="cb761"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb761-1"><a href="analyse-fp-population.html#cb761-1" aria-hidden="true" tabindex="-1"></a><span class="co"># percentage of Btg2+ cells among Sox2+ cells</span></span>
+<span id="cb761-2"><a href="analyse-fp-population.html#cb761-2" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">which</span>(btg2_df <span class="sc">&gt;</span> <span class="dv">0</span>)) <span class="sc">/</span> <span class="fu">length</span>(<span class="fu">which</span>(sox2_df <span class="sc">&gt;</span> <span class="dv">0</span>))</span></code></pre></div>
+<pre><code>## [1] 0.3043478</code></pre>
+<div class="sourceCode" id="cb763"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb763-1"><a href="analyse-fp-population.html#cb763-1" aria-hidden="true" tabindex="-1"></a>data_sub<span class="sc">@</span>meta.data<span class="sc">$</span>Btg2_pos <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">colnames</span>(data_sub) <span class="sc">%in%</span> <span class="fu">colnames</span>(data_sub[,<span class="fu">which</span>(btg2_df <span class="sc">&gt;</span> <span class="dv">0</span>)]))</span>
+<span id="cb763-2"><a href="analyse-fp-population.html#cb763-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_sub<span class="sc">@</span>meta.data<span class="sc">$</span>Btg2_pos)</span></code></pre></div>
+<pre><code>## 
+##  0  1 
+## 64 28</code></pre>
+<div class="sourceCode" id="cb765"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb765-1"><a href="analyse-fp-population.html#cb765-1" aria-hidden="true" tabindex="-1"></a>tabCount <span class="ot">&lt;-</span> <span class="fu">table</span>(data_sub<span class="sc">@</span>meta.data<span class="sc">$</span>Btg2_pos, data_sub<span class="sc">@</span>meta.data<span class="sc">$</span>Phase)</span>
+<span id="cb765-2"><a href="analyse-fp-population.html#cb765-2" aria-hidden="true" tabindex="-1"></a><span class="fu">addmargins</span>(tabCount)</span></code></pre></div>
+<pre><code>##      
+##       G1 G2M  S Sum
+##   0   13  42  9  64
+##   1   13   9  6  28
+##   Sum 26  51 15  92</code></pre>
+<div class="sourceCode" id="cb767"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb767-1"><a href="analyse-fp-population.html#cb767-1" aria-hidden="true" tabindex="-1"></a>tabCount <span class="ot">&lt;-</span> tabCount <span class="sc">%&gt;%</span> proportions <span class="sc">%&gt;%</span> <span class="st">`</span><span class="at">*</span><span class="st">`</span>(<span class="dv">100</span>) <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">2</span>)</span>
+<span id="cb767-2"><a href="analyse-fp-population.html#cb767-2" aria-hidden="true" tabindex="-1"></a><span class="fu">addmargins</span>(tabCount)</span></code></pre></div>
+<pre><code>##      
+##          G1   G2M     S   Sum
+##   0   14.13 45.65  9.78 69.56
+##   1   14.13  9.78  6.52 30.43
+##   Sum 28.26 55.43 16.30 99.99</code></pre>
+<div class="sourceCode" id="cb769"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb769-1"><a href="analyse-fp-population.html#cb769-1" aria-hidden="true" tabindex="-1"></a>plotCC <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data_sub<span class="sc">@</span>meta.data,</span>
+<span id="cb769-2"><a href="analyse-fp-population.html#cb769-2" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">aes</span>(<span class="at">x =</span> Phase, <span class="at">fill =</span> <span class="fu">factor</span>(Btg2_pos))) <span class="sc">+</span></span>
+<span id="cb769-3"><a href="analyse-fp-population.html#cb769-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;count&quot;</span>, <span class="at">position=</span><span class="fu">position_dodge</span>()) <span class="sc">+</span></span>
+<span id="cb769-4"><a href="analyse-fp-population.html#cb769-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&quot;Number of cells&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;Btg2&quot;</span>) <span class="sc">+</span></span>
+<span id="cb769-5"><a href="analyse-fp-population.html#cb769-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Paired&quot;</span>) <span class="sc">+</span></span>
+<span id="cb769-6"><a href="analyse-fp-population.html#cb769-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_minimal</span>()</span>
+<span id="cb769-7"><a href="analyse-fp-population.html#cb769-7" aria-hidden="true" tabindex="-1"></a>plotCC</span></code></pre></div>
+<p><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-145-8.png" width="960" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb770"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb770-1"><a href="analyse-fp-population.html#cb770-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Idents</span>(data_sub) <span class="ot">&lt;-</span> <span class="st">&#39;Btg2_pos&#39;</span></span>
+<span id="cb770-2"><a href="analyse-fp-population.html#cb770-2" aria-hidden="true" tabindex="-1"></a><span class="fu">DimPlot</span>(data_sub, <span class="at">reduction =</span> <span class="st">&quot;umap&quot;</span>, <span class="at">group.by =</span> <span class="st">&quot;Btg2_pos&quot;</span> )</span></code></pre></div>
+<p><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-145-9.png" width="960" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb771"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb771-1"><a href="analyse-fp-population.html#cb771-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">20</span>, <span class="dv">2</span>)){</span>
+<span id="cb771-2"><a href="analyse-fp-population.html#cb771-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">DimPlot</span>(data_sub, <span class="at">reduction =</span> <span class="st">&quot;pca&quot;</span>, <span class="at">group.by =</span> <span class="st">&quot;Btg2_pos&quot;</span>, <span class="at">dims =</span> <span class="fu">as.numeric</span>(i)<span class="sc">:</span><span class="fu">as.numeric</span>(i<span class="sc">+</span><span class="dv">1</span>)))</span>
+<span id="cb771-3"><a href="analyse-fp-population.html#cb771-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-145-10.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-145-11.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-145-12.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-145-13.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-145-14.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-145-15.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-145-16.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-145-17.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-145-18.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-145-19.png" width="960" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb772"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb772-1"><a href="analyse-fp-population.html#cb772-1" aria-hidden="true" tabindex="-1"></a>norm_methods <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;wilcox&#39;</span>, <span class="st">&#39;negbinom&#39;</span>, <span class="st">&#39;DESeq2&#39;</span>)</span>
+<span id="cb772-2"><a href="analyse-fp-population.html#cb772-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(method <span class="cf">in</span> norm_methods){</span>
+<span id="cb772-3"><a href="analyse-fp-population.html#cb772-3" aria-hidden="true" tabindex="-1"></a>    markers <span class="ot">&lt;-</span> <span class="fu">FindAllMarkers</span>(data_sub, <span class="at">only.pos =</span> <span class="cn">TRUE</span>, <span class="at">min.pct =</span> <span class="fl">0.1</span>, <span class="at">logfc.threshold =</span> <span class="fl">0.1</span>, <span class="at">test.use =</span> method)</span>
+<span id="cb772-4"><a href="analyse-fp-population.html#cb772-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb772-5"><a href="analyse-fp-population.html#cb772-5" aria-hidden="true" tabindex="-1"></a>    top10 <span class="ot">&lt;-</span> markers <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(cluster) <span class="sc">%&gt;%</span> <span class="fu">top_n</span>(<span class="at">n =</span> <span class="dv">10</span>, <span class="at">wt =</span> avg_log2FC)</span>
+<span id="cb772-6"><a href="analyse-fp-population.html#cb772-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(method)</span>
+<span id="cb772-7"><a href="analyse-fp-population.html#cb772-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">DoHeatmap</span>(data_sub, <span class="at">features =</span> top10<span class="sc">$</span>gene, <span class="at">draw.lines =</span> <span class="cn">TRUE</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb772-8"><a href="analyse-fp-population.html#cb772-8" aria-hidden="true" tabindex="-1"></a>          <span class="fu">NoLegend</span>())</span>
+<span id="cb772-9"><a href="analyse-fp-population.html#cb772-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">write.table</span>(markers, <span class="at">file =</span> <span class="fu">paste0</span>(<span class="st">&quot;../../&quot;</span>, path_output, <span class="st">&quot;markers_&quot;</span>, pop, <span class="st">&quot;_&quot;</span>, method, <span class="st">&quot;_bin&quot;</span>, <span class="st">&quot;.tsv&quot;</span>), <span class="at">sep =</span> <span class="st">&#39;</span><span class="sc">\t</span><span class="st">&#39;</span>, <span class="at">quote=</span><span class="cn">FALSE</span>, <span class="at">row.names =</span> <span class="cn">TRUE</span>, <span class="at">col.names =</span> <span class="cn">NA</span>)</span>
+<span id="cb772-10"><a href="analyse-fp-population.html#cb772-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">saveRDS</span>(markers, <span class="at">file =</span> <span class="fu">paste0</span>(<span class="st">&quot;../../&quot;</span>, path_output, <span class="st">&quot;markers_&quot;</span>, pop, <span class="st">&quot;_&quot;</span>, method, <span class="st">&quot;_bin&quot;</span>, <span class="st">&quot;.rds&quot;</span>))</span>
+<span id="cb772-11"><a href="analyse-fp-population.html#cb772-11" aria-hidden="true" tabindex="-1"></a>    ordered <span class="ot">&lt;-</span> markers[<span class="fu">order</span>(markers<span class="sc">$</span>avg_log2FC, <span class="at">decreasing =</span> <span class="cn">TRUE</span>),]</span>
+<span id="cb772-12"><a href="analyse-fp-population.html#cb772-12" aria-hidden="true" tabindex="-1"></a>    DT<span class="sc">::</span><span class="fu">datatable</span>(ordered, <span class="at">options =</span> <span class="fu">list</span>(<span class="at">scrollX =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb772-13"><a href="analyse-fp-population.html#cb772-13" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;wilcox&quot;</code></pre>
+<p><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-145-20.png" width="960" style="display: block; margin: auto;" /></p>
+<pre><code>## [1] &quot;negbinom&quot;</code></pre>
+<p><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-145-21.png" width="960" style="display: block; margin: auto;" /></p>
+<pre><code>## [1] &quot;DESeq2&quot;</code></pre>
+<p><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-145-22.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="btg2-discretized-6" class="section level4" number="10.7.1.2">
+<h4><span class="header-section-number">10.7.1.2</span> Btg2 discretized</h4>
+<div class="sourceCode" id="cb776"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb776-1"><a href="analyse-fp-population.html#cb776-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(btg2_df)</span></code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.2373  0.3651  1.7113</code></pre>
+<div class="sourceCode" id="cb778"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb778-1"><a href="analyse-fp-population.html#cb778-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(btg2_df, <span class="at">breaks =</span> <span class="dv">100</span>)</span>
+<span id="cb778-2"><a href="analyse-fp-population.html#cb778-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="fl">0.1</span>, <span class="at">col=</span><span class="st">&quot;red&quot;</span>, <span class="at">lwd=</span><span class="dv">3</span>, <span class="at">lty=</span><span class="dv">2</span>)</span>
+<span id="cb778-3"><a href="analyse-fp-population.html#cb778-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="fl">1.5</span>, <span class="at">col=</span><span class="st">&quot;red&quot;</span>, <span class="at">lwd=</span><span class="dv">3</span>, <span class="at">lty=</span><span class="dv">2</span>)</span></code></pre></div>
+<p><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-146-1.png" width="960" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb779"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb779-1"><a href="analyse-fp-population.html#cb779-1" aria-hidden="true" tabindex="-1"></a>data_sub<span class="sc">@</span>meta.data<span class="sc">$</span>Btg2_discr <span class="ot">&lt;-</span> btg2_df</span>
+<span id="cb779-2"><a href="analyse-fp-population.html#cb779-2" aria-hidden="true" tabindex="-1"></a>data_sub<span class="sc">@</span>meta.data<span class="sc">$</span>Btg2_discr <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(data_sub<span class="sc">@</span>meta.data<span class="sc">$</span>Btg2_discr <span class="sc">&gt;</span> <span class="fl">1.5</span>,</span>
+<span id="cb779-3"><a href="analyse-fp-population.html#cb779-3" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">&quot;high&quot;</span>, <span class="fu">ifelse</span>(data_sub<span class="sc">@</span>meta.data<span class="sc">$</span>Btg2_discr <span class="sc">&lt;</span> <span class="fl">0.1</span>, <span class="st">&quot;zero&quot;</span>, <span class="st">&quot;medium&quot;</span>))</span>
+<span id="cb779-4"><a href="analyse-fp-population.html#cb779-4" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_sub<span class="sc">@</span>meta.data<span class="sc">$</span>Btg2_discr)</span></code></pre></div>
+<pre><code>## 
+##   high medium   zero 
+##      2     26     64</code></pre>
+<div class="sourceCode" id="cb781"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb781-1"><a href="analyse-fp-population.html#cb781-1" aria-hidden="true" tabindex="-1"></a>tabCount <span class="ot">&lt;-</span> <span class="fu">table</span>(data_sub<span class="sc">@</span>meta.data<span class="sc">$</span>Btg2_discr, data_sub<span class="sc">@</span>meta.data<span class="sc">$</span>Phase)</span>
+<span id="cb781-2"><a href="analyse-fp-population.html#cb781-2" aria-hidden="true" tabindex="-1"></a><span class="fu">addmargins</span>(tabCount)</span></code></pre></div>
+<pre><code>##         
+##          G1 G2M  S Sum
+##   high    1   0  1   2
+##   medium 12   9  5  26
+##   zero   13  42  9  64
+##   Sum    26  51 15  92</code></pre>
+<div class="sourceCode" id="cb783"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb783-1"><a href="analyse-fp-population.html#cb783-1" aria-hidden="true" tabindex="-1"></a>tabCount <span class="ot">&lt;-</span> tabCount <span class="sc">%&gt;%</span> proportions <span class="sc">%&gt;%</span> <span class="st">`</span><span class="at">*</span><span class="st">`</span>(<span class="dv">100</span>) <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">2</span>)</span>
+<span id="cb783-2"><a href="analyse-fp-population.html#cb783-2" aria-hidden="true" tabindex="-1"></a><span class="fu">addmargins</span>(tabCount)</span></code></pre></div>
+<pre><code>##         
+##             G1   G2M     S   Sum
+##   high    1.09  0.00  1.09  2.18
+##   medium 13.04  9.78  5.43 28.25
+##   zero   14.13 45.65  9.78 69.56
+##   Sum    28.26 55.43 16.30 99.99</code></pre>
+<div class="sourceCode" id="cb785"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb785-1"><a href="analyse-fp-population.html#cb785-1" aria-hidden="true" tabindex="-1"></a>plotCC <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data_sub<span class="sc">@</span>meta.data,</span>
+<span id="cb785-2"><a href="analyse-fp-population.html#cb785-2" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">aes</span>(<span class="at">x =</span> Phase, <span class="at">fill =</span> <span class="fu">factor</span>(Btg2_discr))) <span class="sc">+</span></span>
+<span id="cb785-3"><a href="analyse-fp-population.html#cb785-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;count&quot;</span>, <span class="at">position=</span><span class="fu">position_dodge</span>()) <span class="sc">+</span></span>
+<span id="cb785-4"><a href="analyse-fp-population.html#cb785-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&quot;Number of cells&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;Btg2&quot;</span>) <span class="sc">+</span></span>
+<span id="cb785-5"><a href="analyse-fp-population.html#cb785-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Paired&quot;</span>) <span class="sc">+</span></span>
+<span id="cb785-6"><a href="analyse-fp-population.html#cb785-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_minimal</span>()</span>
+<span id="cb785-7"><a href="analyse-fp-population.html#cb785-7" aria-hidden="true" tabindex="-1"></a>plotCC</span></code></pre></div>
+<p><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-146-2.png" width="960" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb786"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb786-1"><a href="analyse-fp-population.html#cb786-1" aria-hidden="true" tabindex="-1"></a><span class="fu">DimPlot</span>(data_sub, <span class="at">reduction =</span> <span class="st">&quot;umap&quot;</span>, <span class="at">group.by =</span> <span class="st">&quot;Btg2_discr&quot;</span> )</span></code></pre></div>
+<p><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-146-3.png" width="960" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb787"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb787-1"><a href="analyse-fp-population.html#cb787-1" aria-hidden="true" tabindex="-1"></a><span class="fu">FeatureScatter</span>(<span class="at">object =</span> data_sub, <span class="st">&quot;Btg2&quot;</span>, <span class="st">&quot;Sox2&quot;</span>, <span class="at">group.by =</span> <span class="st">&quot;Btg2_discr&quot;</span>)</span></code></pre></div>
+<p><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-146-4.png" width="960" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb788"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb788-1"><a href="analyse-fp-population.html#cb788-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Idents</span>(data_sub) <span class="ot">&lt;-</span> <span class="st">&#39;Btg2_discr&#39;</span></span>
+<span id="cb788-2"><a href="analyse-fp-population.html#cb788-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">20</span>, <span class="dv">2</span>)){</span>
+<span id="cb788-3"><a href="analyse-fp-population.html#cb788-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">DimPlot</span>(data_sub, <span class="at">reduction =</span> <span class="st">&quot;pca&quot;</span>, <span class="at">group.by =</span> <span class="st">&quot;Btg2_discr&quot;</span>, <span class="at">dims =</span> <span class="fu">as.numeric</span>(i)<span class="sc">:</span><span class="fu">as.numeric</span>(i<span class="sc">+</span><span class="dv">1</span>)))</span>
+<span id="cb788-4"><a href="analyse-fp-population.html#cb788-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-146-5.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-146-6.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-146-7.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-146-8.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-146-9.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-146-10.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-146-11.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-146-12.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-146-13.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-146-14.png" width="960" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb789"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb789-1"><a href="analyse-fp-population.html#cb789-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(method <span class="cf">in</span> norm_methods){</span>
+<span id="cb789-2"><a href="analyse-fp-population.html#cb789-2" aria-hidden="true" tabindex="-1"></a>    markers <span class="ot">&lt;-</span> <span class="fu">FindAllMarkers</span>(data_sub, <span class="at">only.pos =</span> <span class="cn">TRUE</span>, <span class="at">min.pct =</span> <span class="fl">0.1</span>, <span class="at">logfc.threshold =</span> <span class="fl">0.1</span>, <span class="at">test.use =</span> method)</span>
+<span id="cb789-3"><a href="analyse-fp-population.html#cb789-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb789-4"><a href="analyse-fp-population.html#cb789-4" aria-hidden="true" tabindex="-1"></a>    top10 <span class="ot">&lt;-</span> markers <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(cluster) <span class="sc">%&gt;%</span> <span class="fu">top_n</span>(<span class="at">n =</span> <span class="dv">10</span>, <span class="at">wt =</span> avg_log2FC)</span>
+<span id="cb789-5"><a href="analyse-fp-population.html#cb789-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(method)</span>
+<span id="cb789-6"><a href="analyse-fp-population.html#cb789-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">DoHeatmap</span>(data_sub, <span class="at">features =</span> top10<span class="sc">$</span>gene, <span class="at">draw.lines =</span> <span class="cn">TRUE</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb789-7"><a href="analyse-fp-population.html#cb789-7" aria-hidden="true" tabindex="-1"></a>          <span class="fu">NoLegend</span>())</span>
+<span id="cb789-8"><a href="analyse-fp-population.html#cb789-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">write.table</span>(markers, <span class="at">file =</span> <span class="fu">paste0</span>(<span class="st">&quot;../../&quot;</span>, path_output, <span class="st">&quot;markers_&quot;</span>, pop, <span class="st">&quot;_&quot;</span>, method, <span class="st">&quot;_Btg2_discr&quot;</span>, <span class="st">&quot;.tsv&quot;</span>), <span class="at">sep =</span> <span class="st">&#39;</span><span class="sc">\t</span><span class="st">&#39;</span>, <span class="at">quote=</span><span class="cn">FALSE</span>, <span class="at">row.names =</span> <span class="cn">TRUE</span>, <span class="at">col.names =</span> <span class="cn">NA</span>)</span>
+<span id="cb789-9"><a href="analyse-fp-population.html#cb789-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">saveRDS</span>(markers, <span class="at">file =</span> <span class="fu">paste0</span>(<span class="st">&quot;../../&quot;</span>, path_output, <span class="st">&quot;markers_&quot;</span>, pop, <span class="st">&quot;_&quot;</span>, method, <span class="st">&quot;_Btg2_discr&quot;</span>, <span class="st">&quot;.rds&quot;</span>))</span>
+<span id="cb789-10"><a href="analyse-fp-population.html#cb789-10" aria-hidden="true" tabindex="-1"></a>    ordered <span class="ot">&lt;-</span> markers[<span class="fu">order</span>(markers<span class="sc">$</span>avg_log2FC, <span class="at">decreasing =</span> <span class="cn">TRUE</span>),]</span>
+<span id="cb789-11"><a href="analyse-fp-population.html#cb789-11" aria-hidden="true" tabindex="-1"></a>    DT<span class="sc">::</span><span class="fu">datatable</span>(ordered, <span class="at">options =</span> <span class="fu">list</span>(<span class="at">scrollX =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb789-12"><a href="analyse-fp-population.html#cb789-12" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;wilcox&quot;</code></pre>
+<p><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-146-15.png" width="960" style="display: block; margin: auto;" /></p>
+<pre><code>## [1] &quot;negbinom&quot;</code></pre>
+<p><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-146-16.png" width="960" style="display: block; margin: auto;" /></p>
+<pre><code>## [1] &quot;DESeq2&quot;</code></pre>
+<p><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-146-17.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="relative-values-6" class="section level3" number="10.7.2">
+<h3><span class="header-section-number">10.7.2</span> Relative values</h3>
+<div class="sourceCode" id="cb793"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb793-1"><a href="analyse-fp-population.html#cb793-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(btg2_df <span class="sc">/</span> sox2_df)</span></code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.1392  0.2135  1.0000</code></pre>
+<div class="sourceCode" id="cb795"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb795-1"><a href="analyse-fp-population.html#cb795-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(btg2_df <span class="sc">/</span> sox2_df, <span class="at">breaks =</span> <span class="dv">100</span>)</span>
+<span id="cb795-2"><a href="analyse-fp-population.html#cb795-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="fl">0.1</span>, <span class="at">col=</span><span class="st">&quot;red&quot;</span>, <span class="at">lwd=</span><span class="dv">3</span>, <span class="at">lty=</span><span class="dv">2</span>)</span>
+<span id="cb795-3"><a href="analyse-fp-population.html#cb795-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="fl">0.95</span>, <span class="at">col=</span><span class="st">&quot;red&quot;</span>, <span class="at">lwd=</span><span class="dv">3</span>, <span class="at">lty=</span><span class="dv">2</span>)</span></code></pre></div>
+<p><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-147-1.png" width="960" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb796"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb796-1"><a href="analyse-fp-population.html#cb796-1" aria-hidden="true" tabindex="-1"></a>data_sub<span class="sc">@</span>meta.data<span class="sc">$</span>Btg2_Sox2_ratio <span class="ot">&lt;-</span> btg2_df <span class="sc">/</span> sox2_df</span>
+<span id="cb796-2"><a href="analyse-fp-population.html#cb796-2" aria-hidden="true" tabindex="-1"></a>data_sub<span class="sc">@</span>meta.data<span class="sc">$</span>Btg2_Sox2_ratio_cat <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(data_sub<span class="sc">@</span>meta.data<span class="sc">$</span>Btg2_Sox2_ratio <span class="sc">&gt;</span> <span class="fl">0.95</span>,</span>
+<span id="cb796-3"><a href="analyse-fp-population.html#cb796-3" aria-hidden="true" tabindex="-1"></a>                                                 <span class="st">&quot;high&quot;</span>, <span class="fu">ifelse</span>(data_sub<span class="sc">@</span>meta.data<span class="sc">$</span>Btg2_Sox2_ratio <span class="sc">&lt;</span> <span class="fl">0.1</span>, <span class="st">&quot;zero&quot;</span>, <span class="st">&quot;medium&quot;</span>))</span>
+<span id="cb796-4"><a href="analyse-fp-population.html#cb796-4" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_sub<span class="sc">@</span>meta.data<span class="sc">$</span>Btg2_Sox2_ratio_cat)</span></code></pre></div>
+<pre><code>## 
+##   high medium   zero 
+##      2     26     64</code></pre>
+<div class="sourceCode" id="cb798"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb798-1"><a href="analyse-fp-population.html#cb798-1" aria-hidden="true" tabindex="-1"></a>tabCount <span class="ot">&lt;-</span> <span class="fu">table</span>(data_sub<span class="sc">@</span>meta.data<span class="sc">$</span>Btg2_Sox2_ratio_cat, data_sub<span class="sc">@</span>meta.data<span class="sc">$</span>Phase)</span>
+<span id="cb798-2"><a href="analyse-fp-population.html#cb798-2" aria-hidden="true" tabindex="-1"></a><span class="fu">addmargins</span>(tabCount)</span></code></pre></div>
+<pre><code>##         
+##          G1 G2M  S Sum
+##   high    0   1  1   2
+##   medium 13   8  5  26
+##   zero   13  42  9  64
+##   Sum    26  51 15  92</code></pre>
+<div class="sourceCode" id="cb800"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb800-1"><a href="analyse-fp-population.html#cb800-1" aria-hidden="true" tabindex="-1"></a>tabCount <span class="ot">&lt;-</span> tabCount <span class="sc">%&gt;%</span> proportions <span class="sc">%&gt;%</span> <span class="st">`</span><span class="at">*</span><span class="st">`</span>(<span class="dv">100</span>) <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">2</span>)</span>
+<span id="cb800-2"><a href="analyse-fp-population.html#cb800-2" aria-hidden="true" tabindex="-1"></a><span class="fu">addmargins</span>(tabCount)</span></code></pre></div>
+<pre><code>##         
+##              G1    G2M      S    Sum
+##   high     0.00   1.09   1.09   2.18
+##   medium  14.13   8.70   5.43  28.26
+##   zero    14.13  45.65   9.78  69.56
+##   Sum     28.26  55.44  16.30 100.00</code></pre>
+<div class="sourceCode" id="cb802"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb802-1"><a href="analyse-fp-population.html#cb802-1" aria-hidden="true" tabindex="-1"></a>plotCC <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data_sub<span class="sc">@</span>meta.data,</span>
+<span id="cb802-2"><a href="analyse-fp-population.html#cb802-2" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">aes</span>(<span class="at">x =</span> Phase, <span class="at">fill =</span> <span class="fu">factor</span>(Btg2_Sox2_ratio_cat))) <span class="sc">+</span></span>
+<span id="cb802-3"><a href="analyse-fp-population.html#cb802-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;count&quot;</span>, <span class="at">position=</span><span class="fu">position_dodge</span>()) <span class="sc">+</span></span>
+<span id="cb802-4"><a href="analyse-fp-population.html#cb802-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&quot;Number of cells&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;Btg2&quot;</span>) <span class="sc">+</span></span>
+<span id="cb802-5"><a href="analyse-fp-population.html#cb802-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Paired&quot;</span>) <span class="sc">+</span></span>
+<span id="cb802-6"><a href="analyse-fp-population.html#cb802-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_minimal</span>()</span>
+<span id="cb802-7"><a href="analyse-fp-population.html#cb802-7" aria-hidden="true" tabindex="-1"></a>plotCC</span></code></pre></div>
+<p><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-147-2.png" width="960" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb803"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb803-1"><a href="analyse-fp-population.html#cb803-1" aria-hidden="true" tabindex="-1"></a><span class="fu">FeaturePlot</span>(<span class="at">object =</span> data_sub,</span>
+<span id="cb803-2"><a href="analyse-fp-population.html#cb803-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">features =</span> <span class="fu">c</span>(<span class="st">&quot;Btg2_Sox2_ratio&quot;</span>),</span>
+<span id="cb803-3"><a href="analyse-fp-population.html#cb803-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">reduction =</span> <span class="st">&quot;umap&quot;</span>,</span>
+<span id="cb803-4"><a href="analyse-fp-population.html#cb803-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">cols =</span> <span class="fu">c</span>(<span class="st">&quot;lightblue&quot;</span>, <span class="st">&quot;yellow2&quot;</span>, <span class="st">&quot;red&quot;</span>))</span></code></pre></div>
+<p><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-147-3.png" width="960" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb804"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb804-1"><a href="analyse-fp-population.html#cb804-1" aria-hidden="true" tabindex="-1"></a><span class="fu">DimPlot</span>(data_sub, <span class="at">reduction =</span> <span class="st">&quot;umap&quot;</span>, <span class="at">group.by =</span> <span class="st">&quot;Btg2_Sox2_ratio_cat&quot;</span> )</span></code></pre></div>
+<p><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-147-4.png" width="960" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb805"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb805-1"><a href="analyse-fp-population.html#cb805-1" aria-hidden="true" tabindex="-1"></a><span class="fu">FeatureScatter</span>(<span class="at">object =</span> data_sub, <span class="st">&quot;Btg2&quot;</span>, <span class="st">&quot;Sox2&quot;</span>, <span class="at">group.by =</span> <span class="st">&quot;Btg2_Sox2_ratio_cat&quot;</span>)</span></code></pre></div>
+<p><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-147-5.png" width="960" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb806"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb806-1"><a href="analyse-fp-population.html#cb806-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Idents</span>(data_sub) <span class="ot">&lt;-</span> <span class="st">&#39;Btg2_Sox2_ratio_cat&#39;</span></span>
+<span id="cb806-2"><a href="analyse-fp-population.html#cb806-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">20</span>, <span class="dv">2</span>)){</span>
+<span id="cb806-3"><a href="analyse-fp-population.html#cb806-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">DimPlot</span>(data_sub, <span class="at">reduction =</span> <span class="st">&quot;pca&quot;</span>, <span class="at">group.by =</span> <span class="st">&quot;Btg2_Sox2_ratio_cat&quot;</span>, <span class="at">dims =</span> <span class="fu">as.numeric</span>(i)<span class="sc">:</span><span class="fu">as.numeric</span>(i<span class="sc">+</span><span class="dv">1</span>)))</span>
+<span id="cb806-4"><a href="analyse-fp-population.html#cb806-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-147-6.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-147-7.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-147-8.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-147-9.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-147-10.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-147-11.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-147-12.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-147-13.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-147-14.png" width="960" style="display: block; margin: auto;" /><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-147-15.png" width="960" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb807"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb807-1"><a href="analyse-fp-population.html#cb807-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(method <span class="cf">in</span> norm_methods){</span>
+<span id="cb807-2"><a href="analyse-fp-population.html#cb807-2" aria-hidden="true" tabindex="-1"></a>    markers <span class="ot">&lt;-</span> <span class="fu">FindAllMarkers</span>(data_sub, <span class="at">only.pos =</span> <span class="cn">TRUE</span>, <span class="at">min.pct =</span> <span class="fl">0.1</span>, <span class="at">logfc.threshold =</span> <span class="fl">0.1</span>, <span class="at">test.use =</span> method)</span>
+<span id="cb807-3"><a href="analyse-fp-population.html#cb807-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb807-4"><a href="analyse-fp-population.html#cb807-4" aria-hidden="true" tabindex="-1"></a>    top10 <span class="ot">&lt;-</span> markers <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(cluster) <span class="sc">%&gt;%</span> <span class="fu">top_n</span>(<span class="at">n =</span> <span class="dv">10</span>, <span class="at">wt =</span> avg_log2FC)</span>
+<span id="cb807-5"><a href="analyse-fp-population.html#cb807-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(method)</span>
+<span id="cb807-6"><a href="analyse-fp-population.html#cb807-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">DoHeatmap</span>(data_sub, <span class="at">features =</span> top10<span class="sc">$</span>gene, <span class="at">draw.lines =</span> <span class="cn">TRUE</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb807-7"><a href="analyse-fp-population.html#cb807-7" aria-hidden="true" tabindex="-1"></a>          <span class="fu">NoLegend</span>())</span>
+<span id="cb807-8"><a href="analyse-fp-population.html#cb807-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">write.table</span>(markers, <span class="at">file =</span> <span class="fu">paste0</span>(<span class="st">&quot;../../&quot;</span>, path_output, <span class="st">&quot;markers_&quot;</span>, pop, <span class="st">&quot;_&quot;</span>, method, <span class="st">&quot;_ratio&quot;</span>, <span class="st">&quot;.tsv&quot;</span>), <span class="at">sep =</span> <span class="st">&#39;</span><span class="sc">\t</span><span class="st">&#39;</span>, <span class="at">quote=</span><span class="cn">FALSE</span>, <span class="at">row.names =</span> <span class="cn">TRUE</span>, <span class="at">col.names =</span> <span class="cn">NA</span>)</span>
+<span id="cb807-9"><a href="analyse-fp-population.html#cb807-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">saveRDS</span>(markers, <span class="at">file =</span> <span class="fu">paste0</span>(<span class="st">&quot;../../&quot;</span>, path_output, <span class="st">&quot;markers_&quot;</span>, pop, <span class="st">&quot;_&quot;</span>, method, <span class="st">&quot;_ratio&quot;</span>, <span class="st">&quot;.rds&quot;</span>))</span>
+<span id="cb807-10"><a href="analyse-fp-population.html#cb807-10" aria-hidden="true" tabindex="-1"></a>    ordered <span class="ot">&lt;-</span> markers[<span class="fu">order</span>(markers<span class="sc">$</span>avg_log2FC, <span class="at">decreasing =</span> <span class="cn">TRUE</span>),]</span>
+<span id="cb807-11"><a href="analyse-fp-population.html#cb807-11" aria-hidden="true" tabindex="-1"></a>    DT<span class="sc">::</span><span class="fu">datatable</span>(ordered, <span class="at">options =</span> <span class="fu">list</span>(<span class="at">scrollX =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb807-12"><a href="analyse-fp-population.html#cb807-12" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;wilcox&quot;</code></pre>
+<p><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-147-16.png" width="960" style="display: block; margin: auto;" /></p>
+<pre><code>## [1] &quot;negbinom&quot;</code></pre>
+<p><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-147-17.png" width="960" style="display: block; margin: auto;" /></p>
+<pre><code>## [1] &quot;DESeq2&quot;</code></pre>
+<p><img src="mouse-neural-progenitors_files/figure-html/unnamed-chunk-147-18.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="analyse-dp6-population.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="analyse-p0-population.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

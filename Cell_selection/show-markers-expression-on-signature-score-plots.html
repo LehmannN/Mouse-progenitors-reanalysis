@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>5 Show markers expression on signature score plots | Progenitor pop selection</title>
+  <meta name="description" content="5 Show markers expression on signature score plots | Progenitor pop selection" />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="5 Show markers expression on signature score plots | Progenitor pop selection" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  <meta name="github-repo" content="git@github.com:LehmannN/2020_delile_reanalysis.git" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="5 Show markers expression on signature score plots | Progenitor pop selection" />
+  
+  
+  
+
+<meta name="author" content="Nathalie Lehmann" />
+
+
+<meta name="date" content="2021-01-17" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="cluster-the-cells-based-on-their-signatures-scores.html"/>
+<link rel="next" href="vizualise-cells-to-keep.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="load-data.html"><a href="load-data.html"><i class="fa fa-check"></i><b>1</b> Load data</a></li>
+<li class="chapter" data-level="2" data-path="create-and-assign-cell-state-scores.html"><a href="create-and-assign-cell-state-scores.html"><i class="fa fa-check"></i><b>2</b> Create and assign cell state scores</a><ul>
+<li class="chapter" data-level="2.1" data-path="create-and-assign-cell-state-scores.html"><a href="create-and-assign-cell-state-scores.html#how-it-works"><i class="fa fa-check"></i><b>2.1</b> How it works</a></li>
+<li class="chapter" data-level="2.2" data-path="create-and-assign-cell-state-scores.html"><a href="create-and-assign-cell-state-scores.html#progenitors-score"><i class="fa fa-check"></i><b>2.2</b> Progenitors score</a></li>
+<li class="chapter" data-level="2.3" data-path="create-and-assign-cell-state-scores.html"><a href="create-and-assign-cell-state-scores.html#neurons-score"><i class="fa fa-check"></i><b>2.3</b> Neurons score</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="create-and-assign-cell-state-scores.html"><a href="create-and-assign-cell-state-scores.html#with-tubb3-in-the-score"><i class="fa fa-check"></i><b>2.3.1</b> With Tubb3 in the score</a></li>
+<li class="chapter" data-level="2.3.2" data-path="create-and-assign-cell-state-scores.html"><a href="create-and-assign-cell-state-scores.html#without-tubb3-in-the-score"><i class="fa fa-check"></i><b>2.3.2</b> Without Tubb3 in the score</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="visualize-cell-state-scores.html"><a href="visualize-cell-state-scores.html"><i class="fa fa-check"></i><b>3</b> Visualize cell state scores</a><ul>
+<li class="chapter" data-level="3.1" data-path="visualize-cell-state-scores.html"><a href="visualize-cell-state-scores.html#on-umap-embeddings"><i class="fa fa-check"></i><b>3.1</b> On UMAP embeddings</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="visualize-cell-state-scores.html"><a href="visualize-cell-state-scores.html#single-scores"><i class="fa fa-check"></i><b>3.1.1</b> Single scores</a></li>
+<li class="chapter" data-level="3.1.2" data-path="visualize-cell-state-scores.html"><a href="visualize-cell-state-scores.html#double-scores"><i class="fa fa-check"></i><b>3.1.2</b> Double scores</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="visualize-cell-state-scores.html"><a href="visualize-cell-state-scores.html#check-distribution-of-the-scores"><i class="fa fa-check"></i><b>3.2</b> Check distribution of the scores</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="cluster-the-cells-based-on-their-signatures-scores.html"><a href="cluster-the-cells-based-on-their-signatures-scores.html"><i class="fa fa-check"></i><b>4</b> Cluster the cells based on their signatures scores</a><ul>
+<li class="chapter" data-level="4.1" data-path="cluster-the-cells-based-on-their-signatures-scores.html"><a href="cluster-the-cells-based-on-their-signatures-scores.html#k-3"><i class="fa fa-check"></i><b>4.1</b> k = 3</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="cluster-the-cells-based-on-their-signatures-scores.html"><a href="cluster-the-cells-based-on-their-signatures-scores.html#with-tubb3"><i class="fa fa-check"></i><b>4.1.1</b> With TUBB3</a></li>
+<li class="chapter" data-level="4.1.2" data-path="cluster-the-cells-based-on-their-signatures-scores.html"><a href="cluster-the-cells-based-on-their-signatures-scores.html#without-tubb3"><i class="fa fa-check"></i><b>4.1.2</b> Without TUBB3</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="cluster-the-cells-based-on-their-signatures-scores.html"><a href="cluster-the-cells-based-on-their-signatures-scores.html#k-4"><i class="fa fa-check"></i><b>4.2</b> k = 4</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="cluster-the-cells-based-on-their-signatures-scores.html"><a href="cluster-the-cells-based-on-their-signatures-scores.html#with-tubb3-1"><i class="fa fa-check"></i><b>4.2.1</b> With TUBB3</a></li>
+<li class="chapter" data-level="4.2.2" data-path="cluster-the-cells-based-on-their-signatures-scores.html"><a href="cluster-the-cells-based-on-their-signatures-scores.html#without-tubb3-1"><i class="fa fa-check"></i><b>4.2.2</b> Without TUBB3</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="cluster-the-cells-based-on-their-signatures-scores.html"><a href="cluster-the-cells-based-on-their-signatures-scores.html#k-5"><i class="fa fa-check"></i><b>4.3</b> k = 5</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="cluster-the-cells-based-on-their-signatures-scores.html"><a href="cluster-the-cells-based-on-their-signatures-scores.html#with-tubb3-2"><i class="fa fa-check"></i><b>4.3.1</b> With TUBB3</a></li>
+<li class="chapter" data-level="4.3.2" data-path="cluster-the-cells-based-on-their-signatures-scores.html"><a href="cluster-the-cells-based-on-their-signatures-scores.html#without-tubb3-2"><i class="fa fa-check"></i><b>4.3.2</b> Without TUBB3</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="cluster-the-cells-based-on-their-signatures-scores.html"><a href="cluster-the-cells-based-on-their-signatures-scores.html#k-6"><i class="fa fa-check"></i><b>4.4</b> k = 6</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="cluster-the-cells-based-on-their-signatures-scores.html"><a href="cluster-the-cells-based-on-their-signatures-scores.html#with-tubb3-3"><i class="fa fa-check"></i><b>4.4.1</b> With TUBB3</a></li>
+<li class="chapter" data-level="4.4.2" data-path="cluster-the-cells-based-on-their-signatures-scores.html"><a href="cluster-the-cells-based-on-their-signatures-scores.html#without-tubb3-3"><i class="fa fa-check"></i><b>4.4.2</b> Without TUBB3</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="show-markers-expression-on-signature-score-plots.html"><a href="show-markers-expression-on-signature-score-plots.html"><i class="fa fa-check"></i><b>5</b> Show markers expression on signature score plots</a></li>
+<li class="chapter" data-level="6" data-path="vizualise-cells-to-keep.html"><a href="vizualise-cells-to-keep.html"><i class="fa fa-check"></i><b>6</b> Vizualise cells to keep</a><ul>
+<li class="chapter" data-level="6.1" data-path="vizualise-cells-to-keep.html"><a href="vizualise-cells-to-keep.html#threshold-0.1"><i class="fa fa-check"></i><b>6.1</b> Threshold = 0.1</a></li>
+<li class="chapter" data-level="6.2" data-path="vizualise-cells-to-keep.html"><a href="vizualise-cells-to-keep.html#threshold-0.2"><i class="fa fa-check"></i><b>6.2</b> Threshold = 0.2</a></li>
+<li class="chapter" data-level="6.3" data-path="vizualise-cells-to-keep.html"><a href="vizualise-cells-to-keep.html#threshold-0.3"><i class="fa fa-check"></i><b>6.3</b> Threshold = 0.3</a></li>
+<li class="chapter" data-level="6.4" data-path="vizualise-cells-to-keep.html"><a href="vizualise-cells-to-keep.html#threshold-0.4"><i class="fa fa-check"></i><b>6.4</b> Threshold = 0.4</a></li>
+<li class="chapter" data-level="6.5" data-path="vizualise-cells-to-keep.html"><a href="vizualise-cells-to-keep.html#threshold-0.5"><i class="fa fa-check"></i><b>6.5</b> Threshold = 0.5</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="session-info.html"><a href="session-info.html"><i class="fa fa-check"></i><b>7</b> Session info</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Progenitor pop selection</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="show-markers-expression-on-signature-score-plots" class="section level1">
+<h1><span class="header-section-number">5</span> Show markers expression on signature score plots</h1>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="show-markers-expression-on-signature-score-plots.html#cb69-1"></a><span class="cf">for</span> (marker <span class="cf">in</span> markers){</span>
+<span id="cb69-2"><a href="show-markers-expression-on-signature-score-plots.html#cb69-2"></a>    <span class="kw">print</span>(marker)</span>
+<span id="cb69-3"><a href="show-markers-expression-on-signature-score-plots.html#cb69-3"></a>    dat.seurat<span class="op">@</span>meta.data[[marker]] &lt;-<span class="st"> </span>dat.seurat<span class="op">@</span>assays<span class="op">$</span>RNA<span class="op">@</span>data[marker,]</span>
+<span id="cb69-4"><a href="show-markers-expression-on-signature-score-plots.html#cb69-4"></a>    <span class="kw">print</span>(<span class="kw">summary</span>(dat.seurat<span class="op">@</span>meta.data[[marker]]))</span>
+<span id="cb69-5"><a href="show-markers-expression-on-signature-score-plots.html#cb69-5"></a>    <span class="kw">print</span>(<span class="kw">ggMarginal</span>(</span>
+<span id="cb69-6"><a href="show-markers-expression-on-signature-score-plots.html#cb69-6"></a>             <span class="kw">ggplot</span>(dat.seurat<span class="op">@</span>meta.data, <span class="kw">aes</span>(<span class="dt">x =</span> Progenitors_<span class="dv">1</span>, <span class="dt">y =</span> Neurons_Tubb3_<span class="dv">1</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>)) <span class="op">+</span></span>
+<span id="cb69-7"><a href="show-markers-expression-on-signature-score-plots.html#cb69-7"></a><span class="st">                 </span><span class="kw">geom_point</span>(<span class="kw">aes_string</span>(<span class="dt">color =</span> marker)) <span class="op">+</span></span>
+<span id="cb69-8"><a href="show-markers-expression-on-signature-score-plots.html#cb69-8"></a><span class="st">                 </span><span class="kw">scale_color_gradientn</span>(<span class="dt">colors =</span> <span class="kw">c</span>(<span class="st">&quot;lightblue&quot;</span>, <span class="st">&quot;yellow2&quot;</span>, <span class="st">&quot;red&quot;</span>)),</span>
+<span id="cb69-9"><a href="show-markers-expression-on-signature-score-plots.html#cb69-9"></a>             <span class="dt">type =</span> <span class="st">&quot;histogram&quot;</span>, <span class="dt">fill=</span><span class="st">&quot;lightgrey&quot;</span>))</span>
+<span id="cb69-10"><a href="show-markers-expression-on-signature-score-plots.html#cb69-10"></a>}</span></code></pre></div>
+<p><img src="2020_delile_reanalysis_files/figure-html/markers-viz-1.png" width="960" style="display: block; margin: auto;" /></p>
+<pre><code>## [1] &quot;Btg2&quot;
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.3717  0.6378  3.5557 
+## [1] &quot;Sox1&quot;
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## 0.00000 0.00000 0.00000 0.06155 0.00000 2.60269 
+## [1] &quot;Sox2&quot;
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   0.000   0.000   0.000   0.591   1.247   3.396 
+## [1] &quot;Sox3&quot;
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## 0.00000 0.00000 0.00000 0.06799 0.00000 2.47830 
+## [1] &quot;Tubb3&quot;
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   0.000   1.188   2.789   2.307   3.365   4.718 
+## [1] &quot;Olig2&quot;
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## 0.00000 0.00000 0.00000 0.02355 0.00000 2.88069 
+## [1] &quot;Pax6&quot;
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.3283  0.0000  4.2669 
+## [1] &quot;Pax7&quot;
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## 0.00000 0.00000 0.00000 0.07511 0.00000 2.52612 
+## [1] &quot;Isl1&quot;
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.1392  0.0000  4.0365 
+## [1] &quot;Isl2&quot;
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## 0.00000 0.00000 0.00000 0.02754 0.00000 2.58664 
+## [1] &quot;Notch1&quot;
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.2885  0.0000  2.8345 
+## [1] &quot;Dll1&quot;
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.1785  0.0000  3.0640 
+## [1] &quot;Cdc25b&quot;
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.1975  0.0000  3.0537</code></pre>
+<pre><code>## [1] &quot;Btg2&quot;</code></pre>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.3717  0.6378  3.5557</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-3-1.png" width="960" style="display: block; margin: auto;" /></p>
+<pre><code>## [1] &quot;Sox2&quot;</code></pre>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   0.000   0.000   0.000   0.591   1.247   3.396</code></pre>
+<pre><code>## Loading required package: grid</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-4-1.png" width="960" style="display: block; margin: auto;" /><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-4-2.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="cluster-the-cells-based-on-their-signatures-scores.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="vizualise-cells-to-keep.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": null,
+"scroll_highlight": true
+},
+"toc_depth": 5,
+"toolbar": {
+"position": "fixed"
+},
+"search": true,
+"info": true
+});
+});
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>4 Cluster the cells based on their signatures scores | Progenitor pop selection</title>
+  <meta name="description" content="4 Cluster the cells based on their signatures scores | Progenitor pop selection" />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="4 Cluster the cells based on their signatures scores | Progenitor pop selection" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  <meta name="github-repo" content="git@github.com:LehmannN/2020_delile_reanalysis.git" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="4 Cluster the cells based on their signatures scores | Progenitor pop selection" />
+  
+  
+  
+
+<meta name="author" content="Nathalie Lehmann" />
+
+
+<meta name="date" content="2021-01-17" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="visualize-cell-state-scores.html"/>
+<link rel="next" href="show-markers-expression-on-signature-score-plots.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="load-data.html"><a href="load-data.html"><i class="fa fa-check"></i><b>1</b> Load data</a></li>
+<li class="chapter" data-level="2" data-path="create-and-assign-cell-state-scores.html"><a href="create-and-assign-cell-state-scores.html"><i class="fa fa-check"></i><b>2</b> Create and assign cell state scores</a><ul>
+<li class="chapter" data-level="2.1" data-path="create-and-assign-cell-state-scores.html"><a href="create-and-assign-cell-state-scores.html#how-it-works"><i class="fa fa-check"></i><b>2.1</b> How it works</a></li>
+<li class="chapter" data-level="2.2" data-path="create-and-assign-cell-state-scores.html"><a href="create-and-assign-cell-state-scores.html#progenitors-score"><i class="fa fa-check"></i><b>2.2</b> Progenitors score</a></li>
+<li class="chapter" data-level="2.3" data-path="create-and-assign-cell-state-scores.html"><a href="create-and-assign-cell-state-scores.html#neurons-score"><i class="fa fa-check"></i><b>2.3</b> Neurons score</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="create-and-assign-cell-state-scores.html"><a href="create-and-assign-cell-state-scores.html#with-tubb3-in-the-score"><i class="fa fa-check"></i><b>2.3.1</b> With Tubb3 in the score</a></li>
+<li class="chapter" data-level="2.3.2" data-path="create-and-assign-cell-state-scores.html"><a href="create-and-assign-cell-state-scores.html#without-tubb3-in-the-score"><i class="fa fa-check"></i><b>2.3.2</b> Without Tubb3 in the score</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="visualize-cell-state-scores.html"><a href="visualize-cell-state-scores.html"><i class="fa fa-check"></i><b>3</b> Visualize cell state scores</a><ul>
+<li class="chapter" data-level="3.1" data-path="visualize-cell-state-scores.html"><a href="visualize-cell-state-scores.html#on-umap-embeddings"><i class="fa fa-check"></i><b>3.1</b> On UMAP embeddings</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="visualize-cell-state-scores.html"><a href="visualize-cell-state-scores.html#single-scores"><i class="fa fa-check"></i><b>3.1.1</b> Single scores</a></li>
+<li class="chapter" data-level="3.1.2" data-path="visualize-cell-state-scores.html"><a href="visualize-cell-state-scores.html#double-scores"><i class="fa fa-check"></i><b>3.1.2</b> Double scores</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="visualize-cell-state-scores.html"><a href="visualize-cell-state-scores.html#check-distribution-of-the-scores"><i class="fa fa-check"></i><b>3.2</b> Check distribution of the scores</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="cluster-the-cells-based-on-their-signatures-scores.html"><a href="cluster-the-cells-based-on-their-signatures-scores.html"><i class="fa fa-check"></i><b>4</b> Cluster the cells based on their signatures scores</a><ul>
+<li class="chapter" data-level="4.1" data-path="cluster-the-cells-based-on-their-signatures-scores.html"><a href="cluster-the-cells-based-on-their-signatures-scores.html#k-3"><i class="fa fa-check"></i><b>4.1</b> k = 3</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="cluster-the-cells-based-on-their-signatures-scores.html"><a href="cluster-the-cells-based-on-their-signatures-scores.html#with-tubb3"><i class="fa fa-check"></i><b>4.1.1</b> With TUBB3</a></li>
+<li class="chapter" data-level="4.1.2" data-path="cluster-the-cells-based-on-their-signatures-scores.html"><a href="cluster-the-cells-based-on-their-signatures-scores.html#without-tubb3"><i class="fa fa-check"></i><b>4.1.2</b> Without TUBB3</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="cluster-the-cells-based-on-their-signatures-scores.html"><a href="cluster-the-cells-based-on-their-signatures-scores.html#k-4"><i class="fa fa-check"></i><b>4.2</b> k = 4</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="cluster-the-cells-based-on-their-signatures-scores.html"><a href="cluster-the-cells-based-on-their-signatures-scores.html#with-tubb3-1"><i class="fa fa-check"></i><b>4.2.1</b> With TUBB3</a></li>
+<li class="chapter" data-level="4.2.2" data-path="cluster-the-cells-based-on-their-signatures-scores.html"><a href="cluster-the-cells-based-on-their-signatures-scores.html#without-tubb3-1"><i class="fa fa-check"></i><b>4.2.2</b> Without TUBB3</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="cluster-the-cells-based-on-their-signatures-scores.html"><a href="cluster-the-cells-based-on-their-signatures-scores.html#k-5"><i class="fa fa-check"></i><b>4.3</b> k = 5</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="cluster-the-cells-based-on-their-signatures-scores.html"><a href="cluster-the-cells-based-on-their-signatures-scores.html#with-tubb3-2"><i class="fa fa-check"></i><b>4.3.1</b> With TUBB3</a></li>
+<li class="chapter" data-level="4.3.2" data-path="cluster-the-cells-based-on-their-signatures-scores.html"><a href="cluster-the-cells-based-on-their-signatures-scores.html#without-tubb3-2"><i class="fa fa-check"></i><b>4.3.2</b> Without TUBB3</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="cluster-the-cells-based-on-their-signatures-scores.html"><a href="cluster-the-cells-based-on-their-signatures-scores.html#k-6"><i class="fa fa-check"></i><b>4.4</b> k = 6</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="cluster-the-cells-based-on-their-signatures-scores.html"><a href="cluster-the-cells-based-on-their-signatures-scores.html#with-tubb3-3"><i class="fa fa-check"></i><b>4.4.1</b> With TUBB3</a></li>
+<li class="chapter" data-level="4.4.2" data-path="cluster-the-cells-based-on-their-signatures-scores.html"><a href="cluster-the-cells-based-on-their-signatures-scores.html#without-tubb3-3"><i class="fa fa-check"></i><b>4.4.2</b> Without TUBB3</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="show-markers-expression-on-signature-score-plots.html"><a href="show-markers-expression-on-signature-score-plots.html"><i class="fa fa-check"></i><b>5</b> Show markers expression on signature score plots</a></li>
+<li class="chapter" data-level="6" data-path="vizualise-cells-to-keep.html"><a href="vizualise-cells-to-keep.html"><i class="fa fa-check"></i><b>6</b> Vizualise cells to keep</a><ul>
+<li class="chapter" data-level="6.1" data-path="vizualise-cells-to-keep.html"><a href="vizualise-cells-to-keep.html#threshold-0.1"><i class="fa fa-check"></i><b>6.1</b> Threshold = 0.1</a></li>
+<li class="chapter" data-level="6.2" data-path="vizualise-cells-to-keep.html"><a href="vizualise-cells-to-keep.html#threshold-0.2"><i class="fa fa-check"></i><b>6.2</b> Threshold = 0.2</a></li>
+<li class="chapter" data-level="6.3" data-path="vizualise-cells-to-keep.html"><a href="vizualise-cells-to-keep.html#threshold-0.3"><i class="fa fa-check"></i><b>6.3</b> Threshold = 0.3</a></li>
+<li class="chapter" data-level="6.4" data-path="vizualise-cells-to-keep.html"><a href="vizualise-cells-to-keep.html#threshold-0.4"><i class="fa fa-check"></i><b>6.4</b> Threshold = 0.4</a></li>
+<li class="chapter" data-level="6.5" data-path="vizualise-cells-to-keep.html"><a href="vizualise-cells-to-keep.html#threshold-0.5"><i class="fa fa-check"></i><b>6.5</b> Threshold = 0.5</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="session-info.html"><a href="session-info.html"><i class="fa fa-check"></i><b>7</b> Session info</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Progenitor pop selection</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="cluster-the-cells-based-on-their-signatures-scores" class="section level1">
+<h1><span class="header-section-number">4</span> Cluster the cells based on their signatures scores</h1>
+<div id="k-3" class="section level2">
+<h2><span class="header-section-number">4.1</span> k = 3</h2>
+<div id="with-tubb3" class="section level3">
+<h3><span class="header-section-number">4.1.1</span> With TUBB3</h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb11-1"></a><span class="kw">set.seed</span>(<span class="dv">12345</span>)</span>
+<span id="cb11-2"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb11-2"></a>kident &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&#39;kmeanClust_Tubb3_&#39;</span>, kcenter)</span>
+<span id="cb11-3"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb11-3"></a>col.pal &lt;-<span class="st"> </span><span class="kw">few_pal</span>(<span class="st">&quot;Dark&quot;</span>)(kcenter)</span>
+<span id="cb11-4"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb11-4"></a>cl &lt;-<span class="st"> </span><span class="kw">kmeans</span>(<span class="kw">cbind</span>(dat.seurat<span class="op">@</span>meta.data<span class="op">$</span>Progenitors_<span class="dv">1</span>,</span>
+<span id="cb11-5"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb11-5"></a>    dat.seurat<span class="op">@</span>meta.data<span class="op">$</span>Neurons_Tubb3_<span class="dv">1</span>),</span>
+<span id="cb11-6"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb11-6"></a>    <span class="dt">centers =</span> kcenter)</span>
+<span id="cb11-7"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb11-7"></a></span>
+<span id="cb11-8"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb11-8"></a>dat.seurat<span class="op">@</span>meta.data[[kident]] &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;Clust.&quot;</span>,cl<span class="op">$</span>cluster)</span>
+<span id="cb11-9"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb11-9"></a><span class="kw">table</span>(dat.seurat<span class="op">@</span>meta.data[[kident]])</span></code></pre></div>
+<pre><code>## 
+## Clust.1 Clust.2 Clust.3 
+##   11787    8376    5411</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb13-1"></a><span class="kw">prop.table</span>(<span class="kw">table</span>(dat.seurat<span class="op">@</span>meta.data[[kident]]))</span></code></pre></div>
+<pre><code>## 
+##   Clust.1   Clust.2   Clust.3 
+## 0.4608978 0.3275201 0.2115821</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb15-1"></a>p1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(dat.seurat<span class="op">@</span>meta.data, <span class="kw">aes</span>(<span class="dt">x =</span> Progenitors_<span class="dv">1</span>, <span class="dt">y =</span> Neurons_Tubb3_<span class="dv">1</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>)) <span class="op">+</span></span>
+<span id="cb15-2"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb15-2"></a><span class="st">    </span><span class="kw">geom_point</span>(<span class="kw">aes_string</span>(<span class="dt">colour =</span> kident)) <span class="op">+</span></span>
+<span id="cb15-3"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb15-3"></a><span class="st">    </span><span class="kw">theme</span>(<span class="dt">legend.position=</span><span class="st">&quot;none&quot;</span>) <span class="op">+</span></span>
+<span id="cb15-4"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb15-4"></a><span class="st">    </span><span class="kw">scale_color_manual</span>(<span class="dt">values=</span>col.pal)</span>
+<span id="cb15-5"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb15-5"></a><span class="kw">ggMarginal</span>(p1, <span class="dt">type =</span> <span class="st">&quot;histogram&quot;</span>, <span class="dt">fill=</span><span class="st">&quot;lightgrey&quot;</span>)</span></code></pre></div>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-12-1.png" width="960" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb16-1"></a><span class="kw">DimPlot</span>(dat.seurat,</span>
+<span id="cb16-2"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb16-2"></a>        <span class="dt">group.by =</span> kident,</span>
+<span id="cb16-3"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb16-3"></a>        <span class="dt">reduction =</span> <span class="st">&quot;umap&quot;</span>,</span>
+<span id="cb16-4"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb16-4"></a>        <span class="dt">cols =</span> col.pal,</span>
+<span id="cb16-5"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb16-5"></a>        <span class="dt">label.size =</span> <span class="dv">4</span>)</span></code></pre></div>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-13-1.png" width="960" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb17-1"></a><span class="cf">for</span>(k <span class="cf">in</span> <span class="kw">seq</span>(<span class="dv">1</span>, kcenter, <span class="dv">1</span>)){</span>
+<span id="cb17-2"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb17-2"></a>    <span class="kw">print</span>(<span class="kw">DimPlot</span>(dat.seurat,</span>
+<span id="cb17-3"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb17-3"></a>        <span class="dt">group.by =</span> kident,</span>
+<span id="cb17-4"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb17-4"></a>        <span class="dt">cells =</span> <span class="kw">which</span>(dat.seurat<span class="op">@</span>meta.data[[kident]] <span class="op">==</span><span class="st"> </span><span class="kw">paste0</span>(<span class="st">&#39;Clust.&#39;</span>, k)),</span>
+<span id="cb17-5"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb17-5"></a>        <span class="dt">reduction =</span> <span class="st">&quot;umap&quot;</span>,</span>
+<span id="cb17-6"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb17-6"></a>        <span class="dt">cols =</span> col.pal[k],</span>
+<span id="cb17-7"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb17-7"></a>        <span class="dt">label.size =</span> <span class="dv">4</span>))    </span>
+<span id="cb17-8"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb17-8"></a>}</span></code></pre></div>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-15-1.png" width="960" style="display: block; margin: auto;" /><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-15-2.png" width="960" style="display: block; margin: auto;" /><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-15-3.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="without-tubb3" class="section level3">
+<h3><span class="header-section-number">4.1.2</span> Without TUBB3</h3>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb18-1"></a><span class="kw">set.seed</span>(<span class="dv">12345</span>)</span>
+<span id="cb18-2"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb18-2"></a>kident &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&#39;kmeanClust_&#39;</span>, kcenter)</span>
+<span id="cb18-3"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb18-3"></a></span>
+<span id="cb18-4"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb18-4"></a>cl &lt;-<span class="st"> </span><span class="kw">kmeans</span>(<span class="kw">cbind</span>(dat.seurat<span class="op">@</span>meta.data<span class="op">$</span>Progenitors_<span class="dv">1</span>,</span>
+<span id="cb18-5"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb18-5"></a>    dat.seurat<span class="op">@</span>meta.data<span class="op">$</span>Neurons_<span class="dv">1</span>),</span>
+<span id="cb18-6"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb18-6"></a>    <span class="dt">centers =</span> kcenter)</span>
+<span id="cb18-7"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb18-7"></a></span>
+<span id="cb18-8"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb18-8"></a>dat.seurat<span class="op">@</span>meta.data[[kident]] &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;Clust.&quot;</span>,cl<span class="op">$</span>cluster)</span>
+<span id="cb18-9"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb18-9"></a><span class="kw">table</span>(dat.seurat<span class="op">@</span>meta.data[[kident]])</span></code></pre></div>
+<pre><code>## 
+## Clust.1 Clust.2 Clust.3 
+##   11800    8241    5533</code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb20-1"></a><span class="kw">prop.table</span>(<span class="kw">table</span>(dat.seurat<span class="op">@</span>meta.data[[kident]]))</span></code></pre></div>
+<pre><code>## 
+##   Clust.1   Clust.2   Clust.3 
+## 0.4614061 0.3222413 0.2163525</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb22-1"></a>p1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(dat.seurat<span class="op">@</span>meta.data, <span class="kw">aes</span>(<span class="dt">x =</span> Progenitors_<span class="dv">1</span>, <span class="dt">y =</span> Neurons_<span class="dv">1</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>)) <span class="op">+</span></span>
+<span id="cb22-2"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb22-2"></a><span class="st">    </span><span class="kw">geom_point</span>(<span class="kw">aes_string</span>(<span class="dt">colour =</span> kident)) <span class="op">+</span></span>
+<span id="cb22-3"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb22-3"></a><span class="st">    </span><span class="kw">theme</span>(<span class="dt">legend.position=</span><span class="st">&quot;none&quot;</span>) <span class="op">+</span></span>
+<span id="cb22-4"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb22-4"></a><span class="st">    </span><span class="kw">scale_color_manual</span>(<span class="dt">values=</span>col.pal)</span>
+<span id="cb22-5"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb22-5"></a><span class="kw">ggMarginal</span>(p1, <span class="dt">type =</span> <span class="st">&quot;histogram&quot;</span>, <span class="dt">fill=</span><span class="st">&quot;lightgrey&quot;</span>)</span></code></pre></div>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-17-1.png" width="960" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb23-1"></a><span class="kw">DimPlot</span>(dat.seurat,</span>
+<span id="cb23-2"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb23-2"></a>        <span class="dt">group.by =</span> kident,</span>
+<span id="cb23-3"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb23-3"></a>        <span class="dt">reduction =</span> <span class="st">&quot;umap&quot;</span>,</span>
+<span id="cb23-4"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb23-4"></a>        <span class="dt">cols =</span> col.pal,</span>
+<span id="cb23-5"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb23-5"></a>        <span class="dt">label.size =</span> <span class="dv">4</span>)</span></code></pre></div>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-18-1.png" width="960" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb24-1"></a><span class="cf">for</span>(k <span class="cf">in</span> <span class="kw">seq</span>(<span class="dv">1</span>, kcenter, <span class="dv">1</span>)){</span>
+<span id="cb24-2"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb24-2"></a>    <span class="kw">print</span>(<span class="kw">DimPlot</span>(dat.seurat,</span>
+<span id="cb24-3"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb24-3"></a>        <span class="dt">group.by =</span> kident,</span>
+<span id="cb24-4"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb24-4"></a>        <span class="dt">cells =</span> <span class="kw">which</span>(dat.seurat<span class="op">@</span>meta.data[[kident]] <span class="op">==</span><span class="st"> </span><span class="kw">paste0</span>(<span class="st">&#39;Clust.&#39;</span>, k)),</span>
+<span id="cb24-5"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb24-5"></a>        <span class="dt">reduction =</span> <span class="st">&quot;umap&quot;</span>,</span>
+<span id="cb24-6"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb24-6"></a>        <span class="dt">cols =</span> col.pal[k],</span>
+<span id="cb24-7"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb24-7"></a>        <span class="dt">label.size =</span> <span class="dv">4</span>))</span>
+<span id="cb24-8"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb24-8"></a>}</span></code></pre></div>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-19-1.png" width="960" style="display: block; margin: auto;" /><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-19-2.png" width="960" style="display: block; margin: auto;" /><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-19-3.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="k-4" class="section level2">
+<h2><span class="header-section-number">4.2</span> k = 4</h2>
+<div id="with-tubb3-1" class="section level3">
+<h3><span class="header-section-number">4.2.1</span> With TUBB3</h3>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb25-1"></a><span class="kw">set.seed</span>(<span class="dv">12345</span>)</span>
+<span id="cb25-2"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb25-2"></a>kident &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&#39;kmeanClust_Tubb3_&#39;</span>, kcenter)</span>
+<span id="cb25-3"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb25-3"></a>col.pal &lt;-<span class="st"> </span><span class="kw">few_pal</span>(<span class="st">&quot;Dark&quot;</span>)(kcenter)</span>
+<span id="cb25-4"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb25-4"></a>cl &lt;-<span class="st"> </span><span class="kw">kmeans</span>(<span class="kw">cbind</span>(dat.seurat<span class="op">@</span>meta.data<span class="op">$</span>Progenitors_<span class="dv">1</span>,</span>
+<span id="cb25-5"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb25-5"></a>    dat.seurat<span class="op">@</span>meta.data<span class="op">$</span>Neurons_Tubb3_<span class="dv">1</span>),</span>
+<span id="cb25-6"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb25-6"></a>    <span class="dt">centers =</span> kcenter)</span>
+<span id="cb25-7"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb25-7"></a></span>
+<span id="cb25-8"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb25-8"></a>dat.seurat<span class="op">@</span>meta.data[[kident]] &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;Clust.&quot;</span>,cl<span class="op">$</span>cluster)</span>
+<span id="cb25-9"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb25-9"></a><span class="kw">table</span>(dat.seurat<span class="op">@</span>meta.data[[kident]])</span></code></pre></div>
+<pre><code>## 
+## Clust.1 Clust.2 Clust.3 Clust.4 
+##   10009    5007    5866    4692</code></pre>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb27-1"></a><span class="kw">prop.table</span>(<span class="kw">table</span>(dat.seurat<span class="op">@</span>meta.data[[kident]]))</span></code></pre></div>
+<pre><code>## 
+##   Clust.1   Clust.2   Clust.3   Clust.4 
+## 0.3913741 0.1957848 0.2293736 0.1834676</code></pre>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb29-1"></a>p1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(dat.seurat<span class="op">@</span>meta.data, <span class="kw">aes</span>(<span class="dt">x =</span> Progenitors_<span class="dv">1</span>, <span class="dt">y =</span> Neurons_Tubb3_<span class="dv">1</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>)) <span class="op">+</span></span>
+<span id="cb29-2"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb29-2"></a><span class="st">    </span><span class="kw">geom_point</span>(<span class="kw">aes_string</span>(<span class="dt">colour =</span> kident)) <span class="op">+</span></span>
+<span id="cb29-3"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb29-3"></a><span class="st">    </span><span class="kw">theme</span>(<span class="dt">legend.position=</span><span class="st">&quot;none&quot;</span>) <span class="op">+</span></span>
+<span id="cb29-4"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb29-4"></a><span class="st">    </span><span class="kw">scale_color_manual</span>(<span class="dt">values=</span>col.pal)</span>
+<span id="cb29-5"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb29-5"></a><span class="kw">ggMarginal</span>(p1, <span class="dt">type =</span> <span class="st">&quot;histogram&quot;</span>, <span class="dt">fill=</span><span class="st">&quot;lightgrey&quot;</span>)</span></code></pre></div>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-22-1.png" width="960" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb30-1"></a><span class="kw">DimPlot</span>(dat.seurat,</span>
+<span id="cb30-2"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb30-2"></a>        <span class="dt">group.by =</span> kident,</span>
+<span id="cb30-3"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb30-3"></a>        <span class="dt">reduction =</span> <span class="st">&quot;umap&quot;</span>,</span>
+<span id="cb30-4"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb30-4"></a>        <span class="dt">cols =</span> col.pal,</span>
+<span id="cb30-5"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb30-5"></a>        <span class="dt">label.size =</span> <span class="dv">4</span>)</span></code></pre></div>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-23-1.png" width="960" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb31-1"></a><span class="cf">for</span>(k <span class="cf">in</span> <span class="kw">seq</span>(<span class="dv">1</span>, kcenter, <span class="dv">1</span>)){</span>
+<span id="cb31-2"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb31-2"></a>    <span class="kw">print</span>(<span class="kw">DimPlot</span>(dat.seurat,</span>
+<span id="cb31-3"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb31-3"></a>        <span class="dt">group.by =</span> kident,</span>
+<span id="cb31-4"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb31-4"></a>        <span class="dt">cells =</span> <span class="kw">which</span>(dat.seurat<span class="op">@</span>meta.data[[kident]] <span class="op">==</span><span class="st"> </span><span class="kw">paste0</span>(<span class="st">&#39;Clust.&#39;</span>, k)),</span>
+<span id="cb31-5"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb31-5"></a>        <span class="dt">reduction =</span> <span class="st">&quot;umap&quot;</span>,</span>
+<span id="cb31-6"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb31-6"></a>        <span class="dt">cols =</span> col.pal[k],</span>
+<span id="cb31-7"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb31-7"></a>        <span class="dt">label.size =</span> <span class="dv">4</span>))    </span>
+<span id="cb31-8"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb31-8"></a>}</span></code></pre></div>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-25-1.png" width="960" style="display: block; margin: auto;" /><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-25-2.png" width="960" style="display: block; margin: auto;" /><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-25-3.png" width="960" style="display: block; margin: auto;" /><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-25-4.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="without-tubb3-1" class="section level3">
+<h3><span class="header-section-number">4.2.2</span> Without TUBB3</h3>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb32-1"></a><span class="kw">set.seed</span>(<span class="dv">12345</span>)</span>
+<span id="cb32-2"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb32-2"></a>kident &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&#39;kmeanClust_&#39;</span>, kcenter)</span>
+<span id="cb32-3"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb32-3"></a></span>
+<span id="cb32-4"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb32-4"></a>cl &lt;-<span class="st"> </span><span class="kw">kmeans</span>(<span class="kw">cbind</span>(dat.seurat<span class="op">@</span>meta.data<span class="op">$</span>Progenitors_<span class="dv">1</span>,</span>
+<span id="cb32-5"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb32-5"></a>    dat.seurat<span class="op">@</span>meta.data<span class="op">$</span>Neurons_<span class="dv">1</span>),</span>
+<span id="cb32-6"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb32-6"></a>    <span class="dt">centers =</span> kcenter)</span>
+<span id="cb32-7"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb32-7"></a></span>
+<span id="cb32-8"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb32-8"></a>dat.seurat<span class="op">@</span>meta.data[[kident]] &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;Clust.&quot;</span>,cl<span class="op">$</span>cluster)</span>
+<span id="cb32-9"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb32-9"></a><span class="kw">table</span>(dat.seurat<span class="op">@</span>meta.data[[kident]])</span></code></pre></div>
+<pre><code>## 
+## Clust.1 Clust.2 Clust.3 Clust.4 
+##    8162    6665    6243    4504</code></pre>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb34-1"></a><span class="kw">prop.table</span>(<span class="kw">table</span>(dat.seurat<span class="op">@</span>meta.data[[kident]]))</span></code></pre></div>
+<pre><code>## 
+##   Clust.1   Clust.2   Clust.3   Clust.4 
+## 0.3191523 0.2606163 0.2441151 0.1761164</code></pre>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb36-1"></a>p1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(dat.seurat<span class="op">@</span>meta.data, <span class="kw">aes</span>(<span class="dt">x =</span> Progenitors_<span class="dv">1</span>, <span class="dt">y =</span> Neurons_<span class="dv">1</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>)) <span class="op">+</span></span>
+<span id="cb36-2"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb36-2"></a><span class="st">    </span><span class="kw">geom_point</span>(<span class="kw">aes_string</span>(<span class="dt">colour =</span> kident)) <span class="op">+</span></span>
+<span id="cb36-3"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb36-3"></a><span class="st">    </span><span class="kw">theme</span>(<span class="dt">legend.position=</span><span class="st">&quot;none&quot;</span>) <span class="op">+</span></span>
+<span id="cb36-4"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb36-4"></a><span class="st">    </span><span class="kw">scale_color_manual</span>(<span class="dt">values=</span>col.pal)</span>
+<span id="cb36-5"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb36-5"></a><span class="kw">ggMarginal</span>(p1, <span class="dt">type =</span> <span class="st">&quot;histogram&quot;</span>, <span class="dt">fill=</span><span class="st">&quot;lightgrey&quot;</span>)</span></code></pre></div>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-27-1.png" width="960" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb37-1"></a><span class="kw">DimPlot</span>(dat.seurat,</span>
+<span id="cb37-2"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb37-2"></a>        <span class="dt">group.by =</span> kident,</span>
+<span id="cb37-3"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb37-3"></a>        <span class="dt">reduction =</span> <span class="st">&quot;umap&quot;</span>,</span>
+<span id="cb37-4"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb37-4"></a>        <span class="dt">cols =</span> col.pal,</span>
+<span id="cb37-5"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb37-5"></a>        <span class="dt">label.size =</span> <span class="dv">4</span>)</span></code></pre></div>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-28-1.png" width="960" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb38-1"></a><span class="cf">for</span>(k <span class="cf">in</span> <span class="kw">seq</span>(<span class="dv">1</span>, kcenter, <span class="dv">1</span>)){</span>
+<span id="cb38-2"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb38-2"></a>    <span class="kw">print</span>(<span class="kw">DimPlot</span>(dat.seurat,</span>
+<span id="cb38-3"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb38-3"></a>        <span class="dt">group.by =</span> kident,</span>
+<span id="cb38-4"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb38-4"></a>        <span class="dt">cells =</span> <span class="kw">which</span>(dat.seurat<span class="op">@</span>meta.data[[kident]] <span class="op">==</span><span class="st"> </span><span class="kw">paste0</span>(<span class="st">&#39;Clust.&#39;</span>, k)),</span>
+<span id="cb38-5"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb38-5"></a>        <span class="dt">reduction =</span> <span class="st">&quot;umap&quot;</span>,</span>
+<span id="cb38-6"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb38-6"></a>        <span class="dt">cols =</span> col.pal[k],</span>
+<span id="cb38-7"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb38-7"></a>        <span class="dt">label.size =</span> <span class="dv">4</span>))</span>
+<span id="cb38-8"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb38-8"></a>}</span></code></pre></div>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-29-1.png" width="960" style="display: block; margin: auto;" /><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-29-2.png" width="960" style="display: block; margin: auto;" /><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-29-3.png" width="960" style="display: block; margin: auto;" /><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-29-4.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="k-5" class="section level2">
+<h2><span class="header-section-number">4.3</span> k = 5</h2>
+<div id="with-tubb3-2" class="section level3">
+<h3><span class="header-section-number">4.3.1</span> With TUBB3</h3>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb39-1"></a><span class="kw">set.seed</span>(<span class="dv">12345</span>)</span>
+<span id="cb39-2"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb39-2"></a>kident &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&#39;kmeanClust_Tubb3_&#39;</span>, kcenter)</span>
+<span id="cb39-3"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb39-3"></a>col.pal &lt;-<span class="st"> </span><span class="kw">few_pal</span>(<span class="st">&quot;Dark&quot;</span>)(kcenter)</span>
+<span id="cb39-4"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb39-4"></a>cl &lt;-<span class="st"> </span><span class="kw">kmeans</span>(<span class="kw">cbind</span>(dat.seurat<span class="op">@</span>meta.data<span class="op">$</span>Progenitors_<span class="dv">1</span>,</span>
+<span id="cb39-5"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb39-5"></a>    dat.seurat<span class="op">@</span>meta.data<span class="op">$</span>Neurons_Tubb3_<span class="dv">1</span>),</span>
+<span id="cb39-6"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb39-6"></a>    <span class="dt">centers =</span> kcenter)</span>
+<span id="cb39-7"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb39-7"></a></span>
+<span id="cb39-8"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb39-8"></a>dat.seurat<span class="op">@</span>meta.data[[kident]] &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;Clust.&quot;</span>,cl<span class="op">$</span>cluster)</span>
+<span id="cb39-9"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb39-9"></a><span class="kw">table</span>(dat.seurat<span class="op">@</span>meta.data[[kident]])</span></code></pre></div>
+<pre><code>## 
+## Clust.1 Clust.2 Clust.3 Clust.4 Clust.5 
+##    6510    4178    3230    4518    7138</code></pre>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb41-1"></a><span class="kw">prop.table</span>(<span class="kw">table</span>(dat.seurat<span class="op">@</span>meta.data[[kident]]))</span></code></pre></div>
+<pre><code>## 
+##   Clust.1   Clust.2   Clust.3   Clust.4   Clust.5 
+## 0.2545554 0.1633690 0.1263001 0.1766638 0.2791116</code></pre>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb43-1"></a>p1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(dat.seurat<span class="op">@</span>meta.data, <span class="kw">aes</span>(<span class="dt">x =</span> Progenitors_<span class="dv">1</span>, <span class="dt">y =</span> Neurons_Tubb3_<span class="dv">1</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>)) <span class="op">+</span></span>
+<span id="cb43-2"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb43-2"></a><span class="st">    </span><span class="kw">geom_point</span>(<span class="kw">aes_string</span>(<span class="dt">colour =</span> kident)) <span class="op">+</span></span>
+<span id="cb43-3"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb43-3"></a><span class="st">    </span><span class="kw">theme</span>(<span class="dt">legend.position=</span><span class="st">&quot;none&quot;</span>) <span class="op">+</span></span>
+<span id="cb43-4"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb43-4"></a><span class="st">    </span><span class="kw">scale_color_manual</span>(<span class="dt">values=</span>col.pal)</span>
+<span id="cb43-5"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb43-5"></a><span class="kw">ggMarginal</span>(p1, <span class="dt">type =</span> <span class="st">&quot;histogram&quot;</span>, <span class="dt">fill=</span><span class="st">&quot;lightgrey&quot;</span>)</span></code></pre></div>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-32-1.png" width="960" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb44-1"></a><span class="kw">DimPlot</span>(dat.seurat,</span>
+<span id="cb44-2"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb44-2"></a>        <span class="dt">group.by =</span> kident,</span>
+<span id="cb44-3"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb44-3"></a>        <span class="dt">reduction =</span> <span class="st">&quot;umap&quot;</span>,</span>
+<span id="cb44-4"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb44-4"></a>        <span class="dt">cols =</span> col.pal,</span>
+<span id="cb44-5"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb44-5"></a>        <span class="dt">label.size =</span> <span class="dv">4</span>)</span></code></pre></div>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-33-1.png" width="960" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb45-1"></a><span class="cf">for</span>(k <span class="cf">in</span> <span class="kw">seq</span>(<span class="dv">1</span>, kcenter, <span class="dv">1</span>)){</span>
+<span id="cb45-2"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb45-2"></a>    <span class="kw">print</span>(<span class="kw">DimPlot</span>(dat.seurat,</span>
+<span id="cb45-3"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb45-3"></a>        <span class="dt">group.by =</span> kident,</span>
+<span id="cb45-4"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb45-4"></a>        <span class="dt">cells =</span> <span class="kw">which</span>(dat.seurat<span class="op">@</span>meta.data[[kident]] <span class="op">==</span><span class="st"> </span><span class="kw">paste0</span>(<span class="st">&#39;Clust.&#39;</span>, k)),</span>
+<span id="cb45-5"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb45-5"></a>        <span class="dt">reduction =</span> <span class="st">&quot;umap&quot;</span>,</span>
+<span id="cb45-6"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb45-6"></a>        <span class="dt">cols =</span> col.pal[k],</span>
+<span id="cb45-7"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb45-7"></a>        <span class="dt">label.size =</span> <span class="dv">4</span>))    </span>
+<span id="cb45-8"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb45-8"></a>}</span></code></pre></div>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-35-1.png" width="960" style="display: block; margin: auto;" /><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-35-2.png" width="960" style="display: block; margin: auto;" /><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-35-3.png" width="960" style="display: block; margin: auto;" /><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-35-4.png" width="960" style="display: block; margin: auto;" /><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-35-5.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="without-tubb3-2" class="section level3">
+<h3><span class="header-section-number">4.3.2</span> Without TUBB3</h3>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb46-1"></a><span class="kw">set.seed</span>(<span class="dv">12345</span>)</span>
+<span id="cb46-2"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb46-2"></a>kident &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&#39;kmeanClust_&#39;</span>, kcenter)</span>
+<span id="cb46-3"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb46-3"></a></span>
+<span id="cb46-4"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb46-4"></a>cl &lt;-<span class="st"> </span><span class="kw">kmeans</span>(<span class="kw">cbind</span>(dat.seurat<span class="op">@</span>meta.data<span class="op">$</span>Progenitors_<span class="dv">1</span>,</span>
+<span id="cb46-5"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb46-5"></a>    dat.seurat<span class="op">@</span>meta.data<span class="op">$</span>Neurons_<span class="dv">1</span>),</span>
+<span id="cb46-6"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb46-6"></a>    <span class="dt">centers =</span> kcenter)</span>
+<span id="cb46-7"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb46-7"></a></span>
+<span id="cb46-8"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb46-8"></a>dat.seurat<span class="op">@</span>meta.data[[kident]] &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;Clust.&quot;</span>,cl<span class="op">$</span>cluster)</span>
+<span id="cb46-9"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb46-9"></a><span class="kw">table</span>(dat.seurat<span class="op">@</span>meta.data[[kident]])</span></code></pre></div>
+<pre><code>## 
+## Clust.1 Clust.2 Clust.3 Clust.4 Clust.5 
+##    6321    4185    3307    4609    7152</code></pre>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb48-1"></a><span class="kw">prop.table</span>(<span class="kw">table</span>(dat.seurat<span class="op">@</span>meta.data[[kident]]))</span></code></pre></div>
+<pre><code>## 
+##   Clust.1   Clust.2   Clust.3   Clust.4   Clust.5 
+## 0.2471651 0.1636428 0.1293110 0.1802221 0.2796590</code></pre>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb50-1"></a>p1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(dat.seurat<span class="op">@</span>meta.data, <span class="kw">aes</span>(<span class="dt">x =</span> Progenitors_<span class="dv">1</span>, <span class="dt">y =</span> Neurons_<span class="dv">1</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>)) <span class="op">+</span></span>
+<span id="cb50-2"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb50-2"></a><span class="st">    </span><span class="kw">geom_point</span>(<span class="kw">aes_string</span>(<span class="dt">colour =</span> kident)) <span class="op">+</span></span>
+<span id="cb50-3"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb50-3"></a><span class="st">    </span><span class="kw">theme</span>(<span class="dt">legend.position=</span><span class="st">&quot;none&quot;</span>) <span class="op">+</span></span>
+<span id="cb50-4"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb50-4"></a><span class="st">    </span><span class="kw">scale_color_manual</span>(<span class="dt">values=</span>col.pal)</span>
+<span id="cb50-5"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb50-5"></a><span class="kw">ggMarginal</span>(p1, <span class="dt">type =</span> <span class="st">&quot;histogram&quot;</span>, <span class="dt">fill=</span><span class="st">&quot;lightgrey&quot;</span>)</span></code></pre></div>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-37-1.png" width="960" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb51-1"></a><span class="kw">DimPlot</span>(dat.seurat,</span>
+<span id="cb51-2"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb51-2"></a>        <span class="dt">group.by =</span> kident,</span>
+<span id="cb51-3"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb51-3"></a>        <span class="dt">reduction =</span> <span class="st">&quot;umap&quot;</span>,</span>
+<span id="cb51-4"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb51-4"></a>        <span class="dt">cols =</span> col.pal,</span>
+<span id="cb51-5"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb51-5"></a>        <span class="dt">label.size =</span> <span class="dv">4</span>)</span></code></pre></div>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-38-1.png" width="960" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb52-1"></a><span class="cf">for</span>(k <span class="cf">in</span> <span class="kw">seq</span>(<span class="dv">1</span>, kcenter, <span class="dv">1</span>)){</span>
+<span id="cb52-2"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb52-2"></a>    <span class="kw">print</span>(<span class="kw">DimPlot</span>(dat.seurat,</span>
+<span id="cb52-3"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb52-3"></a>        <span class="dt">group.by =</span> kident,</span>
+<span id="cb52-4"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb52-4"></a>        <span class="dt">cells =</span> <span class="kw">which</span>(dat.seurat<span class="op">@</span>meta.data[[kident]] <span class="op">==</span><span class="st"> </span><span class="kw">paste0</span>(<span class="st">&#39;Clust.&#39;</span>, k)),</span>
+<span id="cb52-5"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb52-5"></a>        <span class="dt">reduction =</span> <span class="st">&quot;umap&quot;</span>,</span>
+<span id="cb52-6"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb52-6"></a>        <span class="dt">cols =</span> col.pal[k],</span>
+<span id="cb52-7"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb52-7"></a>        <span class="dt">label.size =</span> <span class="dv">4</span>))</span>
+<span id="cb52-8"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb52-8"></a>}</span></code></pre></div>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-39-1.png" width="960" style="display: block; margin: auto;" /><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-39-2.png" width="960" style="display: block; margin: auto;" /><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-39-3.png" width="960" style="display: block; margin: auto;" /><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-39-4.png" width="960" style="display: block; margin: auto;" /><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-39-5.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="k-6" class="section level2">
+<h2><span class="header-section-number">4.4</span> k = 6</h2>
+<div id="with-tubb3-3" class="section level3">
+<h3><span class="header-section-number">4.4.1</span> With TUBB3</h3>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb53-1"></a><span class="kw">set.seed</span>(<span class="dv">12345</span>)</span>
+<span id="cb53-2"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb53-2"></a>kident &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&#39;kmeanClust_Tubb3_&#39;</span>, kcenter)</span>
+<span id="cb53-3"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb53-3"></a>col.pal &lt;-<span class="st"> </span><span class="kw">few_pal</span>(<span class="st">&quot;Dark&quot;</span>)(kcenter)</span>
+<span id="cb53-4"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb53-4"></a>cl &lt;-<span class="st"> </span><span class="kw">kmeans</span>(<span class="kw">cbind</span>(dat.seurat<span class="op">@</span>meta.data<span class="op">$</span>Progenitors_<span class="dv">1</span>,</span>
+<span id="cb53-5"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb53-5"></a>    dat.seurat<span class="op">@</span>meta.data<span class="op">$</span>Neurons_Tubb3_<span class="dv">1</span>),</span>
+<span id="cb53-6"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb53-6"></a>    <span class="dt">centers =</span> kcenter)</span></code></pre></div>
+<pre><code>## Warning: did not converge in 10 iterations</code></pre>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb55-1"></a>dat.seurat<span class="op">@</span>meta.data[[kident]] &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;Clust.&quot;</span>,cl<span class="op">$</span>cluster)</span>
+<span id="cb55-2"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb55-2"></a><span class="kw">table</span>(dat.seurat<span class="op">@</span>meta.data[[kident]])</span></code></pre></div>
+<pre><code>## 
+## Clust.1 Clust.2 Clust.3 Clust.4 Clust.5 Clust.6 
+##    1422    3821    6434    2969    7087    3841</code></pre>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb57-1"></a><span class="kw">prop.table</span>(<span class="kw">table</span>(dat.seurat<span class="op">@</span>meta.data[[kident]]))</span></code></pre></div>
+<pre><code>## 
+##    Clust.1    Clust.2    Clust.3    Clust.4    Clust.5    Clust.6 
+## 0.05560335 0.14940956 0.25158364 0.11609447 0.27711738 0.15019160</code></pre>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb59-1"></a>p1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(dat.seurat<span class="op">@</span>meta.data, <span class="kw">aes</span>(<span class="dt">x =</span> Progenitors_<span class="dv">1</span>, <span class="dt">y =</span> Neurons_Tubb3_<span class="dv">1</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>)) <span class="op">+</span></span>
+<span id="cb59-2"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb59-2"></a><span class="st">    </span><span class="kw">geom_point</span>(<span class="kw">aes_string</span>(<span class="dt">colour =</span> kident)) <span class="op">+</span></span>
+<span id="cb59-3"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb59-3"></a><span class="st">    </span><span class="kw">theme</span>(<span class="dt">legend.position=</span><span class="st">&quot;none&quot;</span>) <span class="op">+</span></span>
+<span id="cb59-4"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb59-4"></a><span class="st">    </span><span class="kw">scale_color_manual</span>(<span class="dt">values=</span>col.pal)</span>
+<span id="cb59-5"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb59-5"></a><span class="kw">ggMarginal</span>(p1, <span class="dt">type =</span> <span class="st">&quot;histogram&quot;</span>, <span class="dt">fill=</span><span class="st">&quot;lightgrey&quot;</span>)</span></code></pre></div>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-42-1.png" width="960" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb60-1"></a><span class="kw">DimPlot</span>(dat.seurat,</span>
+<span id="cb60-2"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb60-2"></a>        <span class="dt">group.by =</span> kident,</span>
+<span id="cb60-3"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb60-3"></a>        <span class="dt">reduction =</span> <span class="st">&quot;umap&quot;</span>,</span>
+<span id="cb60-4"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb60-4"></a>        <span class="dt">cols =</span> col.pal,</span>
+<span id="cb60-5"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb60-5"></a>        <span class="dt">label.size =</span> <span class="dv">4</span>)</span></code></pre></div>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-43-1.png" width="960" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb61-1"></a><span class="cf">for</span>(k <span class="cf">in</span> <span class="kw">seq</span>(<span class="dv">1</span>, kcenter, <span class="dv">1</span>)){</span>
+<span id="cb61-2"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb61-2"></a>    <span class="kw">print</span>(<span class="kw">DimPlot</span>(dat.seurat,</span>
+<span id="cb61-3"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb61-3"></a>        <span class="dt">group.by =</span> kident,</span>
+<span id="cb61-4"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb61-4"></a>        <span class="dt">cells =</span> <span class="kw">which</span>(dat.seurat<span class="op">@</span>meta.data[[kident]] <span class="op">==</span><span class="st"> </span><span class="kw">paste0</span>(<span class="st">&#39;Clust.&#39;</span>, k)),</span>
+<span id="cb61-5"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb61-5"></a>        <span class="dt">reduction =</span> <span class="st">&quot;umap&quot;</span>,</span>
+<span id="cb61-6"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb61-6"></a>        <span class="dt">cols =</span> col.pal[k],</span>
+<span id="cb61-7"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb61-7"></a>        <span class="dt">label.size =</span> <span class="dv">4</span>))    </span>
+<span id="cb61-8"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb61-8"></a>}</span></code></pre></div>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-45-1.png" width="960" style="display: block; margin: auto;" /><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-45-2.png" width="960" style="display: block; margin: auto;" /><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-45-3.png" width="960" style="display: block; margin: auto;" /><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-45-4.png" width="960" style="display: block; margin: auto;" /><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-45-5.png" width="960" style="display: block; margin: auto;" /><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-45-6.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="without-tubb3-3" class="section level3">
+<h3><span class="header-section-number">4.4.2</span> Without TUBB3</h3>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb62-1"></a><span class="kw">set.seed</span>(<span class="dv">12345</span>)</span>
+<span id="cb62-2"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb62-2"></a>kident &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&#39;kmeanClust_&#39;</span>, kcenter)</span>
+<span id="cb62-3"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb62-3"></a></span>
+<span id="cb62-4"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb62-4"></a>cl &lt;-<span class="st"> </span><span class="kw">kmeans</span>(<span class="kw">cbind</span>(dat.seurat<span class="op">@</span>meta.data<span class="op">$</span>Progenitors_<span class="dv">1</span>,</span>
+<span id="cb62-5"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb62-5"></a>    dat.seurat<span class="op">@</span>meta.data<span class="op">$</span>Neurons_<span class="dv">1</span>),</span>
+<span id="cb62-6"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb62-6"></a>    <span class="dt">centers =</span> kcenter)</span>
+<span id="cb62-7"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb62-7"></a></span>
+<span id="cb62-8"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb62-8"></a>dat.seurat<span class="op">@</span>meta.data[[kident]] &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;Clust.&quot;</span>,cl<span class="op">$</span>cluster)</span>
+<span id="cb62-9"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb62-9"></a><span class="kw">table</span>(dat.seurat<span class="op">@</span>meta.data[[kident]])</span></code></pre></div>
+<pre><code>## 
+## Clust.1 Clust.2 Clust.3 Clust.4 Clust.5 Clust.6 
+##    5731    4548    3813    2666    4821    3995</code></pre>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb64-1"></a><span class="kw">prop.table</span>(<span class="kw">table</span>(dat.seurat<span class="op">@</span>meta.data[[kident]]))</span></code></pre></div>
+<pre><code>## 
+##   Clust.1   Clust.2   Clust.3   Clust.4   Clust.5   Clust.6 
+## 0.2240948 0.1778369 0.1490967 0.1042465 0.1885118 0.1562133</code></pre>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb66-1"></a>p1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(dat.seurat<span class="op">@</span>meta.data, <span class="kw">aes</span>(<span class="dt">x =</span> Progenitors_<span class="dv">1</span>, <span class="dt">y =</span> Neurons_<span class="dv">1</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>)) <span class="op">+</span></span>
+<span id="cb66-2"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb66-2"></a><span class="st">    </span><span class="kw">geom_point</span>(<span class="kw">aes_string</span>(<span class="dt">colour =</span> kident)) <span class="op">+</span></span>
+<span id="cb66-3"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb66-3"></a><span class="st">    </span><span class="kw">theme</span>(<span class="dt">legend.position=</span><span class="st">&quot;none&quot;</span>) <span class="op">+</span></span>
+<span id="cb66-4"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb66-4"></a><span class="st">    </span><span class="kw">scale_color_manual</span>(<span class="dt">values=</span>col.pal)</span>
+<span id="cb66-5"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb66-5"></a><span class="kw">ggMarginal</span>(p1, <span class="dt">type =</span> <span class="st">&quot;histogram&quot;</span>, <span class="dt">fill=</span><span class="st">&quot;lightgrey&quot;</span>)</span></code></pre></div>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-47-1.png" width="960" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb67-1"></a><span class="kw">DimPlot</span>(dat.seurat,</span>
+<span id="cb67-2"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb67-2"></a>        <span class="dt">group.by =</span> kident,</span>
+<span id="cb67-3"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb67-3"></a>        <span class="dt">reduction =</span> <span class="st">&quot;umap&quot;</span>,</span>
+<span id="cb67-4"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb67-4"></a>        <span class="dt">cols =</span> col.pal,</span>
+<span id="cb67-5"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb67-5"></a>        <span class="dt">label.size =</span> <span class="dv">4</span>)</span></code></pre></div>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-48-1.png" width="960" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb68-1"></a><span class="cf">for</span>(k <span class="cf">in</span> <span class="kw">seq</span>(<span class="dv">1</span>, kcenter, <span class="dv">1</span>)){</span>
+<span id="cb68-2"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb68-2"></a>    <span class="kw">print</span>(<span class="kw">DimPlot</span>(dat.seurat,</span>
+<span id="cb68-3"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb68-3"></a>        <span class="dt">group.by =</span> kident,</span>
+<span id="cb68-4"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb68-4"></a>        <span class="dt">cells =</span> <span class="kw">which</span>(dat.seurat<span class="op">@</span>meta.data[[kident]] <span class="op">==</span><span class="st"> </span><span class="kw">paste0</span>(<span class="st">&#39;Clust.&#39;</span>, k)),</span>
+<span id="cb68-5"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb68-5"></a>        <span class="dt">reduction =</span> <span class="st">&quot;umap&quot;</span>,</span>
+<span id="cb68-6"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb68-6"></a>        <span class="dt">cols =</span> col.pal[k],</span>
+<span id="cb68-7"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb68-7"></a>        <span class="dt">label.size =</span> <span class="dv">4</span>))</span>
+<span id="cb68-8"><a href="cluster-the-cells-based-on-their-signatures-scores.html#cb68-8"></a>}</span></code></pre></div>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-49-1.png" width="960" style="display: block; margin: auto;" /><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-49-2.png" width="960" style="display: block; margin: auto;" /><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-49-3.png" width="960" style="display: block; margin: auto;" /><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-49-4.png" width="960" style="display: block; margin: auto;" /><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-49-5.png" width="960" style="display: block; margin: auto;" /><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-49-6.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="visualize-cell-state-scores.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="show-markers-expression-on-signature-score-plots.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": null,
+"scroll_highlight": true
+},
+"toc_depth": 5,
+"toolbar": {
+"position": "fixed"
+},
+"search": true,
+"info": true
+});
+});
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2 Create and assign cell state scores | Progenitor pop selection</title>
+  <meta name="description" content="2 Create and assign cell state scores | Progenitor pop selection" />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="2 Create and assign cell state scores | Progenitor pop selection" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  <meta name="github-repo" content="git@github.com:LehmannN/2020_delile_reanalysis.git" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2 Create and assign cell state scores | Progenitor pop selection" />
+  
+  
+  
+
+<meta name="author" content="Nathalie Lehmann" />
+
+
+<meta name="date" content="2021-01-17" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="load-data.html"/>
+<link rel="next" href="visualize-cell-state-scores.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="load-data.html"><a href="load-data.html"><i class="fa fa-check"></i><b>1</b> Load data</a></li>
+<li class="chapter" data-level="2" data-path="create-and-assign-cell-state-scores.html"><a href="create-and-assign-cell-state-scores.html"><i class="fa fa-check"></i><b>2</b> Create and assign cell state scores</a><ul>
+<li class="chapter" data-level="2.1" data-path="create-and-assign-cell-state-scores.html"><a href="create-and-assign-cell-state-scores.html#how-it-works"><i class="fa fa-check"></i><b>2.1</b> How it works</a></li>
+<li class="chapter" data-level="2.2" data-path="create-and-assign-cell-state-scores.html"><a href="create-and-assign-cell-state-scores.html#progenitors-score"><i class="fa fa-check"></i><b>2.2</b> Progenitors score</a></li>
+<li class="chapter" data-level="2.3" data-path="create-and-assign-cell-state-scores.html"><a href="create-and-assign-cell-state-scores.html#neurons-score"><i class="fa fa-check"></i><b>2.3</b> Neurons score</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="create-and-assign-cell-state-scores.html"><a href="create-and-assign-cell-state-scores.html#with-tubb3-in-the-score"><i class="fa fa-check"></i><b>2.3.1</b> With Tubb3 in the score</a></li>
+<li class="chapter" data-level="2.3.2" data-path="create-and-assign-cell-state-scores.html"><a href="create-and-assign-cell-state-scores.html#without-tubb3-in-the-score"><i class="fa fa-check"></i><b>2.3.2</b> Without Tubb3 in the score</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="visualize-cell-state-scores.html"><a href="visualize-cell-state-scores.html"><i class="fa fa-check"></i><b>3</b> Visualize cell state scores</a><ul>
+<li class="chapter" data-level="3.1" data-path="visualize-cell-state-scores.html"><a href="visualize-cell-state-scores.html#on-umap-embeddings"><i class="fa fa-check"></i><b>3.1</b> On UMAP embeddings</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="visualize-cell-state-scores.html"><a href="visualize-cell-state-scores.html#single-scores"><i class="fa fa-check"></i><b>3.1.1</b> Single scores</a></li>
+<li class="chapter" data-level="3.1.2" data-path="visualize-cell-state-scores.html"><a href="visualize-cell-state-scores.html#double-scores"><i class="fa fa-check"></i><b>3.1.2</b> Double scores</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="visualize-cell-state-scores.html"><a href="visualize-cell-state-scores.html#check-distribution-of-the-scores"><i class="fa fa-check"></i><b>3.2</b> Check distribution of the scores</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="cluster-the-cells-based-on-their-signatures-scores.html"><a href="cluster-the-cells-based-on-their-signatures-scores.html"><i class="fa fa-check"></i><b>4</b> Cluster the cells based on their signatures scores</a><ul>
+<li class="chapter" data-level="4.1" data-path="cluster-the-cells-based-on-their-signatures-scores.html"><a href="cluster-the-cells-based-on-their-signatures-scores.html#k-3"><i class="fa fa-check"></i><b>4.1</b> k = 3</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="cluster-the-cells-based-on-their-signatures-scores.html"><a href="cluster-the-cells-based-on-their-signatures-scores.html#with-tubb3"><i class="fa fa-check"></i><b>4.1.1</b> With TUBB3</a></li>
+<li class="chapter" data-level="4.1.2" data-path="cluster-the-cells-based-on-their-signatures-scores.html"><a href="cluster-the-cells-based-on-their-signatures-scores.html#without-tubb3"><i class="fa fa-check"></i><b>4.1.2</b> Without TUBB3</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="cluster-the-cells-based-on-their-signatures-scores.html"><a href="cluster-the-cells-based-on-their-signatures-scores.html#k-4"><i class="fa fa-check"></i><b>4.2</b> k = 4</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="cluster-the-cells-based-on-their-signatures-scores.html"><a href="cluster-the-cells-based-on-their-signatures-scores.html#with-tubb3-1"><i class="fa fa-check"></i><b>4.2.1</b> With TUBB3</a></li>
+<li class="chapter" data-level="4.2.2" data-path="cluster-the-cells-based-on-their-signatures-scores.html"><a href="cluster-the-cells-based-on-their-signatures-scores.html#without-tubb3-1"><i class="fa fa-check"></i><b>4.2.2</b> Without TUBB3</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="cluster-the-cells-based-on-their-signatures-scores.html"><a href="cluster-the-cells-based-on-their-signatures-scores.html#k-5"><i class="fa fa-check"></i><b>4.3</b> k = 5</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="cluster-the-cells-based-on-their-signatures-scores.html"><a href="cluster-the-cells-based-on-their-signatures-scores.html#with-tubb3-2"><i class="fa fa-check"></i><b>4.3.1</b> With TUBB3</a></li>
+<li class="chapter" data-level="4.3.2" data-path="cluster-the-cells-based-on-their-signatures-scores.html"><a href="cluster-the-cells-based-on-their-signatures-scores.html#without-tubb3-2"><i class="fa fa-check"></i><b>4.3.2</b> Without TUBB3</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="cluster-the-cells-based-on-their-signatures-scores.html"><a href="cluster-the-cells-based-on-their-signatures-scores.html#k-6"><i class="fa fa-check"></i><b>4.4</b> k = 6</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="cluster-the-cells-based-on-their-signatures-scores.html"><a href="cluster-the-cells-based-on-their-signatures-scores.html#with-tubb3-3"><i class="fa fa-check"></i><b>4.4.1</b> With TUBB3</a></li>
+<li class="chapter" data-level="4.4.2" data-path="cluster-the-cells-based-on-their-signatures-scores.html"><a href="cluster-the-cells-based-on-their-signatures-scores.html#without-tubb3-3"><i class="fa fa-check"></i><b>4.4.2</b> Without TUBB3</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="show-markers-expression-on-signature-score-plots.html"><a href="show-markers-expression-on-signature-score-plots.html"><i class="fa fa-check"></i><b>5</b> Show markers expression on signature score plots</a></li>
+<li class="chapter" data-level="6" data-path="vizualise-cells-to-keep.html"><a href="vizualise-cells-to-keep.html"><i class="fa fa-check"></i><b>6</b> Vizualise cells to keep</a><ul>
+<li class="chapter" data-level="6.1" data-path="vizualise-cells-to-keep.html"><a href="vizualise-cells-to-keep.html#threshold-0.1"><i class="fa fa-check"></i><b>6.1</b> Threshold = 0.1</a></li>
+<li class="chapter" data-level="6.2" data-path="vizualise-cells-to-keep.html"><a href="vizualise-cells-to-keep.html#threshold-0.2"><i class="fa fa-check"></i><b>6.2</b> Threshold = 0.2</a></li>
+<li class="chapter" data-level="6.3" data-path="vizualise-cells-to-keep.html"><a href="vizualise-cells-to-keep.html#threshold-0.3"><i class="fa fa-check"></i><b>6.3</b> Threshold = 0.3</a></li>
+<li class="chapter" data-level="6.4" data-path="vizualise-cells-to-keep.html"><a href="vizualise-cells-to-keep.html#threshold-0.4"><i class="fa fa-check"></i><b>6.4</b> Threshold = 0.4</a></li>
+<li class="chapter" data-level="6.5" data-path="vizualise-cells-to-keep.html"><a href="vizualise-cells-to-keep.html#threshold-0.5"><i class="fa fa-check"></i><b>6.5</b> Threshold = 0.5</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="session-info.html"><a href="session-info.html"><i class="fa fa-check"></i><b>7</b> Session info</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Progenitor pop selection</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="create-and-assign-cell-state-scores" class="section level1">
+<h1><span class="header-section-number">2</span> Create and assign cell state scores</h1>
+<div id="how-it-works" class="section level2">
+<h2><span class="header-section-number">2.1</span> How it works</h2>
+<p>We calculate the average expression levels of each program (cluster) on single cell level, subtracted by the aggregated expression of control feature sets.
+All analyzed features are binned based on averaged expression, and the control features are randomly selected from each bin.</p>
+</div>
+<div id="progenitors-score" class="section level2">
+<h2><span class="header-section-number">2.2</span> Progenitors score</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="create-and-assign-cell-state-scores.html#cb4-1"></a>genes.progenitors &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;Sox2&#39;</span>, <span class="st">&#39;Notch1&#39;</span>, <span class="st">&#39;Rrm2&#39;</span>,</span>
+<span id="cb4-2"><a href="create-and-assign-cell-state-scores.html#cb4-2"></a>               <span class="st">&#39;Hmgb2&#39;</span>, <span class="st">&#39;Cenpa&#39;</span>, <span class="st">&#39;Ube2c&#39;</span>,</span>
+<span id="cb4-3"><a href="create-and-assign-cell-state-scores.html#cb4-3"></a>               <span class="st">&#39;Hes5&#39;</span>, <span class="st">&#39;Fabp7&#39;</span>)</span>
+<span id="cb4-4"><a href="create-and-assign-cell-state-scores.html#cb4-4"></a>genes.list &lt;-<span class="st"> </span><span class="kw">list</span>(genes.progenitors)</span>
+<span id="cb4-5"><a href="create-and-assign-cell-state-scores.html#cb4-5"></a>enrich.name &lt;-<span class="st"> &quot;Progenitors_&quot;</span></span>
+<span id="cb4-6"><a href="create-and-assign-cell-state-scores.html#cb4-6"></a>scores &lt;-<span class="st"> </span><span class="kw">paste0</span>(enrich.name, <span class="st">&#39;1&#39;</span>)</span>
+<span id="cb4-7"><a href="create-and-assign-cell-state-scores.html#cb4-7"></a></span>
+<span id="cb4-8"><a href="create-and-assign-cell-state-scores.html#cb4-8"></a>dat.seurat &lt;-<span class="st"> </span><span class="kw">AddModuleScore</span>(dat.seurat,</span>
+<span id="cb4-9"><a href="create-and-assign-cell-state-scores.html#cb4-9"></a>                 <span class="dt">features =</span> genes.list,</span>
+<span id="cb4-10"><a href="create-and-assign-cell-state-scores.html#cb4-10"></a>                 <span class="dt">pool =</span> <span class="kw">rownames</span>(<span class="dt">x =</span> dat.seurat),</span>
+<span id="cb4-11"><a href="create-and-assign-cell-state-scores.html#cb4-11"></a>                 <span class="dt">nbin =</span> <span class="dv">5</span>,</span>
+<span id="cb4-12"><a href="create-and-assign-cell-state-scores.html#cb4-12"></a>                 <span class="dt">seed =</span> <span class="dv">123456</span>,</span>
+<span id="cb4-13"><a href="create-and-assign-cell-state-scores.html#cb4-13"></a>                 <span class="dt">ctrl =</span> <span class="kw">length</span>(genes.list),</span>
+<span id="cb4-14"><a href="create-and-assign-cell-state-scores.html#cb4-14"></a>                 <span class="dt">k =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb4-15"><a href="create-and-assign-cell-state-scores.html#cb4-15"></a>                 <span class="dt">name =</span> enrich.name)</span>
+<span id="cb4-16"><a href="create-and-assign-cell-state-scores.html#cb4-16"></a></span>
+<span id="cb4-17"><a href="create-and-assign-cell-state-scores.html#cb4-17"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">seq</span>(<span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(genes.progenitors))){</span>
+<span id="cb4-18"><a href="create-and-assign-cell-state-scores.html#cb4-18"></a>    <span class="kw">print</span>(<span class="kw">FeaturePlot</span>(<span class="dt">object =</span> dat.seurat,</span>
+<span id="cb4-19"><a href="create-and-assign-cell-state-scores.html#cb4-19"></a>              <span class="dt">features =</span> genes.progenitors[i],</span>
+<span id="cb4-20"><a href="create-and-assign-cell-state-scores.html#cb4-20"></a>              <span class="dt">reduction =</span> <span class="st">&#39;umap&#39;</span>,</span>
+<span id="cb4-21"><a href="create-and-assign-cell-state-scores.html#cb4-21"></a>              <span class="dt">cols =</span> <span class="kw">c</span>(<span class="st">&quot;grey90&quot;</span>, <span class="kw">brewer.pal</span>(<span class="dv">9</span>,<span class="st">&quot;YlGnBu&quot;</span>)),</span>
+<span id="cb4-22"><a href="create-and-assign-cell-state-scores.html#cb4-22"></a>              <span class="dt">pt.size =</span> <span class="fl">0.2</span>,</span>
+<span id="cb4-23"><a href="create-and-assign-cell-state-scores.html#cb4-23"></a>              <span class="dt">slot =</span> <span class="st">&quot;data&quot;</span>,</span>
+<span id="cb4-24"><a href="create-and-assign-cell-state-scores.html#cb4-24"></a>              <span class="dt">order =</span> <span class="ot">TRUE</span>))}</span></code></pre></div>
+<p><img src="2020_delile_reanalysis_files/figure-html/score-progenitors-1.png" width="960" style="display: block; margin: auto;" /><img src="2020_delile_reanalysis_files/figure-html/score-progenitors-2.png" width="960" style="display: block; margin: auto;" /><img src="2020_delile_reanalysis_files/figure-html/score-progenitors-3.png" width="960" style="display: block; margin: auto;" /><img src="2020_delile_reanalysis_files/figure-html/score-progenitors-4.png" width="960" style="display: block; margin: auto;" /><img src="2020_delile_reanalysis_files/figure-html/score-progenitors-5.png" width="960" style="display: block; margin: auto;" /><img src="2020_delile_reanalysis_files/figure-html/score-progenitors-6.png" width="960" style="display: block; margin: auto;" /><img src="2020_delile_reanalysis_files/figure-html/score-progenitors-7.png" width="960" style="display: block; margin: auto;" /><img src="2020_delile_reanalysis_files/figure-html/score-progenitors-8.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="neurons-score" class="section level2">
+<h2><span class="header-section-number">2.3</span> Neurons score</h2>
+<div id="with-tubb3-in-the-score" class="section level3">
+<h3><span class="header-section-number">2.3.1</span> With Tubb3 in the score</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="create-and-assign-cell-state-scores.html#cb5-1"></a>genes.neurons.tubb3 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;Tubb3&#39;</span>, <span class="st">&#39;Stmn2&#39;</span>, <span class="st">&#39;Nova1&#39;</span>,</span>
+<span id="cb5-2"><a href="create-and-assign-cell-state-scores.html#cb5-2"></a>             <span class="st">&#39;Snrpn&#39;</span>, <span class="st">&#39;Pcsk1n&#39;</span>, <span class="st">&#39;Meg3&#39;</span>,</span>
+<span id="cb5-3"><a href="create-and-assign-cell-state-scores.html#cb5-3"></a>             <span class="st">&#39;Rtn1&#39;</span>, <span class="st">&#39;Stmn3&#39;</span>, <span class="st">&#39;Mllt11&#39;</span>,</span>
+<span id="cb5-4"><a href="create-and-assign-cell-state-scores.html#cb5-4"></a>             <span class="st">&#39;Mapt&#39;</span>, <span class="st">&#39;Ina&#39;</span>)</span>
+<span id="cb5-5"><a href="create-and-assign-cell-state-scores.html#cb5-5"></a>genes.list &lt;-<span class="st"> </span><span class="kw">list</span>(genes.neurons.tubb3)</span>
+<span id="cb5-6"><a href="create-and-assign-cell-state-scores.html#cb5-6"></a>enrich.name &lt;-<span class="st"> &quot;Neurons_Tubb3_&quot;</span></span>
+<span id="cb5-7"><a href="create-and-assign-cell-state-scores.html#cb5-7"></a>scores &lt;-<span class="st"> </span><span class="kw">append</span>(scores, <span class="kw">paste0</span>(enrich.name, <span class="st">&#39;1&#39;</span>))</span>
+<span id="cb5-8"><a href="create-and-assign-cell-state-scores.html#cb5-8"></a></span>
+<span id="cb5-9"><a href="create-and-assign-cell-state-scores.html#cb5-9"></a>dat.seurat &lt;-<span class="st"> </span><span class="kw">AddModuleScore</span>(dat.seurat,</span>
+<span id="cb5-10"><a href="create-and-assign-cell-state-scores.html#cb5-10"></a>                 <span class="dt">features =</span> genes.list,</span>
+<span id="cb5-11"><a href="create-and-assign-cell-state-scores.html#cb5-11"></a>                 <span class="dt">pool =</span> <span class="kw">rownames</span>(<span class="dt">x =</span> dat.seurat),</span>
+<span id="cb5-12"><a href="create-and-assign-cell-state-scores.html#cb5-12"></a>                 <span class="dt">nbin =</span> <span class="dv">5</span>,</span>
+<span id="cb5-13"><a href="create-and-assign-cell-state-scores.html#cb5-13"></a>                 <span class="dt">seed =</span> <span class="dv">123456</span>,</span>
+<span id="cb5-14"><a href="create-and-assign-cell-state-scores.html#cb5-14"></a>                 <span class="dt">ctrl =</span> <span class="kw">length</span>(genes.list),</span>
+<span id="cb5-15"><a href="create-and-assign-cell-state-scores.html#cb5-15"></a>                 <span class="dt">k =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb5-16"><a href="create-and-assign-cell-state-scores.html#cb5-16"></a>                 <span class="dt">name =</span> enrich.name)</span>
+<span id="cb5-17"><a href="create-and-assign-cell-state-scores.html#cb5-17"></a></span>
+<span id="cb5-18"><a href="create-and-assign-cell-state-scores.html#cb5-18"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">seq</span>(<span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(genes.neurons.tubb3))){</span>
+<span id="cb5-19"><a href="create-and-assign-cell-state-scores.html#cb5-19"></a>    <span class="kw">print</span>(<span class="kw">FeaturePlot</span>(<span class="dt">object =</span> dat.seurat,</span>
+<span id="cb5-20"><a href="create-and-assign-cell-state-scores.html#cb5-20"></a>              <span class="dt">features =</span> genes.neurons.tubb3[i],</span>
+<span id="cb5-21"><a href="create-and-assign-cell-state-scores.html#cb5-21"></a>              <span class="dt">reduction =</span> <span class="st">&#39;umap&#39;</span>,</span>
+<span id="cb5-22"><a href="create-and-assign-cell-state-scores.html#cb5-22"></a>              <span class="dt">cols =</span> <span class="kw">c</span>(<span class="st">&quot;grey90&quot;</span>, <span class="kw">brewer.pal</span>(<span class="dv">9</span>,<span class="st">&quot;YlGnBu&quot;</span>)),</span>
+<span id="cb5-23"><a href="create-and-assign-cell-state-scores.html#cb5-23"></a>              <span class="dt">pt.size =</span> <span class="fl">0.2</span>,</span>
+<span id="cb5-24"><a href="create-and-assign-cell-state-scores.html#cb5-24"></a>              <span class="dt">slot =</span> <span class="st">&quot;data&quot;</span>,</span>
+<span id="cb5-25"><a href="create-and-assign-cell-state-scores.html#cb5-25"></a>              <span class="dt">order =</span> <span class="ot">TRUE</span>))}</span></code></pre></div>
+<p><img src="2020_delile_reanalysis_files/figure-html/score-neurons-1.png" width="960" style="display: block; margin: auto;" /><img src="2020_delile_reanalysis_files/figure-html/score-neurons-2.png" width="960" style="display: block; margin: auto;" /><img src="2020_delile_reanalysis_files/figure-html/score-neurons-3.png" width="960" style="display: block; margin: auto;" /><img src="2020_delile_reanalysis_files/figure-html/score-neurons-4.png" width="960" style="display: block; margin: auto;" /><img src="2020_delile_reanalysis_files/figure-html/score-neurons-5.png" width="960" style="display: block; margin: auto;" /><img src="2020_delile_reanalysis_files/figure-html/score-neurons-6.png" width="960" style="display: block; margin: auto;" /><img src="2020_delile_reanalysis_files/figure-html/score-neurons-7.png" width="960" style="display: block; margin: auto;" /><img src="2020_delile_reanalysis_files/figure-html/score-neurons-8.png" width="960" style="display: block; margin: auto;" /><img src="2020_delile_reanalysis_files/figure-html/score-neurons-9.png" width="960" style="display: block; margin: auto;" /><img src="2020_delile_reanalysis_files/figure-html/score-neurons-10.png" width="960" style="display: block; margin: auto;" /><img src="2020_delile_reanalysis_files/figure-html/score-neurons-11.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="without-tubb3-in-the-score" class="section level3">
+<h3><span class="header-section-number">2.3.2</span> Without Tubb3 in the score</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="create-and-assign-cell-state-scores.html#cb6-1"></a>genes.neurons &lt;-<span class="st"> </span>genes.neurons.tubb3[<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb6-2"><a href="create-and-assign-cell-state-scores.html#cb6-2"></a>genes.list &lt;-<span class="st"> </span><span class="kw">list</span>(genes.neurons)</span>
+<span id="cb6-3"><a href="create-and-assign-cell-state-scores.html#cb6-3"></a>enrich.name &lt;-<span class="st"> &quot;Neurons_&quot;</span></span>
+<span id="cb6-4"><a href="create-and-assign-cell-state-scores.html#cb6-4"></a>scores &lt;-<span class="st"> </span><span class="kw">append</span>(scores, <span class="kw">paste0</span>(enrich.name, <span class="st">&#39;1&#39;</span>))</span>
+<span id="cb6-5"><a href="create-and-assign-cell-state-scores.html#cb6-5"></a></span>
+<span id="cb6-6"><a href="create-and-assign-cell-state-scores.html#cb6-6"></a>dat.seurat &lt;-<span class="st"> </span><span class="kw">AddModuleScore</span>(dat.seurat,</span>
+<span id="cb6-7"><a href="create-and-assign-cell-state-scores.html#cb6-7"></a>                 <span class="dt">features =</span> genes.list,</span>
+<span id="cb6-8"><a href="create-and-assign-cell-state-scores.html#cb6-8"></a>                 <span class="dt">pool =</span> <span class="kw">rownames</span>(<span class="dt">x =</span> dat.seurat),</span>
+<span id="cb6-9"><a href="create-and-assign-cell-state-scores.html#cb6-9"></a>                 <span class="dt">nbin =</span> <span class="dv">5</span>,</span>
+<span id="cb6-10"><a href="create-and-assign-cell-state-scores.html#cb6-10"></a>                 <span class="dt">seed =</span> <span class="dv">123456</span>,</span>
+<span id="cb6-11"><a href="create-and-assign-cell-state-scores.html#cb6-11"></a>                 <span class="dt">ctrl =</span> <span class="kw">length</span>(genes.list),</span>
+<span id="cb6-12"><a href="create-and-assign-cell-state-scores.html#cb6-12"></a>                 <span class="dt">k =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb6-13"><a href="create-and-assign-cell-state-scores.html#cb6-13"></a>                 <span class="dt">name =</span> enrich.name)</span>
+<span id="cb6-14"><a href="create-and-assign-cell-state-scores.html#cb6-14"></a></span>
+<span id="cb6-15"><a href="create-and-assign-cell-state-scores.html#cb6-15"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">seq</span>(<span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(genes.neurons))){</span>
+<span id="cb6-16"><a href="create-and-assign-cell-state-scores.html#cb6-16"></a>    <span class="kw">print</span>(<span class="kw">FeaturePlot</span>(<span class="dt">object =</span> dat.seurat,</span>
+<span id="cb6-17"><a href="create-and-assign-cell-state-scores.html#cb6-17"></a>              <span class="dt">features =</span> genes.neurons[i],</span>
+<span id="cb6-18"><a href="create-and-assign-cell-state-scores.html#cb6-18"></a>              <span class="dt">reduction =</span> <span class="st">&#39;umap&#39;</span>,</span>
+<span id="cb6-19"><a href="create-and-assign-cell-state-scores.html#cb6-19"></a>              <span class="dt">cols =</span> <span class="kw">c</span>(<span class="st">&quot;grey90&quot;</span>, <span class="kw">brewer.pal</span>(<span class="dv">9</span>,<span class="st">&quot;YlGnBu&quot;</span>)),</span>
+<span id="cb6-20"><a href="create-and-assign-cell-state-scores.html#cb6-20"></a>              <span class="dt">pt.size =</span> <span class="fl">0.2</span>,</span>
+<span id="cb6-21"><a href="create-and-assign-cell-state-scores.html#cb6-21"></a>              <span class="dt">slot =</span> <span class="st">&quot;data&quot;</span>,</span>
+<span id="cb6-22"><a href="create-and-assign-cell-state-scores.html#cb6-22"></a>              <span class="dt">order =</span> <span class="ot">TRUE</span>))}</span></code></pre></div>
+<p><img src="2020_delile_reanalysis_files/figure-html/score-neurons-2-1.png" width="960" style="display: block; margin: auto;" /><img src="2020_delile_reanalysis_files/figure-html/score-neurons-2-2.png" width="960" style="display: block; margin: auto;" /><img src="2020_delile_reanalysis_files/figure-html/score-neurons-2-3.png" width="960" style="display: block; margin: auto;" /><img src="2020_delile_reanalysis_files/figure-html/score-neurons-2-4.png" width="960" style="display: block; margin: auto;" /><img src="2020_delile_reanalysis_files/figure-html/score-neurons-2-5.png" width="960" style="display: block; margin: auto;" /><img src="2020_delile_reanalysis_files/figure-html/score-neurons-2-6.png" width="960" style="display: block; margin: auto;" /><img src="2020_delile_reanalysis_files/figure-html/score-neurons-2-7.png" width="960" style="display: block; margin: auto;" /><img src="2020_delile_reanalysis_files/figure-html/score-neurons-2-8.png" width="960" style="display: block; margin: auto;" /><img src="2020_delile_reanalysis_files/figure-html/score-neurons-2-9.png" width="960" style="display: block; margin: auto;" /><img src="2020_delile_reanalysis_files/figure-html/score-neurons-2-10.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="load-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="visualize-cell-state-scores.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": null,
+"scroll_highlight": true
+},
+"toc_depth": 5,
+"toolbar": {
+"position": "fixed"
+},
+"search": true,
+"info": true
+});
+});
+</script>
+
+</body>
+
+</html>

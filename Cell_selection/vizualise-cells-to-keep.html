@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>6 Vizualise cells to keep | Progenitor pop selection</title>
+  <meta name="description" content="6 Vizualise cells to keep | Progenitor pop selection" />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="6 Vizualise cells to keep | Progenitor pop selection" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  <meta name="github-repo" content="git@github.com:LehmannN/2020_delile_reanalysis.git" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="6 Vizualise cells to keep | Progenitor pop selection" />
+  
+  
+  
+
+<meta name="author" content="Nathalie Lehmann" />
+
+
+<meta name="date" content="2021-01-17" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="show-markers-expression-on-signature-score-plots.html"/>
+<link rel="next" href="session-info.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="load-data.html"><a href="load-data.html"><i class="fa fa-check"></i><b>1</b> Load data</a></li>
+<li class="chapter" data-level="2" data-path="create-and-assign-cell-state-scores.html"><a href="create-and-assign-cell-state-scores.html"><i class="fa fa-check"></i><b>2</b> Create and assign cell state scores</a><ul>
+<li class="chapter" data-level="2.1" data-path="create-and-assign-cell-state-scores.html"><a href="create-and-assign-cell-state-scores.html#how-it-works"><i class="fa fa-check"></i><b>2.1</b> How it works</a></li>
+<li class="chapter" data-level="2.2" data-path="create-and-assign-cell-state-scores.html"><a href="create-and-assign-cell-state-scores.html#progenitors-score"><i class="fa fa-check"></i><b>2.2</b> Progenitors score</a></li>
+<li class="chapter" data-level="2.3" data-path="create-and-assign-cell-state-scores.html"><a href="create-and-assign-cell-state-scores.html#neurons-score"><i class="fa fa-check"></i><b>2.3</b> Neurons score</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="create-and-assign-cell-state-scores.html"><a href="create-and-assign-cell-state-scores.html#with-tubb3-in-the-score"><i class="fa fa-check"></i><b>2.3.1</b> With Tubb3 in the score</a></li>
+<li class="chapter" data-level="2.3.2" data-path="create-and-assign-cell-state-scores.html"><a href="create-and-assign-cell-state-scores.html#without-tubb3-in-the-score"><i class="fa fa-check"></i><b>2.3.2</b> Without Tubb3 in the score</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="visualize-cell-state-scores.html"><a href="visualize-cell-state-scores.html"><i class="fa fa-check"></i><b>3</b> Visualize cell state scores</a><ul>
+<li class="chapter" data-level="3.1" data-path="visualize-cell-state-scores.html"><a href="visualize-cell-state-scores.html#on-umap-embeddings"><i class="fa fa-check"></i><b>3.1</b> On UMAP embeddings</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="visualize-cell-state-scores.html"><a href="visualize-cell-state-scores.html#single-scores"><i class="fa fa-check"></i><b>3.1.1</b> Single scores</a></li>
+<li class="chapter" data-level="3.1.2" data-path="visualize-cell-state-scores.html"><a href="visualize-cell-state-scores.html#double-scores"><i class="fa fa-check"></i><b>3.1.2</b> Double scores</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="visualize-cell-state-scores.html"><a href="visualize-cell-state-scores.html#check-distribution-of-the-scores"><i class="fa fa-check"></i><b>3.2</b> Check distribution of the scores</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="cluster-the-cells-based-on-their-signatures-scores.html"><a href="cluster-the-cells-based-on-their-signatures-scores.html"><i class="fa fa-check"></i><b>4</b> Cluster the cells based on their signatures scores</a><ul>
+<li class="chapter" data-level="4.1" data-path="cluster-the-cells-based-on-their-signatures-scores.html"><a href="cluster-the-cells-based-on-their-signatures-scores.html#k-3"><i class="fa fa-check"></i><b>4.1</b> k = 3</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="cluster-the-cells-based-on-their-signatures-scores.html"><a href="cluster-the-cells-based-on-their-signatures-scores.html#with-tubb3"><i class="fa fa-check"></i><b>4.1.1</b> With TUBB3</a></li>
+<li class="chapter" data-level="4.1.2" data-path="cluster-the-cells-based-on-their-signatures-scores.html"><a href="cluster-the-cells-based-on-their-signatures-scores.html#without-tubb3"><i class="fa fa-check"></i><b>4.1.2</b> Without TUBB3</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="cluster-the-cells-based-on-their-signatures-scores.html"><a href="cluster-the-cells-based-on-their-signatures-scores.html#k-4"><i class="fa fa-check"></i><b>4.2</b> k = 4</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="cluster-the-cells-based-on-their-signatures-scores.html"><a href="cluster-the-cells-based-on-their-signatures-scores.html#with-tubb3-1"><i class="fa fa-check"></i><b>4.2.1</b> With TUBB3</a></li>
+<li class="chapter" data-level="4.2.2" data-path="cluster-the-cells-based-on-their-signatures-scores.html"><a href="cluster-the-cells-based-on-their-signatures-scores.html#without-tubb3-1"><i class="fa fa-check"></i><b>4.2.2</b> Without TUBB3</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="cluster-the-cells-based-on-their-signatures-scores.html"><a href="cluster-the-cells-based-on-their-signatures-scores.html#k-5"><i class="fa fa-check"></i><b>4.3</b> k = 5</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="cluster-the-cells-based-on-their-signatures-scores.html"><a href="cluster-the-cells-based-on-their-signatures-scores.html#with-tubb3-2"><i class="fa fa-check"></i><b>4.3.1</b> With TUBB3</a></li>
+<li class="chapter" data-level="4.3.2" data-path="cluster-the-cells-based-on-their-signatures-scores.html"><a href="cluster-the-cells-based-on-their-signatures-scores.html#without-tubb3-2"><i class="fa fa-check"></i><b>4.3.2</b> Without TUBB3</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="cluster-the-cells-based-on-their-signatures-scores.html"><a href="cluster-the-cells-based-on-their-signatures-scores.html#k-6"><i class="fa fa-check"></i><b>4.4</b> k = 6</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="cluster-the-cells-based-on-their-signatures-scores.html"><a href="cluster-the-cells-based-on-their-signatures-scores.html#with-tubb3-3"><i class="fa fa-check"></i><b>4.4.1</b> With TUBB3</a></li>
+<li class="chapter" data-level="4.4.2" data-path="cluster-the-cells-based-on-their-signatures-scores.html"><a href="cluster-the-cells-based-on-their-signatures-scores.html#without-tubb3-3"><i class="fa fa-check"></i><b>4.4.2</b> Without TUBB3</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="show-markers-expression-on-signature-score-plots.html"><a href="show-markers-expression-on-signature-score-plots.html"><i class="fa fa-check"></i><b>5</b> Show markers expression on signature score plots</a></li>
+<li class="chapter" data-level="6" data-path="vizualise-cells-to-keep.html"><a href="vizualise-cells-to-keep.html"><i class="fa fa-check"></i><b>6</b> Vizualise cells to keep</a><ul>
+<li class="chapter" data-level="6.1" data-path="vizualise-cells-to-keep.html"><a href="vizualise-cells-to-keep.html#threshold-0.1"><i class="fa fa-check"></i><b>6.1</b> Threshold = 0.1</a></li>
+<li class="chapter" data-level="6.2" data-path="vizualise-cells-to-keep.html"><a href="vizualise-cells-to-keep.html#threshold-0.2"><i class="fa fa-check"></i><b>6.2</b> Threshold = 0.2</a></li>
+<li class="chapter" data-level="6.3" data-path="vizualise-cells-to-keep.html"><a href="vizualise-cells-to-keep.html#threshold-0.3"><i class="fa fa-check"></i><b>6.3</b> Threshold = 0.3</a></li>
+<li class="chapter" data-level="6.4" data-path="vizualise-cells-to-keep.html"><a href="vizualise-cells-to-keep.html#threshold-0.4"><i class="fa fa-check"></i><b>6.4</b> Threshold = 0.4</a></li>
+<li class="chapter" data-level="6.5" data-path="vizualise-cells-to-keep.html"><a href="vizualise-cells-to-keep.html#threshold-0.5"><i class="fa fa-check"></i><b>6.5</b> Threshold = 0.5</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="session-info.html"><a href="session-info.html"><i class="fa fa-check"></i><b>7</b> Session info</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Progenitor pop selection</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="vizualise-cells-to-keep" class="section level1">
+<h1><span class="header-section-number">6</span> Vizualise cells to keep</h1>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="vizualise-cells-to-keep.html#cb76-1"></a><span class="co"># Keep same clustering as previously docs_3 section 4.1.2</span></span>
+<span id="cb76-2"><a href="vizualise-cells-to-keep.html#cb76-2"></a>dat.seurat &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="dt">file =</span> <span class="kw">paste0</span>(DATA_RDS, <span class="st">&quot;seurat_cell_select.rds&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="vizualise-cells-to-keep.html#cb77-1"></a><span class="co"># Set different threshold values</span></span>
+<span id="cb77-2"><a href="vizualise-cells-to-keep.html#cb77-2"></a>th.remove &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="fl">0.1</span>, <span class="fl">0.5</span>, <span class="fl">0.1</span>)</span></code></pre></div>
+<div id="threshold-0.1" class="section level2">
+<h2><span class="header-section-number">6.1</span> Threshold = 0.1</h2>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="vizualise-cells-to-keep.html#cb78-1"></a><span class="co"># Separate dataset in 2 (cells to keep VS to remove)</span></span>
+<span id="cb78-2"><a href="vizualise-cells-to-keep.html#cb78-2"></a>kcenter &lt;-<span class="st"> </span><span class="dv">3</span></span>
+<span id="cb78-3"><a href="vizualise-cells-to-keep.html#cb78-3"></a>cl &lt;-<span class="st"> </span><span class="dv">2</span></span>
+<span id="cb78-4"><a href="vizualise-cells-to-keep.html#cb78-4"></a>set.ident &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&#39;kmeanClust_&#39;</span>, kcenter)</span>
+<span id="cb78-5"><a href="vizualise-cells-to-keep.html#cb78-5"></a>col.pal &lt;-<span class="st"> </span><span class="kw">few_pal</span>(<span class="st">&quot;Dark&quot;</span>)(kcenter)</span>
+<span id="cb78-6"><a href="vizualise-cells-to-keep.html#cb78-6"></a><span class="kw">Idents</span>(dat.seurat) &lt;-<span class="st"> </span>set.ident</span>
+<span id="cb78-7"><a href="vizualise-cells-to-keep.html#cb78-7"></a>cl.remove &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&#39;Clust.&#39;</span>, cl)</span>
+<span id="cb78-8"><a href="vizualise-cells-to-keep.html#cb78-8"></a>index.remove &lt;-<span class="st"> </span><span class="kw">which</span>(</span>
+<span id="cb78-9"><a href="vizualise-cells-to-keep.html#cb78-9"></a>            dat.seurat<span class="op">@</span>meta.data[, set.ident] <span class="op">==</span><span class="st"> </span>cl.remove <span class="op">&amp;</span></span>
+<span id="cb78-10"><a href="vizualise-cells-to-keep.html#cb78-10"></a><span class="st">            </span>dat.seurat<span class="op">@</span>meta.data[[<span class="st">&#39;Progenitors_1&#39;</span>]] <span class="op">&lt;</span><span class="st"> </span>th</span>
+<span id="cb78-11"><a href="vizualise-cells-to-keep.html#cb78-11"></a>        )</span>
+<span id="cb78-12"><a href="vizualise-cells-to-keep.html#cb78-12"></a>dat.remove &lt;-<span class="st"> </span>dat.seurat[, index.remove] </span>
+<span id="cb78-13"><a href="vizualise-cells-to-keep.html#cb78-13"></a>dat.keep &lt;-<span class="st"> </span>dat.seurat[, <span class="op">-</span>index.remove] </span>
+<span id="cb78-14"><a href="vizualise-cells-to-keep.html#cb78-14"></a><span class="kw">dim</span>(dat.remove)</span></code></pre></div>
+<pre><code>## [1] 20082   244</code></pre>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="vizualise-cells-to-keep.html#cb80-1"></a><span class="kw">dim</span>(dat.keep)</span></code></pre></div>
+<pre><code>## [1] 20082 25330</code></pre>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="vizualise-cells-to-keep.html#cb82-1"></a><span class="co"># Cells we keep</span></span>
+<span id="cb82-2"><a href="vizualise-cells-to-keep.html#cb82-2"></a><span class="kw">DimPlot</span>(dat.keep,</span>
+<span id="cb82-3"><a href="vizualise-cells-to-keep.html#cb82-3"></a>        <span class="dt">group.by =</span> set.ident,</span>
+<span id="cb82-4"><a href="vizualise-cells-to-keep.html#cb82-4"></a>        <span class="dt">reduction =</span> <span class="st">&quot;umap&quot;</span>,</span>
+<span id="cb82-5"><a href="vizualise-cells-to-keep.html#cb82-5"></a>        <span class="dt">cols =</span> col.pal,</span>
+<span id="cb82-6"><a href="vizualise-cells-to-keep.html#cb82-6"></a>        <span class="dt">label.size =</span> <span class="dv">4</span>)</span></code></pre></div>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-52-1.png" width="960" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="vizualise-cells-to-keep.html#cb83-1"></a><span class="co"># Cells we remove</span></span>
+<span id="cb83-2"><a href="vizualise-cells-to-keep.html#cb83-2"></a><span class="kw">DimPlot</span>(dat.remove,</span>
+<span id="cb83-3"><a href="vizualise-cells-to-keep.html#cb83-3"></a>        <span class="dt">group.by =</span> set.ident,</span>
+<span id="cb83-4"><a href="vizualise-cells-to-keep.html#cb83-4"></a>        <span class="dt">reduction =</span> <span class="st">&quot;umap&quot;</span>,</span>
+<span id="cb83-5"><a href="vizualise-cells-to-keep.html#cb83-5"></a>        <span class="dt">cols =</span> col.pal[cl],</span>
+<span id="cb83-6"><a href="vizualise-cells-to-keep.html#cb83-6"></a>        <span class="dt">label.size =</span> <span class="dv">4</span>)</span></code></pre></div>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-52-2.png" width="960" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="vizualise-cells-to-keep.html#cb84-1"></a><span class="co"># Prepare for multiple plots</span></span>
+<span id="cb84-2"><a href="vizualise-cells-to-keep.html#cb84-2"></a>define_region &lt;-<span class="st"> </span><span class="cf">function</span>(row, col){</span>
+<span id="cb84-3"><a href="vizualise-cells-to-keep.html#cb84-3"></a>        <span class="kw">viewport</span>(<span class="dt">layout.pos.row =</span> row, <span class="dt">layout.pos.col =</span> col)</span>
+<span id="cb84-4"><a href="vizualise-cells-to-keep.html#cb84-4"></a>    }</span></code></pre></div>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="vizualise-cells-to-keep.html#cb85-1"></a><span class="cf">for</span> (marker <span class="cf">in</span> markers){</span>
+<span id="cb85-2"><a href="vizualise-cells-to-keep.html#cb85-2"></a>    <span class="kw">cat</span>(<span class="st">&quot;</span><span class="ch">\n\n</span><span class="st">### Show &quot;</span>, marker, <span class="st">&quot; expression </span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb85-3"><a href="vizualise-cells-to-keep.html#cb85-3"></a>    dat.keep<span class="op">@</span>meta.data[[marker]] &lt;-<span class="st"> </span>dat.keep<span class="op">@</span>assays<span class="op">$</span>RNA<span class="op">@</span>data[marker,]</span>
+<span id="cb85-4"><a href="vizualise-cells-to-keep.html#cb85-4"></a>    <span class="co"># Data summary of this marker in cells we keep</span></span>
+<span id="cb85-5"><a href="vizualise-cells-to-keep.html#cb85-5"></a>    <span class="kw">print</span>(<span class="kw">summary</span>(dat.keep<span class="op">@</span>meta.data[[marker]]))</span>
+<span id="cb85-6"><a href="vizualise-cells-to-keep.html#cb85-6"></a>    dat.remove<span class="op">@</span>meta.data[[marker]] &lt;-<span class="st"> </span>dat.remove<span class="op">@</span>assays<span class="op">$</span>RNA<span class="op">@</span>data[marker,]</span>
+<span id="cb85-7"><a href="vizualise-cells-to-keep.html#cb85-7"></a>    <span class="co"># Data summary of this marker in cells we remove</span></span>
+<span id="cb85-8"><a href="vizualise-cells-to-keep.html#cb85-8"></a>    <span class="kw">print</span>(<span class="kw">summary</span>(dat.remove<span class="op">@</span>meta.data[[marker]]))</span>
+<span id="cb85-9"><a href="vizualise-cells-to-keep.html#cb85-9"></a></span>
+<span id="cb85-10"><a href="vizualise-cells-to-keep.html#cb85-10"></a>    <span class="co"># Lowest values are grey</span></span>
+<span id="cb85-11"><a href="vizualise-cells-to-keep.html#cb85-11"></a>    col.pal &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;#C2C1BC1A&quot;</span>, <span class="st">&quot;#E8AA0C80&quot;</span>, <span class="st">&quot;#21908C80&quot;</span>, <span class="st">&quot;#44015480&quot;</span>)</span>
+<span id="cb85-12"><a href="vizualise-cells-to-keep.html#cb85-12"></a>    <span class="co"># Lowest values are transparent</span></span>
+<span id="cb85-13"><a href="vizualise-cells-to-keep.html#cb85-13"></a>    col.pal.transp &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;#C2C1BC00&quot;</span>, <span class="st">&quot;#E8AA0C80&quot;</span>, <span class="st">&quot;#21908C80&quot;</span>, <span class="st">&quot;#44015480&quot;</span>)</span>
+<span id="cb85-14"><a href="vizualise-cells-to-keep.html#cb85-14"></a>    </span>
+<span id="cb85-15"><a href="vizualise-cells-to-keep.html#cb85-15"></a>    p1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(dat.seurat<span class="op">@</span>meta.data, <span class="kw">aes_string</span>(<span class="dt">x =</span> <span class="st">&quot;Progenitors_1&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Neurons_1&quot;</span>, <span class="dt">color =</span> marker)) <span class="op">+</span></span>
+<span id="cb85-16"><a href="vizualise-cells-to-keep.html#cb85-16"></a><span class="st">        </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="fl">1.5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>, <span class="dt">axis.text=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">12</span>), <span class="dt">axis.title=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">14</span>), <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">20</span>), <span class="dt">plot.subtitle =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">15</span>)) <span class="op">+</span></span>
+<span id="cb85-17"><a href="vizualise-cells-to-keep.html#cb85-17"></a><span class="st">        </span><span class="kw">scale_color_gradientn</span>(<span class="dt">colors =</span> col.pal.transp) <span class="op">+</span></span>
+<span id="cb85-18"><a href="vizualise-cells-to-keep.html#cb85-18"></a><span class="st">        </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="kw">paste0</span>(marker, <span class="st">&quot; expression in all cells&quot;</span>), <span class="dt">subtitle =</span> <span class="st">&quot;No expression detected = no dot&quot;</span>) <span class="op">+</span></span>
+<span id="cb85-19"><a href="vizualise-cells-to-keep.html#cb85-19"></a><span class="st">        </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> th, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">size =</span> <span class="dv">1</span>) </span>
+<span id="cb85-20"><a href="vizualise-cells-to-keep.html#cb85-20"></a></span>
+<span id="cb85-21"><a href="vizualise-cells-to-keep.html#cb85-21"></a>    p2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(dat.seurat<span class="op">@</span>meta.data, <span class="kw">aes_string</span>(<span class="dt">x =</span> <span class="st">&quot;Progenitors_1&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Neurons_1&quot;</span>, <span class="dt">color =</span> marker)) <span class="op">+</span></span>
+<span id="cb85-22"><a href="vizualise-cells-to-keep.html#cb85-22"></a><span class="st">        </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="fl">1.5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>, <span class="dt">axis.text=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">12</span>), <span class="dt">axis.title=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">14</span>), <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">20</span>), <span class="dt">plot.subtitle =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">15</span>)) <span class="op">+</span></span>
+<span id="cb85-23"><a href="vizualise-cells-to-keep.html#cb85-23"></a><span class="st">        </span><span class="kw">scale_color_gradientn</span>(<span class="dt">colors =</span> col.pal) <span class="op">+</span></span>
+<span id="cb85-24"><a href="vizualise-cells-to-keep.html#cb85-24"></a><span class="st">        </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="kw">paste0</span>(marker, <span class="st">&quot; expression in all cells&quot;</span>), <span class="dt">subtitle =</span> <span class="st">&quot;No expression detected = grey dot&quot;</span>) <span class="op">+</span></span>
+<span id="cb85-25"><a href="vizualise-cells-to-keep.html#cb85-25"></a><span class="st">        </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> th, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">size =</span> <span class="dv">1</span>)</span>
+<span id="cb85-26"><a href="vizualise-cells-to-keep.html#cb85-26"></a></span>
+<span id="cb85-27"><a href="vizualise-cells-to-keep.html#cb85-27"></a>    p3 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(dat.keep<span class="op">@</span>meta.data, <span class="kw">aes_string</span>(<span class="dt">x =</span> <span class="st">&quot;Progenitors_1&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Neurons_1&quot;</span>, <span class="dt">color =</span> marker)) <span class="op">+</span></span>
+<span id="cb85-28"><a href="vizualise-cells-to-keep.html#cb85-28"></a><span class="st">        </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="fl">1.5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>, <span class="dt">axis.text=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">12</span>), <span class="dt">axis.title=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">14</span>), <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">18</span>), <span class="dt">plot.subtitle =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">12</span>)) <span class="op">+</span></span>
+<span id="cb85-29"><a href="vizualise-cells-to-keep.html#cb85-29"></a><span class="st">        </span><span class="kw">scale_color_gradientn</span>(<span class="dt">colors =</span> col.pal) <span class="op">+</span></span>
+<span id="cb85-30"><a href="vizualise-cells-to-keep.html#cb85-30"></a><span class="st">        </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="kw">paste0</span>(<span class="st">&quot;Kept cells with S = &quot;</span>, th), <span class="dt">subtitle =</span> <span class="st">&quot;No expression detected = grey dot&quot;</span>) <span class="op">+</span></span>
+<span id="cb85-31"><a href="vizualise-cells-to-keep.html#cb85-31"></a><span class="st">        </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> th, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">size =</span> <span class="dv">1</span>)</span>
+<span id="cb85-32"><a href="vizualise-cells-to-keep.html#cb85-32"></a></span>
+<span id="cb85-33"><a href="vizualise-cells-to-keep.html#cb85-33"></a>    p4 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(dat.remove<span class="op">@</span>meta.data, <span class="kw">aes_string</span>(<span class="dt">x =</span> <span class="st">&quot;Progenitors_1&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Neurons_1&quot;</span>, <span class="dt">color =</span> marker)) <span class="op">+</span></span>
+<span id="cb85-34"><a href="vizualise-cells-to-keep.html#cb85-34"></a><span class="st">        </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="fl">1.5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>, <span class="dt">axis.text=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">12</span>), <span class="dt">axis.title=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">14</span>), <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">18</span>), <span class="dt">plot.subtitle =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">12</span>)) <span class="op">+</span></span>
+<span id="cb85-35"><a href="vizualise-cells-to-keep.html#cb85-35"></a><span class="st">        </span><span class="kw">scale_color_gradientn</span>(<span class="dt">colors =</span> col.pal) <span class="op">+</span></span>
+<span id="cb85-36"><a href="vizualise-cells-to-keep.html#cb85-36"></a><span class="st">        </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="kw">paste0</span>(<span class="st">&quot;Removed cells with S = &quot;</span>, th), <span class="dt">subtitle =</span> <span class="st">&quot;No expression detected = grey dot&quot;</span>) <span class="op">+</span></span>
+<span id="cb85-37"><a href="vizualise-cells-to-keep.html#cb85-37"></a><span class="st">        </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> th, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">size =</span> <span class="dv">1</span>)</span>
+<span id="cb85-38"><a href="vizualise-cells-to-keep.html#cb85-38"></a></span>
+<span id="cb85-39"><a href="vizualise-cells-to-keep.html#cb85-39"></a>    <span class="kw">require</span>(grid)</span>
+<span id="cb85-40"><a href="vizualise-cells-to-keep.html#cb85-40"></a>    <span class="kw">grid.newpage</span>()</span>
+<span id="cb85-41"><a href="vizualise-cells-to-keep.html#cb85-41"></a>    <span class="kw">pushViewport</span>(<span class="kw">viewport</span>(<span class="dt">layout =</span> <span class="kw">grid.layout</span>(<span class="dv">3</span>, <span class="dv">2</span>)))</span>
+<span id="cb85-42"><a href="vizualise-cells-to-keep.html#cb85-42"></a>    </span>
+<span id="cb85-43"><a href="vizualise-cells-to-keep.html#cb85-43"></a>    <span class="kw">print</span>(p1, <span class="dt">vp=</span><span class="kw">define_region</span>(<span class="dv">1</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>))</span>
+<span id="cb85-44"><a href="vizualise-cells-to-keep.html#cb85-44"></a>    <span class="kw">print</span>(p2, <span class="dt">vp=</span><span class="kw">define_region</span>(<span class="dv">2</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>))</span>
+<span id="cb85-45"><a href="vizualise-cells-to-keep.html#cb85-45"></a>    <span class="kw">print</span>(p3, <span class="dt">vp =</span> <span class="kw">define_region</span>(<span class="dv">3</span>, <span class="dv">1</span>))</span>
+<span id="cb85-46"><a href="vizualise-cells-to-keep.html#cb85-46"></a>    <span class="kw">print</span>(p4, <span class="dt">vp =</span> <span class="kw">define_region</span>(<span class="dv">3</span>, <span class="dv">2</span>))</span>
+<span id="cb85-47"><a href="vizualise-cells-to-keep.html#cb85-47"></a>        </span>
+<span id="cb85-48"><a href="vizualise-cells-to-keep.html#cb85-48"></a>}</span></code></pre></div>
+<pre><code>## 
+## 
+## ### Show  Btg2  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.3696  0.6270  3.5557 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.5921  1.1546  3.3614</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-54-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<pre><code>## 
+## 
+## ### Show  Sox1  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## 0.00000 0.00000 0.00000 0.06108 0.00000 2.60269 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.1108  0.0000  1.9542</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-54-2.png" width="1152" style="display: block; margin: auto;" /></p>
+<pre><code>## 
+## 
+## ### Show  Sox2  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.5865  1.2393  3.3960 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.5615  1.1102  1.0560  1.5757  3.1166</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-54-3.png" width="1152" style="display: block; margin: auto;" /></p>
+<pre><code>## 
+## 
+## ### Show  Sox3  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## 0.00000 0.00000 0.00000 0.06717 0.00000 2.47830 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.1532  0.0000  2.2837</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-54-4.png" width="1152" style="display: block; margin: auto;" /></p>
+<pre><code>## 
+## 
+## ### Show  Tubb3  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   0.000   1.218   2.802   2.322   3.370   4.718 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.7754  1.7273  3.6707</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-54-5.png" width="1152" style="display: block; margin: auto;" /></p>
+<pre><code>## 
+## 
+## ### Show  Olig2  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## 0.00000 0.00000 0.00000 0.02329 0.00000 2.88069 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## 0.00000 0.00000 0.00000 0.05092 0.00000 1.62391</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-54-6.png" width="1152" style="display: block; margin: auto;" /></p>
+<pre><code>## 
+## 
+## ### Show  Pax6  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.3258  0.0000  4.2669 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   0.000   0.000   0.000   0.589   1.222   2.376</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-54-7.png" width="1152" style="display: block; margin: auto;" /></p>
+<pre><code>## 
+## 
+## ### Show  Pax7  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## 0.00000 0.00000 0.00000 0.07468 0.00000 2.52612 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.1192  0.0000  1.6986</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-54-8.png" width="1152" style="display: block; margin: auto;" /></p>
+<pre><code>## 
+## 
+## ### Show  Isl1  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.1402  0.0000  4.0365 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.0348  0.0000  2.5300</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-54-9.png" width="1152" style="display: block; margin: auto;" /></p>
+<pre><code>## 
+## 
+## ### Show  Isl2  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## 0.00000 0.00000 0.00000 0.02776 0.00000 2.58664 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.0044  0.0000  1.0735</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-54-10.png" width="1152" style="display: block; margin: auto;" /></p>
+<pre><code>## 
+## 
+## ### Show  Notch1  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.2875  0.0000  2.8345 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.3904  0.9123  2.2539</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-54-11.png" width="1152" style="display: block; margin: auto;" /></p>
+<pre><code>## 
+## 
+## ### Show  Dll1  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.1764  0.0000  3.0640 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.3973  0.9281  2.7023</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-54-12.png" width="1152" style="display: block; margin: auto;" /></p>
+<pre><code>## 
+## 
+## ### Show  Cdc25b  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.1961  0.0000  3.0537 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.3343  0.5173  2.5389</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-54-13.png" width="1152" style="display: block; margin: auto;" /></p>
+</div>
+<div id="threshold-0.2" class="section level2">
+<h2><span class="header-section-number">6.2</span> Threshold = 0.2</h2>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="vizualise-cells-to-keep.html#cb99-1"></a><span class="co"># Separate dataset in 2 (cells to keep VS to remove)</span></span>
+<span id="cb99-2"><a href="vizualise-cells-to-keep.html#cb99-2"></a>kcenter &lt;-<span class="st"> </span><span class="dv">3</span></span>
+<span id="cb99-3"><a href="vizualise-cells-to-keep.html#cb99-3"></a>cl &lt;-<span class="st"> </span><span class="dv">2</span></span>
+<span id="cb99-4"><a href="vizualise-cells-to-keep.html#cb99-4"></a>set.ident &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&#39;kmeanClust_&#39;</span>, kcenter)</span>
+<span id="cb99-5"><a href="vizualise-cells-to-keep.html#cb99-5"></a>col.pal &lt;-<span class="st"> </span><span class="kw">few_pal</span>(<span class="st">&quot;Dark&quot;</span>)(kcenter)</span>
+<span id="cb99-6"><a href="vizualise-cells-to-keep.html#cb99-6"></a><span class="kw">Idents</span>(dat.seurat) &lt;-<span class="st"> </span>set.ident</span>
+<span id="cb99-7"><a href="vizualise-cells-to-keep.html#cb99-7"></a>cl.remove &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&#39;Clust.&#39;</span>, cl)</span>
+<span id="cb99-8"><a href="vizualise-cells-to-keep.html#cb99-8"></a>index.remove &lt;-<span class="st"> </span><span class="kw">which</span>(</span>
+<span id="cb99-9"><a href="vizualise-cells-to-keep.html#cb99-9"></a>            dat.seurat<span class="op">@</span>meta.data[, set.ident] <span class="op">==</span><span class="st"> </span>cl.remove <span class="op">&amp;</span></span>
+<span id="cb99-10"><a href="vizualise-cells-to-keep.html#cb99-10"></a><span class="st">            </span>dat.seurat<span class="op">@</span>meta.data[[<span class="st">&#39;Progenitors_1&#39;</span>]] <span class="op">&lt;</span><span class="st"> </span>th</span>
+<span id="cb99-11"><a href="vizualise-cells-to-keep.html#cb99-11"></a>        )</span>
+<span id="cb99-12"><a href="vizualise-cells-to-keep.html#cb99-12"></a>dat.remove &lt;-<span class="st"> </span>dat.seurat[, index.remove] </span>
+<span id="cb99-13"><a href="vizualise-cells-to-keep.html#cb99-13"></a>dat.keep &lt;-<span class="st"> </span>dat.seurat[, <span class="op">-</span>index.remove] </span>
+<span id="cb99-14"><a href="vizualise-cells-to-keep.html#cb99-14"></a><span class="kw">dim</span>(dat.remove)</span></code></pre></div>
+<pre><code>## [1] 20082   523</code></pre>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="vizualise-cells-to-keep.html#cb101-1"></a><span class="kw">dim</span>(dat.keep)</span></code></pre></div>
+<pre><code>## [1] 20082 25051</code></pre>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="vizualise-cells-to-keep.html#cb103-1"></a><span class="co"># Cells we keep</span></span>
+<span id="cb103-2"><a href="vizualise-cells-to-keep.html#cb103-2"></a><span class="kw">DimPlot</span>(dat.keep,</span>
+<span id="cb103-3"><a href="vizualise-cells-to-keep.html#cb103-3"></a>        <span class="dt">group.by =</span> set.ident,</span>
+<span id="cb103-4"><a href="vizualise-cells-to-keep.html#cb103-4"></a>        <span class="dt">reduction =</span> <span class="st">&quot;umap&quot;</span>,</span>
+<span id="cb103-5"><a href="vizualise-cells-to-keep.html#cb103-5"></a>        <span class="dt">cols =</span> col.pal,</span>
+<span id="cb103-6"><a href="vizualise-cells-to-keep.html#cb103-6"></a>        <span class="dt">label.size =</span> <span class="dv">4</span>)</span></code></pre></div>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-57-1.png" width="960" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="vizualise-cells-to-keep.html#cb104-1"></a><span class="co"># Cells we remove</span></span>
+<span id="cb104-2"><a href="vizualise-cells-to-keep.html#cb104-2"></a><span class="kw">DimPlot</span>(dat.remove,</span>
+<span id="cb104-3"><a href="vizualise-cells-to-keep.html#cb104-3"></a>        <span class="dt">group.by =</span> set.ident,</span>
+<span id="cb104-4"><a href="vizualise-cells-to-keep.html#cb104-4"></a>        <span class="dt">reduction =</span> <span class="st">&quot;umap&quot;</span>,</span>
+<span id="cb104-5"><a href="vizualise-cells-to-keep.html#cb104-5"></a>        <span class="dt">cols =</span> col.pal[cl],</span>
+<span id="cb104-6"><a href="vizualise-cells-to-keep.html#cb104-6"></a>        <span class="dt">label.size =</span> <span class="dv">4</span>)</span></code></pre></div>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-57-2.png" width="960" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="vizualise-cells-to-keep.html#cb105-1"></a><span class="co"># Prepare for multiple plots</span></span>
+<span id="cb105-2"><a href="vizualise-cells-to-keep.html#cb105-2"></a>define_region &lt;-<span class="st"> </span><span class="cf">function</span>(row, col){</span>
+<span id="cb105-3"><a href="vizualise-cells-to-keep.html#cb105-3"></a>        <span class="kw">viewport</span>(<span class="dt">layout.pos.row =</span> row, <span class="dt">layout.pos.col =</span> col)</span>
+<span id="cb105-4"><a href="vizualise-cells-to-keep.html#cb105-4"></a>    }</span></code></pre></div>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="vizualise-cells-to-keep.html#cb106-1"></a><span class="cf">for</span> (marker <span class="cf">in</span> markers){</span>
+<span id="cb106-2"><a href="vizualise-cells-to-keep.html#cb106-2"></a>    <span class="kw">cat</span>(<span class="st">&quot;</span><span class="ch">\n\n</span><span class="st">### Show &quot;</span>, marker, <span class="st">&quot; expression </span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb106-3"><a href="vizualise-cells-to-keep.html#cb106-3"></a>    dat.keep<span class="op">@</span>meta.data[[marker]] &lt;-<span class="st"> </span>dat.keep<span class="op">@</span>assays<span class="op">$</span>RNA<span class="op">@</span>data[marker,]</span>
+<span id="cb106-4"><a href="vizualise-cells-to-keep.html#cb106-4"></a>    <span class="co"># Data summary of this marker in cells we keep</span></span>
+<span id="cb106-5"><a href="vizualise-cells-to-keep.html#cb106-5"></a>    <span class="kw">print</span>(<span class="kw">summary</span>(dat.keep<span class="op">@</span>meta.data[[marker]]))</span>
+<span id="cb106-6"><a href="vizualise-cells-to-keep.html#cb106-6"></a>    dat.remove<span class="op">@</span>meta.data[[marker]] &lt;-<span class="st"> </span>dat.remove<span class="op">@</span>assays<span class="op">$</span>RNA<span class="op">@</span>data[marker,]</span>
+<span id="cb106-7"><a href="vizualise-cells-to-keep.html#cb106-7"></a>    <span class="co"># Data summary of this marker in cells we remove</span></span>
+<span id="cb106-8"><a href="vizualise-cells-to-keep.html#cb106-8"></a>    <span class="kw">print</span>(<span class="kw">summary</span>(dat.remove<span class="op">@</span>meta.data[[marker]]))</span>
+<span id="cb106-9"><a href="vizualise-cells-to-keep.html#cb106-9"></a></span>
+<span id="cb106-10"><a href="vizualise-cells-to-keep.html#cb106-10"></a>    <span class="co"># Lowest values are grey</span></span>
+<span id="cb106-11"><a href="vizualise-cells-to-keep.html#cb106-11"></a>    col.pal &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;#C2C1BC1A&quot;</span>, <span class="st">&quot;#E8AA0C80&quot;</span>, <span class="st">&quot;#21908C80&quot;</span>, <span class="st">&quot;#44015480&quot;</span>)</span>
+<span id="cb106-12"><a href="vizualise-cells-to-keep.html#cb106-12"></a>    <span class="co"># Lowest values are transparent</span></span>
+<span id="cb106-13"><a href="vizualise-cells-to-keep.html#cb106-13"></a>    col.pal.transp &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;#C2C1BC00&quot;</span>, <span class="st">&quot;#E8AA0C80&quot;</span>, <span class="st">&quot;#21908C80&quot;</span>, <span class="st">&quot;#44015480&quot;</span>)</span>
+<span id="cb106-14"><a href="vizualise-cells-to-keep.html#cb106-14"></a>    </span>
+<span id="cb106-15"><a href="vizualise-cells-to-keep.html#cb106-15"></a>    p1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(dat.seurat<span class="op">@</span>meta.data, <span class="kw">aes_string</span>(<span class="dt">x =</span> <span class="st">&quot;Progenitors_1&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Neurons_1&quot;</span>, <span class="dt">color =</span> marker)) <span class="op">+</span></span>
+<span id="cb106-16"><a href="vizualise-cells-to-keep.html#cb106-16"></a><span class="st">        </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="fl">1.5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>, <span class="dt">axis.text=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">12</span>), <span class="dt">axis.title=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">14</span>), <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">20</span>), <span class="dt">plot.subtitle =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">15</span>)) <span class="op">+</span></span>
+<span id="cb106-17"><a href="vizualise-cells-to-keep.html#cb106-17"></a><span class="st">        </span><span class="kw">scale_color_gradientn</span>(<span class="dt">colors =</span> col.pal.transp) <span class="op">+</span></span>
+<span id="cb106-18"><a href="vizualise-cells-to-keep.html#cb106-18"></a><span class="st">        </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="kw">paste0</span>(marker, <span class="st">&quot; expression in all cells&quot;</span>), <span class="dt">subtitle =</span> <span class="st">&quot;No expression detected = no dot&quot;</span>) <span class="op">+</span></span>
+<span id="cb106-19"><a href="vizualise-cells-to-keep.html#cb106-19"></a><span class="st">        </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> th, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">size =</span> <span class="dv">1</span>) </span>
+<span id="cb106-20"><a href="vizualise-cells-to-keep.html#cb106-20"></a></span>
+<span id="cb106-21"><a href="vizualise-cells-to-keep.html#cb106-21"></a>    p2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(dat.seurat<span class="op">@</span>meta.data, <span class="kw">aes_string</span>(<span class="dt">x =</span> <span class="st">&quot;Progenitors_1&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Neurons_1&quot;</span>, <span class="dt">color =</span> marker)) <span class="op">+</span></span>
+<span id="cb106-22"><a href="vizualise-cells-to-keep.html#cb106-22"></a><span class="st">        </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="fl">1.5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>, <span class="dt">axis.text=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">12</span>), <span class="dt">axis.title=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">14</span>), <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">20</span>), <span class="dt">plot.subtitle =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">15</span>)) <span class="op">+</span></span>
+<span id="cb106-23"><a href="vizualise-cells-to-keep.html#cb106-23"></a><span class="st">        </span><span class="kw">scale_color_gradientn</span>(<span class="dt">colors =</span> col.pal) <span class="op">+</span></span>
+<span id="cb106-24"><a href="vizualise-cells-to-keep.html#cb106-24"></a><span class="st">        </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="kw">paste0</span>(marker, <span class="st">&quot; expression in all cells&quot;</span>), <span class="dt">subtitle =</span> <span class="st">&quot;No expression detected = grey dot&quot;</span>) <span class="op">+</span></span>
+<span id="cb106-25"><a href="vizualise-cells-to-keep.html#cb106-25"></a><span class="st">        </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> th, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">size =</span> <span class="dv">1</span>)</span>
+<span id="cb106-26"><a href="vizualise-cells-to-keep.html#cb106-26"></a></span>
+<span id="cb106-27"><a href="vizualise-cells-to-keep.html#cb106-27"></a>    p3 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(dat.keep<span class="op">@</span>meta.data, <span class="kw">aes_string</span>(<span class="dt">x =</span> <span class="st">&quot;Progenitors_1&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Neurons_1&quot;</span>, <span class="dt">color =</span> marker)) <span class="op">+</span></span>
+<span id="cb106-28"><a href="vizualise-cells-to-keep.html#cb106-28"></a><span class="st">        </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="fl">1.5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>, <span class="dt">axis.text=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">12</span>), <span class="dt">axis.title=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">14</span>), <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">18</span>), <span class="dt">plot.subtitle =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">12</span>)) <span class="op">+</span></span>
+<span id="cb106-29"><a href="vizualise-cells-to-keep.html#cb106-29"></a><span class="st">        </span><span class="kw">scale_color_gradientn</span>(<span class="dt">colors =</span> col.pal) <span class="op">+</span></span>
+<span id="cb106-30"><a href="vizualise-cells-to-keep.html#cb106-30"></a><span class="st">        </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="kw">paste0</span>(<span class="st">&quot;Kept cells with S = &quot;</span>, th), <span class="dt">subtitle =</span> <span class="st">&quot;No expression detected = grey dot&quot;</span>) <span class="op">+</span></span>
+<span id="cb106-31"><a href="vizualise-cells-to-keep.html#cb106-31"></a><span class="st">        </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> th, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">size =</span> <span class="dv">1</span>)</span>
+<span id="cb106-32"><a href="vizualise-cells-to-keep.html#cb106-32"></a></span>
+<span id="cb106-33"><a href="vizualise-cells-to-keep.html#cb106-33"></a>    p4 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(dat.remove<span class="op">@</span>meta.data, <span class="kw">aes_string</span>(<span class="dt">x =</span> <span class="st">&quot;Progenitors_1&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Neurons_1&quot;</span>, <span class="dt">color =</span> marker)) <span class="op">+</span></span>
+<span id="cb106-34"><a href="vizualise-cells-to-keep.html#cb106-34"></a><span class="st">        </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="fl">1.5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>, <span class="dt">axis.text=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">12</span>), <span class="dt">axis.title=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">14</span>), <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">18</span>), <span class="dt">plot.subtitle =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">12</span>)) <span class="op">+</span></span>
+<span id="cb106-35"><a href="vizualise-cells-to-keep.html#cb106-35"></a><span class="st">        </span><span class="kw">scale_color_gradientn</span>(<span class="dt">colors =</span> col.pal) <span class="op">+</span></span>
+<span id="cb106-36"><a href="vizualise-cells-to-keep.html#cb106-36"></a><span class="st">        </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="kw">paste0</span>(<span class="st">&quot;Removed cells with S = &quot;</span>, th), <span class="dt">subtitle =</span> <span class="st">&quot;No expression detected = grey dot&quot;</span>) <span class="op">+</span></span>
+<span id="cb106-37"><a href="vizualise-cells-to-keep.html#cb106-37"></a><span class="st">        </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> th, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">size =</span> <span class="dv">1</span>)</span>
+<span id="cb106-38"><a href="vizualise-cells-to-keep.html#cb106-38"></a></span>
+<span id="cb106-39"><a href="vizualise-cells-to-keep.html#cb106-39"></a>    <span class="kw">require</span>(grid)</span>
+<span id="cb106-40"><a href="vizualise-cells-to-keep.html#cb106-40"></a>    <span class="kw">grid.newpage</span>()</span>
+<span id="cb106-41"><a href="vizualise-cells-to-keep.html#cb106-41"></a>    <span class="kw">pushViewport</span>(<span class="kw">viewport</span>(<span class="dt">layout =</span> <span class="kw">grid.layout</span>(<span class="dv">3</span>, <span class="dv">2</span>)))</span>
+<span id="cb106-42"><a href="vizualise-cells-to-keep.html#cb106-42"></a>    </span>
+<span id="cb106-43"><a href="vizualise-cells-to-keep.html#cb106-43"></a>    <span class="kw">print</span>(p1, <span class="dt">vp=</span><span class="kw">define_region</span>(<span class="dv">1</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>))</span>
+<span id="cb106-44"><a href="vizualise-cells-to-keep.html#cb106-44"></a>    <span class="kw">print</span>(p2, <span class="dt">vp=</span><span class="kw">define_region</span>(<span class="dv">2</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>))</span>
+<span id="cb106-45"><a href="vizualise-cells-to-keep.html#cb106-45"></a>    <span class="kw">print</span>(p3, <span class="dt">vp =</span> <span class="kw">define_region</span>(<span class="dv">3</span>, <span class="dv">1</span>))</span>
+<span id="cb106-46"><a href="vizualise-cells-to-keep.html#cb106-46"></a>    <span class="kw">print</span>(p4, <span class="dt">vp =</span> <span class="kw">define_region</span>(<span class="dv">3</span>, <span class="dv">2</span>))</span>
+<span id="cb106-47"><a href="vizualise-cells-to-keep.html#cb106-47"></a>        </span>
+<span id="cb106-48"><a href="vizualise-cells-to-keep.html#cb106-48"></a>}</span></code></pre></div>
+<pre><code>## 
+## 
+## ### Show  Btg2  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.3668  0.6099  3.5557 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.6074  1.2111  3.3614</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-59-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<pre><code>## 
+## 
+## ### Show  Sox1  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## 0.00000 0.00000 0.00000 0.06063 0.00000 2.60269 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   0.000   0.000   0.000   0.106   0.000   1.954</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-59-2.png" width="1152" style="display: block; margin: auto;" /></p>
+<pre><code>## 
+## 
+## ### Show  Sox2  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.5819  1.2328  3.3960 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.1516  1.0933  1.0263  1.5539  3.1166</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-59-3.png" width="1152" style="display: block; margin: auto;" /></p>
+<pre><code>## 
+## 
+## ### Show  Sox3  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## 0.00000 0.00000 0.00000 0.06669 0.00000 2.47830 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.1307  0.0000  2.2837</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-59-4.png" width="1152" style="display: block; margin: auto;" /></p>
+<pre><code>## 
+## 
+## ### Show  Tubb3  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   0.000   1.251   2.815   2.339   3.376   4.718 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.7929  1.5535  4.1188</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-59-5.png" width="1152" style="display: block; margin: auto;" /></p>
+<pre><code>## 
+## 
+## ### Show  Olig2  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## 0.00000 0.00000 0.00000 0.02273 0.00000 2.88069 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## 0.00000 0.00000 0.00000 0.06267 0.00000 2.23344</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-59-6.png" width="1152" style="display: block; margin: auto;" /></p>
+<pre><code>## 
+## 
+## ### Show  Pax6  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.3223  0.0000  4.2669 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   0.000   0.000   0.000   0.617   1.222   2.554</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-59-7.png" width="1152" style="display: block; margin: auto;" /></p>
+<pre><code>## 
+## 
+## ### Show  Pax7  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## 0.00000 0.00000 0.00000 0.07405 0.00000 2.49898 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.1258  0.0000  2.5261</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-59-8.png" width="1152" style="display: block; margin: auto;" /></p>
+<pre><code>## 
+## 
+## ### Show  Isl1  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.1413  0.0000  4.0365 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.0397  0.0000  2.9624</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-59-9.png" width="1152" style="display: block; margin: auto;" /></p>
+<pre><code>## 
+## 
+## ### Show  Isl2  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## 0.00000 0.00000 0.00000 0.02805 0.00000 2.58664 
+##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+## 0.000000 0.000000 0.000000 0.002985 0.000000 1.073523</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-59-10.png" width="1152" style="display: block; margin: auto;" /></p>
+<pre><code>## 
+## 
+## ### Show  Notch1  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.2863  0.0000  2.8345 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.3937  0.8883  2.2827</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-59-11.png" width="1152" style="display: block; margin: auto;" /></p>
+<pre><code>## 
+## 
+## ### Show  Dll1  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.1745  0.0000  3.0640 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.3697  0.7497  2.8647</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-59-12.png" width="1152" style="display: block; margin: auto;" /></p>
+<pre><code>## 
+## 
+## ### Show  Cdc25b  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.1949  0.0000  3.0537 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.3207  0.4641  2.5389</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-59-13.png" width="1152" style="display: block; margin: auto;" /></p>
+</div>
+<div id="threshold-0.3" class="section level2">
+<h2><span class="header-section-number">6.3</span> Threshold = 0.3</h2>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="vizualise-cells-to-keep.html#cb120-1"></a><span class="co"># Separate dataset in 2 (cells to keep VS to remove)</span></span>
+<span id="cb120-2"><a href="vizualise-cells-to-keep.html#cb120-2"></a>kcenter &lt;-<span class="st"> </span><span class="dv">3</span></span>
+<span id="cb120-3"><a href="vizualise-cells-to-keep.html#cb120-3"></a>cl &lt;-<span class="st"> </span><span class="dv">2</span></span>
+<span id="cb120-4"><a href="vizualise-cells-to-keep.html#cb120-4"></a>set.ident &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&#39;kmeanClust_&#39;</span>, kcenter)</span>
+<span id="cb120-5"><a href="vizualise-cells-to-keep.html#cb120-5"></a>col.pal &lt;-<span class="st"> </span><span class="kw">few_pal</span>(<span class="st">&quot;Dark&quot;</span>)(kcenter)</span>
+<span id="cb120-6"><a href="vizualise-cells-to-keep.html#cb120-6"></a><span class="kw">Idents</span>(dat.seurat) &lt;-<span class="st"> </span>set.ident</span>
+<span id="cb120-7"><a href="vizualise-cells-to-keep.html#cb120-7"></a>cl.remove &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&#39;Clust.&#39;</span>, cl)</span>
+<span id="cb120-8"><a href="vizualise-cells-to-keep.html#cb120-8"></a>index.remove &lt;-<span class="st"> </span><span class="kw">which</span>(</span>
+<span id="cb120-9"><a href="vizualise-cells-to-keep.html#cb120-9"></a>            dat.seurat<span class="op">@</span>meta.data[, set.ident] <span class="op">==</span><span class="st"> </span>cl.remove <span class="op">&amp;</span></span>
+<span id="cb120-10"><a href="vizualise-cells-to-keep.html#cb120-10"></a><span class="st">            </span>dat.seurat<span class="op">@</span>meta.data[[<span class="st">&#39;Progenitors_1&#39;</span>]] <span class="op">&lt;</span><span class="st"> </span>th</span>
+<span id="cb120-11"><a href="vizualise-cells-to-keep.html#cb120-11"></a>        )</span>
+<span id="cb120-12"><a href="vizualise-cells-to-keep.html#cb120-12"></a>dat.remove &lt;-<span class="st"> </span>dat.seurat[, index.remove] </span>
+<span id="cb120-13"><a href="vizualise-cells-to-keep.html#cb120-13"></a>dat.keep &lt;-<span class="st"> </span>dat.seurat[, <span class="op">-</span>index.remove] </span>
+<span id="cb120-14"><a href="vizualise-cells-to-keep.html#cb120-14"></a><span class="kw">dim</span>(dat.remove)</span></code></pre></div>
+<pre><code>## [1] 20082   922</code></pre>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="vizualise-cells-to-keep.html#cb122-1"></a><span class="kw">dim</span>(dat.keep)</span></code></pre></div>
+<pre><code>## [1] 20082 24652</code></pre>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="vizualise-cells-to-keep.html#cb124-1"></a><span class="co"># Cells we keep</span></span>
+<span id="cb124-2"><a href="vizualise-cells-to-keep.html#cb124-2"></a><span class="kw">DimPlot</span>(dat.keep,</span>
+<span id="cb124-3"><a href="vizualise-cells-to-keep.html#cb124-3"></a>        <span class="dt">group.by =</span> set.ident,</span>
+<span id="cb124-4"><a href="vizualise-cells-to-keep.html#cb124-4"></a>        <span class="dt">reduction =</span> <span class="st">&quot;umap&quot;</span>,</span>
+<span id="cb124-5"><a href="vizualise-cells-to-keep.html#cb124-5"></a>        <span class="dt">cols =</span> col.pal,</span>
+<span id="cb124-6"><a href="vizualise-cells-to-keep.html#cb124-6"></a>        <span class="dt">label.size =</span> <span class="dv">4</span>)</span></code></pre></div>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-62-1.png" width="960" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="vizualise-cells-to-keep.html#cb125-1"></a><span class="co"># Cells we remove</span></span>
+<span id="cb125-2"><a href="vizualise-cells-to-keep.html#cb125-2"></a><span class="kw">DimPlot</span>(dat.remove,</span>
+<span id="cb125-3"><a href="vizualise-cells-to-keep.html#cb125-3"></a>        <span class="dt">group.by =</span> set.ident,</span>
+<span id="cb125-4"><a href="vizualise-cells-to-keep.html#cb125-4"></a>        <span class="dt">reduction =</span> <span class="st">&quot;umap&quot;</span>,</span>
+<span id="cb125-5"><a href="vizualise-cells-to-keep.html#cb125-5"></a>        <span class="dt">cols =</span> col.pal[cl],</span>
+<span id="cb125-6"><a href="vizualise-cells-to-keep.html#cb125-6"></a>        <span class="dt">label.size =</span> <span class="dv">4</span>)</span></code></pre></div>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-62-2.png" width="960" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="vizualise-cells-to-keep.html#cb126-1"></a><span class="co"># Prepare for multiple plots</span></span>
+<span id="cb126-2"><a href="vizualise-cells-to-keep.html#cb126-2"></a>define_region &lt;-<span class="st"> </span><span class="cf">function</span>(row, col){</span>
+<span id="cb126-3"><a href="vizualise-cells-to-keep.html#cb126-3"></a>        <span class="kw">viewport</span>(<span class="dt">layout.pos.row =</span> row, <span class="dt">layout.pos.col =</span> col)</span>
+<span id="cb126-4"><a href="vizualise-cells-to-keep.html#cb126-4"></a>    }</span></code></pre></div>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="vizualise-cells-to-keep.html#cb127-1"></a><span class="cf">for</span> (marker <span class="cf">in</span> markers){</span>
+<span id="cb127-2"><a href="vizualise-cells-to-keep.html#cb127-2"></a>    <span class="kw">cat</span>(<span class="st">&quot;</span><span class="ch">\n\n</span><span class="st">### Show &quot;</span>, marker, <span class="st">&quot; expression </span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb127-3"><a href="vizualise-cells-to-keep.html#cb127-3"></a>    dat.keep<span class="op">@</span>meta.data[[marker]] &lt;-<span class="st"> </span>dat.keep<span class="op">@</span>assays<span class="op">$</span>RNA<span class="op">@</span>data[marker,]</span>
+<span id="cb127-4"><a href="vizualise-cells-to-keep.html#cb127-4"></a>    <span class="co"># Data summary of this marker in cells we keep</span></span>
+<span id="cb127-5"><a href="vizualise-cells-to-keep.html#cb127-5"></a>    <span class="kw">print</span>(<span class="kw">summary</span>(dat.keep<span class="op">@</span>meta.data[[marker]]))</span>
+<span id="cb127-6"><a href="vizualise-cells-to-keep.html#cb127-6"></a>    dat.remove<span class="op">@</span>meta.data[[marker]] &lt;-<span class="st"> </span>dat.remove<span class="op">@</span>assays<span class="op">$</span>RNA<span class="op">@</span>data[marker,]</span>
+<span id="cb127-7"><a href="vizualise-cells-to-keep.html#cb127-7"></a>    <span class="co"># Data summary of this marker in cells we remove</span></span>
+<span id="cb127-8"><a href="vizualise-cells-to-keep.html#cb127-8"></a>    <span class="kw">print</span>(<span class="kw">summary</span>(dat.remove<span class="op">@</span>meta.data[[marker]]))</span>
+<span id="cb127-9"><a href="vizualise-cells-to-keep.html#cb127-9"></a></span>
+<span id="cb127-10"><a href="vizualise-cells-to-keep.html#cb127-10"></a>    <span class="co"># Lowest values are grey</span></span>
+<span id="cb127-11"><a href="vizualise-cells-to-keep.html#cb127-11"></a>    col.pal &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;#C2C1BC1A&quot;</span>, <span class="st">&quot;#E8AA0C80&quot;</span>, <span class="st">&quot;#21908C80&quot;</span>, <span class="st">&quot;#44015480&quot;</span>)</span>
+<span id="cb127-12"><a href="vizualise-cells-to-keep.html#cb127-12"></a>    <span class="co"># Lowest values are transparent</span></span>
+<span id="cb127-13"><a href="vizualise-cells-to-keep.html#cb127-13"></a>    col.pal.transp &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;#C2C1BC00&quot;</span>, <span class="st">&quot;#E8AA0C80&quot;</span>, <span class="st">&quot;#21908C80&quot;</span>, <span class="st">&quot;#44015480&quot;</span>)</span>
+<span id="cb127-14"><a href="vizualise-cells-to-keep.html#cb127-14"></a>    </span>
+<span id="cb127-15"><a href="vizualise-cells-to-keep.html#cb127-15"></a>    p1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(dat.seurat<span class="op">@</span>meta.data, <span class="kw">aes_string</span>(<span class="dt">x =</span> <span class="st">&quot;Progenitors_1&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Neurons_1&quot;</span>, <span class="dt">color =</span> marker)) <span class="op">+</span></span>
+<span id="cb127-16"><a href="vizualise-cells-to-keep.html#cb127-16"></a><span class="st">        </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="fl">1.5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>, <span class="dt">axis.text=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">12</span>), <span class="dt">axis.title=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">14</span>), <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">20</span>), <span class="dt">plot.subtitle =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">15</span>)) <span class="op">+</span></span>
+<span id="cb127-17"><a href="vizualise-cells-to-keep.html#cb127-17"></a><span class="st">        </span><span class="kw">scale_color_gradientn</span>(<span class="dt">colors =</span> col.pal.transp) <span class="op">+</span></span>
+<span id="cb127-18"><a href="vizualise-cells-to-keep.html#cb127-18"></a><span class="st">        </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="kw">paste0</span>(marker, <span class="st">&quot; expression in all cells&quot;</span>), <span class="dt">subtitle =</span> <span class="st">&quot;No expression detected = no dot&quot;</span>) <span class="op">+</span></span>
+<span id="cb127-19"><a href="vizualise-cells-to-keep.html#cb127-19"></a><span class="st">        </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> th, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">size =</span> <span class="dv">1</span>) </span>
+<span id="cb127-20"><a href="vizualise-cells-to-keep.html#cb127-20"></a></span>
+<span id="cb127-21"><a href="vizualise-cells-to-keep.html#cb127-21"></a>    p2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(dat.seurat<span class="op">@</span>meta.data, <span class="kw">aes_string</span>(<span class="dt">x =</span> <span class="st">&quot;Progenitors_1&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Neurons_1&quot;</span>, <span class="dt">color =</span> marker)) <span class="op">+</span></span>
+<span id="cb127-22"><a href="vizualise-cells-to-keep.html#cb127-22"></a><span class="st">        </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="fl">1.5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>, <span class="dt">axis.text=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">12</span>), <span class="dt">axis.title=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">14</span>), <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">20</span>), <span class="dt">plot.subtitle =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">15</span>)) <span class="op">+</span></span>
+<span id="cb127-23"><a href="vizualise-cells-to-keep.html#cb127-23"></a><span class="st">        </span><span class="kw">scale_color_gradientn</span>(<span class="dt">colors =</span> col.pal) <span class="op">+</span></span>
+<span id="cb127-24"><a href="vizualise-cells-to-keep.html#cb127-24"></a><span class="st">        </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="kw">paste0</span>(marker, <span class="st">&quot; expression in all cells&quot;</span>), <span class="dt">subtitle =</span> <span class="st">&quot;No expression detected = grey dot&quot;</span>) <span class="op">+</span></span>
+<span id="cb127-25"><a href="vizualise-cells-to-keep.html#cb127-25"></a><span class="st">        </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> th, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">size =</span> <span class="dv">1</span>)</span>
+<span id="cb127-26"><a href="vizualise-cells-to-keep.html#cb127-26"></a></span>
+<span id="cb127-27"><a href="vizualise-cells-to-keep.html#cb127-27"></a>    p3 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(dat.keep<span class="op">@</span>meta.data, <span class="kw">aes_string</span>(<span class="dt">x =</span> <span class="st">&quot;Progenitors_1&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Neurons_1&quot;</span>, <span class="dt">color =</span> marker)) <span class="op">+</span></span>
+<span id="cb127-28"><a href="vizualise-cells-to-keep.html#cb127-28"></a><span class="st">        </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="fl">1.5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>, <span class="dt">axis.text=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">12</span>), <span class="dt">axis.title=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">14</span>), <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">18</span>), <span class="dt">plot.subtitle =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">12</span>)) <span class="op">+</span></span>
+<span id="cb127-29"><a href="vizualise-cells-to-keep.html#cb127-29"></a><span class="st">        </span><span class="kw">scale_color_gradientn</span>(<span class="dt">colors =</span> col.pal) <span class="op">+</span></span>
+<span id="cb127-30"><a href="vizualise-cells-to-keep.html#cb127-30"></a><span class="st">        </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="kw">paste0</span>(<span class="st">&quot;Kept cells with S = &quot;</span>, th), <span class="dt">subtitle =</span> <span class="st">&quot;No expression detected = grey dot&quot;</span>) <span class="op">+</span></span>
+<span id="cb127-31"><a href="vizualise-cells-to-keep.html#cb127-31"></a><span class="st">        </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> th, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">size =</span> <span class="dv">1</span>)</span>
+<span id="cb127-32"><a href="vizualise-cells-to-keep.html#cb127-32"></a></span>
+<span id="cb127-33"><a href="vizualise-cells-to-keep.html#cb127-33"></a>    p4 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(dat.remove<span class="op">@</span>meta.data, <span class="kw">aes_string</span>(<span class="dt">x =</span> <span class="st">&quot;Progenitors_1&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Neurons_1&quot;</span>, <span class="dt">color =</span> marker)) <span class="op">+</span></span>
+<span id="cb127-34"><a href="vizualise-cells-to-keep.html#cb127-34"></a><span class="st">        </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="fl">1.5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>, <span class="dt">axis.text=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">12</span>), <span class="dt">axis.title=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">14</span>), <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">18</span>), <span class="dt">plot.subtitle =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">12</span>)) <span class="op">+</span></span>
+<span id="cb127-35"><a href="vizualise-cells-to-keep.html#cb127-35"></a><span class="st">        </span><span class="kw">scale_color_gradientn</span>(<span class="dt">colors =</span> col.pal) <span class="op">+</span></span>
+<span id="cb127-36"><a href="vizualise-cells-to-keep.html#cb127-36"></a><span class="st">        </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="kw">paste0</span>(<span class="st">&quot;Removed cells with S = &quot;</span>, th), <span class="dt">subtitle =</span> <span class="st">&quot;No expression detected = grey dot&quot;</span>) <span class="op">+</span></span>
+<span id="cb127-37"><a href="vizualise-cells-to-keep.html#cb127-37"></a><span class="st">        </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> th, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">size =</span> <span class="dv">1</span>)</span>
+<span id="cb127-38"><a href="vizualise-cells-to-keep.html#cb127-38"></a></span>
+<span id="cb127-39"><a href="vizualise-cells-to-keep.html#cb127-39"></a>    <span class="kw">require</span>(grid)</span>
+<span id="cb127-40"><a href="vizualise-cells-to-keep.html#cb127-40"></a>    <span class="kw">grid.newpage</span>()</span>
+<span id="cb127-41"><a href="vizualise-cells-to-keep.html#cb127-41"></a>    <span class="kw">pushViewport</span>(<span class="kw">viewport</span>(<span class="dt">layout =</span> <span class="kw">grid.layout</span>(<span class="dv">3</span>, <span class="dv">2</span>)))</span>
+<span id="cb127-42"><a href="vizualise-cells-to-keep.html#cb127-42"></a>    </span>
+<span id="cb127-43"><a href="vizualise-cells-to-keep.html#cb127-43"></a>    <span class="kw">print</span>(p1, <span class="dt">vp=</span><span class="kw">define_region</span>(<span class="dv">1</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>))</span>
+<span id="cb127-44"><a href="vizualise-cells-to-keep.html#cb127-44"></a>    <span class="kw">print</span>(p2, <span class="dt">vp=</span><span class="kw">define_region</span>(<span class="dv">2</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>))</span>
+<span id="cb127-45"><a href="vizualise-cells-to-keep.html#cb127-45"></a>    <span class="kw">print</span>(p3, <span class="dt">vp =</span> <span class="kw">define_region</span>(<span class="dv">3</span>, <span class="dv">1</span>))</span>
+<span id="cb127-46"><a href="vizualise-cells-to-keep.html#cb127-46"></a>    <span class="kw">print</span>(p4, <span class="dt">vp =</span> <span class="kw">define_region</span>(<span class="dv">3</span>, <span class="dv">2</span>))</span>
+<span id="cb127-47"><a href="vizualise-cells-to-keep.html#cb127-47"></a>        </span>
+<span id="cb127-48"><a href="vizualise-cells-to-keep.html#cb127-48"></a>}</span></code></pre></div>
+<pre><code>## 
+## 
+## ### Show  Btg2  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.3624  0.5865  3.5557 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.6226  1.2034  3.3614</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-64-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<pre><code>## 
+## 
+## ### Show  Sox1  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## 0.00000 0.00000 0.00000 0.05983 0.00000 2.60269 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.1077  0.0000  1.9542</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-64-2.png" width="1152" style="display: block; margin: auto;" /></p>
+<pre><code>## 
+## 
+## ### Show  Sox2  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.5731  1.2186  3.3960 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.4957  1.1324  1.0691  1.5948  3.1166</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-64-3.png" width="1152" style="display: block; margin: auto;" /></p>
+<pre><code>## 
+## 
+## ### Show  Sox3  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## 0.00000 0.00000 0.00000 0.06558 0.00000 2.47830 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.1326  0.0000  2.2837</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-64-4.png" width="1152" style="display: block; margin: auto;" /></p>
+<pre><code>## 
+## 
+## ### Show  Tubb3  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   0.000   1.308   2.836   2.365   3.383   4.718 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.7655  1.4812  4.1188</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-64-5.png" width="1152" style="display: block; margin: auto;" /></p>
+<pre><code>## 
+## 
+## ### Show  Olig2  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## 0.00000 0.00000 0.00000 0.02193 0.00000 2.88069 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## 0.00000 0.00000 0.00000 0.06679 0.00000 2.44816</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-64-6.png" width="1152" style="display: block; margin: auto;" /></p>
+<pre><code>## 
+## 
+## ### Show  Pax6  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.3148  0.0000  4.2669 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.6372  0.6888  1.2798  2.8366</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-64-7.png" width="1152" style="display: block; margin: auto;" /></p>
+<pre><code>## 
+## 
+## ### Show  Pax7  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.0737  0.0000  2.4990 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.1126  0.0000  2.5261</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-64-8.png" width="1152" style="display: block; margin: auto;" /></p>
+<pre><code>## 
+## 
+## ### Show  Isl1  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.1428  0.0000  4.0365 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.0428  0.0000  2.9624</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-64-9.png" width="1152" style="display: block; margin: auto;" /></p>
+<pre><code>## 
+## 
+## ### Show  Isl2  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## 0.00000 0.00000 0.00000 0.02845 0.00000 2.58664 
+##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+## 0.000000 0.000000 0.000000 0.003103 0.000000 1.073523</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-64-10.png" width="1152" style="display: block; margin: auto;" /></p>
+<pre><code>## 
+## 
+## ### Show  Notch1  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.2837  0.0000  2.8345 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.4168  0.9010  2.5705</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-64-11.png" width="1152" style="display: block; margin: auto;" /></p>
+<pre><code>## 
+## 
+## ### Show  Dll1  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.1712  0.0000  2.8924 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.3732  0.7146  3.0640</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-64-12.png" width="1152" style="display: block; margin: auto;" /></p>
+<pre><code>## 
+## 
+## ### Show  Cdc25b  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.1929  0.0000  3.0537 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.3194  0.4201  2.5389</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-64-13.png" width="1152" style="display: block; margin: auto;" /></p>
+</div>
+<div id="threshold-0.4" class="section level2">
+<h2><span class="header-section-number">6.4</span> Threshold = 0.4</h2>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="vizualise-cells-to-keep.html#cb141-1"></a><span class="co"># Separate dataset in 2 (cells to keep VS to remove)</span></span>
+<span id="cb141-2"><a href="vizualise-cells-to-keep.html#cb141-2"></a>kcenter &lt;-<span class="st"> </span><span class="dv">3</span></span>
+<span id="cb141-3"><a href="vizualise-cells-to-keep.html#cb141-3"></a>cl &lt;-<span class="st"> </span><span class="dv">2</span></span>
+<span id="cb141-4"><a href="vizualise-cells-to-keep.html#cb141-4"></a>set.ident &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&#39;kmeanClust_&#39;</span>, kcenter)</span>
+<span id="cb141-5"><a href="vizualise-cells-to-keep.html#cb141-5"></a>col.pal &lt;-<span class="st"> </span><span class="kw">few_pal</span>(<span class="st">&quot;Dark&quot;</span>)(kcenter)</span>
+<span id="cb141-6"><a href="vizualise-cells-to-keep.html#cb141-6"></a><span class="kw">Idents</span>(dat.seurat) &lt;-<span class="st"> </span>set.ident</span>
+<span id="cb141-7"><a href="vizualise-cells-to-keep.html#cb141-7"></a>cl.remove &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&#39;Clust.&#39;</span>, cl)</span>
+<span id="cb141-8"><a href="vizualise-cells-to-keep.html#cb141-8"></a>index.remove &lt;-<span class="st"> </span><span class="kw">which</span>(</span>
+<span id="cb141-9"><a href="vizualise-cells-to-keep.html#cb141-9"></a>            dat.seurat<span class="op">@</span>meta.data[, set.ident] <span class="op">==</span><span class="st"> </span>cl.remove <span class="op">&amp;</span></span>
+<span id="cb141-10"><a href="vizualise-cells-to-keep.html#cb141-10"></a><span class="st">            </span>dat.seurat<span class="op">@</span>meta.data[[<span class="st">&#39;Progenitors_1&#39;</span>]] <span class="op">&lt;</span><span class="st"> </span>th</span>
+<span id="cb141-11"><a href="vizualise-cells-to-keep.html#cb141-11"></a>        )</span>
+<span id="cb141-12"><a href="vizualise-cells-to-keep.html#cb141-12"></a>dat.remove &lt;-<span class="st"> </span>dat.seurat[, index.remove] </span>
+<span id="cb141-13"><a href="vizualise-cells-to-keep.html#cb141-13"></a>dat.keep &lt;-<span class="st"> </span>dat.seurat[, <span class="op">-</span>index.remove] </span>
+<span id="cb141-14"><a href="vizualise-cells-to-keep.html#cb141-14"></a><span class="kw">dim</span>(dat.remove)</span></code></pre></div>
+<pre><code>## [1] 20082  1462</code></pre>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="vizualise-cells-to-keep.html#cb143-1"></a><span class="kw">dim</span>(dat.keep)</span></code></pre></div>
+<pre><code>## [1] 20082 24112</code></pre>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="vizualise-cells-to-keep.html#cb145-1"></a><span class="co"># Cells we keep</span></span>
+<span id="cb145-2"><a href="vizualise-cells-to-keep.html#cb145-2"></a><span class="kw">DimPlot</span>(dat.keep,</span>
+<span id="cb145-3"><a href="vizualise-cells-to-keep.html#cb145-3"></a>        <span class="dt">group.by =</span> set.ident,</span>
+<span id="cb145-4"><a href="vizualise-cells-to-keep.html#cb145-4"></a>        <span class="dt">reduction =</span> <span class="st">&quot;umap&quot;</span>,</span>
+<span id="cb145-5"><a href="vizualise-cells-to-keep.html#cb145-5"></a>        <span class="dt">cols =</span> col.pal,</span>
+<span id="cb145-6"><a href="vizualise-cells-to-keep.html#cb145-6"></a>        <span class="dt">label.size =</span> <span class="dv">4</span>)</span></code></pre></div>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-67-1.png" width="960" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="vizualise-cells-to-keep.html#cb146-1"></a><span class="co"># Cells we remove</span></span>
+<span id="cb146-2"><a href="vizualise-cells-to-keep.html#cb146-2"></a><span class="kw">DimPlot</span>(dat.remove,</span>
+<span id="cb146-3"><a href="vizualise-cells-to-keep.html#cb146-3"></a>        <span class="dt">group.by =</span> set.ident,</span>
+<span id="cb146-4"><a href="vizualise-cells-to-keep.html#cb146-4"></a>        <span class="dt">reduction =</span> <span class="st">&quot;umap&quot;</span>,</span>
+<span id="cb146-5"><a href="vizualise-cells-to-keep.html#cb146-5"></a>        <span class="dt">cols =</span> col.pal[cl],</span>
+<span id="cb146-6"><a href="vizualise-cells-to-keep.html#cb146-6"></a>        <span class="dt">label.size =</span> <span class="dv">4</span>)</span></code></pre></div>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-67-2.png" width="960" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="vizualise-cells-to-keep.html#cb147-1"></a><span class="co"># Prepare for multiple plots</span></span>
+<span id="cb147-2"><a href="vizualise-cells-to-keep.html#cb147-2"></a>define_region &lt;-<span class="st"> </span><span class="cf">function</span>(row, col){</span>
+<span id="cb147-3"><a href="vizualise-cells-to-keep.html#cb147-3"></a>        <span class="kw">viewport</span>(<span class="dt">layout.pos.row =</span> row, <span class="dt">layout.pos.col =</span> col)</span>
+<span id="cb147-4"><a href="vizualise-cells-to-keep.html#cb147-4"></a>    }</span></code></pre></div>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="vizualise-cells-to-keep.html#cb148-1"></a><span class="cf">for</span> (marker <span class="cf">in</span> markers){</span>
+<span id="cb148-2"><a href="vizualise-cells-to-keep.html#cb148-2"></a>    <span class="kw">cat</span>(<span class="st">&quot;</span><span class="ch">\n\n</span><span class="st">### Show &quot;</span>, marker, <span class="st">&quot; expression </span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb148-3"><a href="vizualise-cells-to-keep.html#cb148-3"></a>    dat.keep<span class="op">@</span>meta.data[[marker]] &lt;-<span class="st"> </span>dat.keep<span class="op">@</span>assays<span class="op">$</span>RNA<span class="op">@</span>data[marker,]</span>
+<span id="cb148-4"><a href="vizualise-cells-to-keep.html#cb148-4"></a>    <span class="co"># Data summary of this marker in cells we keep</span></span>
+<span id="cb148-5"><a href="vizualise-cells-to-keep.html#cb148-5"></a>    <span class="kw">print</span>(<span class="kw">summary</span>(dat.keep<span class="op">@</span>meta.data[[marker]]))</span>
+<span id="cb148-6"><a href="vizualise-cells-to-keep.html#cb148-6"></a>    dat.remove<span class="op">@</span>meta.data[[marker]] &lt;-<span class="st"> </span>dat.remove<span class="op">@</span>assays<span class="op">$</span>RNA<span class="op">@</span>data[marker,]</span>
+<span id="cb148-7"><a href="vizualise-cells-to-keep.html#cb148-7"></a>    <span class="co"># Data summary of this marker in cells we remove</span></span>
+<span id="cb148-8"><a href="vizualise-cells-to-keep.html#cb148-8"></a>    <span class="kw">print</span>(<span class="kw">summary</span>(dat.remove<span class="op">@</span>meta.data[[marker]]))</span>
+<span id="cb148-9"><a href="vizualise-cells-to-keep.html#cb148-9"></a></span>
+<span id="cb148-10"><a href="vizualise-cells-to-keep.html#cb148-10"></a>    <span class="co"># Lowest values are grey</span></span>
+<span id="cb148-11"><a href="vizualise-cells-to-keep.html#cb148-11"></a>    col.pal &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;#C2C1BC1A&quot;</span>, <span class="st">&quot;#E8AA0C80&quot;</span>, <span class="st">&quot;#21908C80&quot;</span>, <span class="st">&quot;#44015480&quot;</span>)</span>
+<span id="cb148-12"><a href="vizualise-cells-to-keep.html#cb148-12"></a>    <span class="co"># Lowest values are transparent</span></span>
+<span id="cb148-13"><a href="vizualise-cells-to-keep.html#cb148-13"></a>    col.pal.transp &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;#C2C1BC00&quot;</span>, <span class="st">&quot;#E8AA0C80&quot;</span>, <span class="st">&quot;#21908C80&quot;</span>, <span class="st">&quot;#44015480&quot;</span>)</span>
+<span id="cb148-14"><a href="vizualise-cells-to-keep.html#cb148-14"></a>    </span>
+<span id="cb148-15"><a href="vizualise-cells-to-keep.html#cb148-15"></a>    p1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(dat.seurat<span class="op">@</span>meta.data, <span class="kw">aes_string</span>(<span class="dt">x =</span> <span class="st">&quot;Progenitors_1&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Neurons_1&quot;</span>, <span class="dt">color =</span> marker)) <span class="op">+</span></span>
+<span id="cb148-16"><a href="vizualise-cells-to-keep.html#cb148-16"></a><span class="st">        </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="fl">1.5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>, <span class="dt">axis.text=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">12</span>), <span class="dt">axis.title=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">14</span>), <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">20</span>), <span class="dt">plot.subtitle =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">15</span>)) <span class="op">+</span></span>
+<span id="cb148-17"><a href="vizualise-cells-to-keep.html#cb148-17"></a><span class="st">        </span><span class="kw">scale_color_gradientn</span>(<span class="dt">colors =</span> col.pal.transp) <span class="op">+</span></span>
+<span id="cb148-18"><a href="vizualise-cells-to-keep.html#cb148-18"></a><span class="st">        </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="kw">paste0</span>(marker, <span class="st">&quot; expression in all cells&quot;</span>), <span class="dt">subtitle =</span> <span class="st">&quot;No expression detected = no dot&quot;</span>) <span class="op">+</span></span>
+<span id="cb148-19"><a href="vizualise-cells-to-keep.html#cb148-19"></a><span class="st">        </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> th, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">size =</span> <span class="dv">1</span>) </span>
+<span id="cb148-20"><a href="vizualise-cells-to-keep.html#cb148-20"></a></span>
+<span id="cb148-21"><a href="vizualise-cells-to-keep.html#cb148-21"></a>    p2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(dat.seurat<span class="op">@</span>meta.data, <span class="kw">aes_string</span>(<span class="dt">x =</span> <span class="st">&quot;Progenitors_1&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Neurons_1&quot;</span>, <span class="dt">color =</span> marker)) <span class="op">+</span></span>
+<span id="cb148-22"><a href="vizualise-cells-to-keep.html#cb148-22"></a><span class="st">        </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="fl">1.5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>, <span class="dt">axis.text=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">12</span>), <span class="dt">axis.title=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">14</span>), <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">20</span>), <span class="dt">plot.subtitle =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">15</span>)) <span class="op">+</span></span>
+<span id="cb148-23"><a href="vizualise-cells-to-keep.html#cb148-23"></a><span class="st">        </span><span class="kw">scale_color_gradientn</span>(<span class="dt">colors =</span> col.pal) <span class="op">+</span></span>
+<span id="cb148-24"><a href="vizualise-cells-to-keep.html#cb148-24"></a><span class="st">        </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="kw">paste0</span>(marker, <span class="st">&quot; expression in all cells&quot;</span>), <span class="dt">subtitle =</span> <span class="st">&quot;No expression detected = grey dot&quot;</span>) <span class="op">+</span></span>
+<span id="cb148-25"><a href="vizualise-cells-to-keep.html#cb148-25"></a><span class="st">        </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> th, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">size =</span> <span class="dv">1</span>)</span>
+<span id="cb148-26"><a href="vizualise-cells-to-keep.html#cb148-26"></a></span>
+<span id="cb148-27"><a href="vizualise-cells-to-keep.html#cb148-27"></a>    p3 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(dat.keep<span class="op">@</span>meta.data, <span class="kw">aes_string</span>(<span class="dt">x =</span> <span class="st">&quot;Progenitors_1&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Neurons_1&quot;</span>, <span class="dt">color =</span> marker)) <span class="op">+</span></span>
+<span id="cb148-28"><a href="vizualise-cells-to-keep.html#cb148-28"></a><span class="st">        </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="fl">1.5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>, <span class="dt">axis.text=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">12</span>), <span class="dt">axis.title=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">14</span>), <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">18</span>), <span class="dt">plot.subtitle =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">12</span>)) <span class="op">+</span></span>
+<span id="cb148-29"><a href="vizualise-cells-to-keep.html#cb148-29"></a><span class="st">        </span><span class="kw">scale_color_gradientn</span>(<span class="dt">colors =</span> col.pal) <span class="op">+</span></span>
+<span id="cb148-30"><a href="vizualise-cells-to-keep.html#cb148-30"></a><span class="st">        </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="kw">paste0</span>(<span class="st">&quot;Kept cells with S = &quot;</span>, th), <span class="dt">subtitle =</span> <span class="st">&quot;No expression detected = grey dot&quot;</span>) <span class="op">+</span></span>
+<span id="cb148-31"><a href="vizualise-cells-to-keep.html#cb148-31"></a><span class="st">        </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> th, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">size =</span> <span class="dv">1</span>)</span>
+<span id="cb148-32"><a href="vizualise-cells-to-keep.html#cb148-32"></a></span>
+<span id="cb148-33"><a href="vizualise-cells-to-keep.html#cb148-33"></a>    p4 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(dat.remove<span class="op">@</span>meta.data, <span class="kw">aes_string</span>(<span class="dt">x =</span> <span class="st">&quot;Progenitors_1&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Neurons_1&quot;</span>, <span class="dt">color =</span> marker)) <span class="op">+</span></span>
+<span id="cb148-34"><a href="vizualise-cells-to-keep.html#cb148-34"></a><span class="st">        </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="fl">1.5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>, <span class="dt">axis.text=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">12</span>), <span class="dt">axis.title=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">14</span>), <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">18</span>), <span class="dt">plot.subtitle =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">12</span>)) <span class="op">+</span></span>
+<span id="cb148-35"><a href="vizualise-cells-to-keep.html#cb148-35"></a><span class="st">        </span><span class="kw">scale_color_gradientn</span>(<span class="dt">colors =</span> col.pal) <span class="op">+</span></span>
+<span id="cb148-36"><a href="vizualise-cells-to-keep.html#cb148-36"></a><span class="st">        </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="kw">paste0</span>(<span class="st">&quot;Removed cells with S = &quot;</span>, th), <span class="dt">subtitle =</span> <span class="st">&quot;No expression detected = grey dot&quot;</span>) <span class="op">+</span></span>
+<span id="cb148-37"><a href="vizualise-cells-to-keep.html#cb148-37"></a><span class="st">        </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> th, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">size =</span> <span class="dv">1</span>)</span>
+<span id="cb148-38"><a href="vizualise-cells-to-keep.html#cb148-38"></a></span>
+<span id="cb148-39"><a href="vizualise-cells-to-keep.html#cb148-39"></a>    <span class="kw">require</span>(grid)</span>
+<span id="cb148-40"><a href="vizualise-cells-to-keep.html#cb148-40"></a>    <span class="kw">grid.newpage</span>()</span>
+<span id="cb148-41"><a href="vizualise-cells-to-keep.html#cb148-41"></a>    <span class="kw">pushViewport</span>(<span class="kw">viewport</span>(<span class="dt">layout =</span> <span class="kw">grid.layout</span>(<span class="dv">3</span>, <span class="dv">2</span>)))</span>
+<span id="cb148-42"><a href="vizualise-cells-to-keep.html#cb148-42"></a>    </span>
+<span id="cb148-43"><a href="vizualise-cells-to-keep.html#cb148-43"></a>    <span class="kw">print</span>(p1, <span class="dt">vp=</span><span class="kw">define_region</span>(<span class="dv">1</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>))</span>
+<span id="cb148-44"><a href="vizualise-cells-to-keep.html#cb148-44"></a>    <span class="kw">print</span>(p2, <span class="dt">vp=</span><span class="kw">define_region</span>(<span class="dv">2</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>))</span>
+<span id="cb148-45"><a href="vizualise-cells-to-keep.html#cb148-45"></a>    <span class="kw">print</span>(p3, <span class="dt">vp =</span> <span class="kw">define_region</span>(<span class="dv">3</span>, <span class="dv">1</span>))</span>
+<span id="cb148-46"><a href="vizualise-cells-to-keep.html#cb148-46"></a>    <span class="kw">print</span>(p4, <span class="dt">vp =</span> <span class="kw">define_region</span>(<span class="dv">3</span>, <span class="dv">2</span>))</span>
+<span id="cb148-47"><a href="vizualise-cells-to-keep.html#cb148-47"></a>        </span>
+<span id="cb148-48"><a href="vizualise-cells-to-keep.html#cb148-48"></a>}</span></code></pre></div>
+<pre><code>## 
+## 
+## ### Show  Btg2  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.3573  0.5526  3.5557 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.6105  1.2073  3.3614</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-69-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<pre><code>## 
+## 
+## ### Show  Sox1  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## 0.00000 0.00000 0.00000 0.05733 0.00000 2.60269 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.1313  0.0000  1.9542</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-69-2.png" width="1152" style="display: block; margin: auto;" /></p>
+<pre><code>## 
+## 
+## ### Show  Sox2  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.5594  1.1989  3.3960 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   0.000   0.654   1.166   1.112   1.639   3.117</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-69-3.png" width="1152" style="display: block; margin: auto;" /></p>
+<pre><code>## 
+## 
+## ### Show  Sox3  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## 0.00000 0.00000 0.00000 0.06292 0.00000 2.47830 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.1518  0.0000  2.2837</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-69-4.png" width="1152" style="display: block; margin: auto;" /></p>
+<pre><code>## 
+## 
+## ### Show  Tubb3  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   0.000   1.417   2.862   2.403   3.394   4.718 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.7356  1.3919  4.1188</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-69-5.png" width="1152" style="display: block; margin: auto;" /></p>
+<pre><code>## 
+## 
+## ### Show  Olig2  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## 0.00000 0.00000 0.00000 0.02069 0.00000 2.88069 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## 0.00000 0.00000 0.00000 0.07066 0.00000 2.44816</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-69-6.png" width="1152" style="display: block; margin: auto;" /></p>
+<pre><code>## 
+## 
+## ### Show  Pax6  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.3052  0.0000  4.2669 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.6996  0.7093  1.2982  2.8366</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-69-7.png" width="1152" style="display: block; margin: auto;" /></p>
+<pre><code>## 
+## 
+## ### Show  Pax7  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## 0.00000 0.00000 0.00000 0.07268 0.00000 2.49898 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   0.000   0.000   0.000   0.115   0.000   2.526</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-69-8.png" width="1152" style="display: block; margin: auto;" /></p>
+<pre><code>## 
+## 
+## ### Show  Isl1  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.1453  0.0000  4.0365 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## 0.00000 0.00000 0.00000 0.03881 0.00000 2.96245</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-69-9.png" width="1152" style="display: block; margin: auto;" /></p>
+<pre><code>## 
+## 
+## ### Show  Isl2  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## 0.00000 0.00000 0.00000 0.02907 0.00000 2.58664 
+##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+## 0.000000 0.000000 0.000000 0.002341 0.000000 1.073523</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-69-10.png" width="1152" style="display: block; margin: auto;" /></p>
+<pre><code>## 
+## 
+## ### Show  Notch1  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.2792  0.0000  2.8345 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.4422  0.9274  2.6833</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-69-11.png" width="1152" style="display: block; margin: auto;" /></p>
+<pre><code>## 
+## 
+## ### Show  Dll1  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.1676  0.0000  2.8924 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.3583  0.6304  3.0640</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-69-12.png" width="1152" style="display: block; margin: auto;" /></p>
+<pre><code>## 
+## 
+## ### Show  Cdc25b  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.1896  0.0000  3.0537 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.3276  0.5361  2.5389</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-69-13.png" width="1152" style="display: block; margin: auto;" /></p>
+</div>
+<div id="threshold-0.5" class="section level2">
+<h2><span class="header-section-number">6.5</span> Threshold = 0.5</h2>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="vizualise-cells-to-keep.html#cb162-1"></a><span class="co"># Separate dataset in 2 (cells to keep VS to remove)</span></span>
+<span id="cb162-2"><a href="vizualise-cells-to-keep.html#cb162-2"></a>kcenter &lt;-<span class="st"> </span><span class="dv">3</span></span>
+<span id="cb162-3"><a href="vizualise-cells-to-keep.html#cb162-3"></a>cl &lt;-<span class="st"> </span><span class="dv">2</span></span>
+<span id="cb162-4"><a href="vizualise-cells-to-keep.html#cb162-4"></a>set.ident &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&#39;kmeanClust_&#39;</span>, kcenter)</span>
+<span id="cb162-5"><a href="vizualise-cells-to-keep.html#cb162-5"></a>col.pal &lt;-<span class="st"> </span><span class="kw">few_pal</span>(<span class="st">&quot;Dark&quot;</span>)(kcenter)</span>
+<span id="cb162-6"><a href="vizualise-cells-to-keep.html#cb162-6"></a><span class="kw">Idents</span>(dat.seurat) &lt;-<span class="st"> </span>set.ident</span>
+<span id="cb162-7"><a href="vizualise-cells-to-keep.html#cb162-7"></a>cl.remove &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&#39;Clust.&#39;</span>, cl)</span>
+<span id="cb162-8"><a href="vizualise-cells-to-keep.html#cb162-8"></a>index.remove &lt;-<span class="st"> </span><span class="kw">which</span>(</span>
+<span id="cb162-9"><a href="vizualise-cells-to-keep.html#cb162-9"></a>            dat.seurat<span class="op">@</span>meta.data[, set.ident] <span class="op">==</span><span class="st"> </span>cl.remove <span class="op">&amp;</span></span>
+<span id="cb162-10"><a href="vizualise-cells-to-keep.html#cb162-10"></a><span class="st">            </span>dat.seurat<span class="op">@</span>meta.data[[<span class="st">&#39;Progenitors_1&#39;</span>]] <span class="op">&lt;</span><span class="st"> </span>th</span>
+<span id="cb162-11"><a href="vizualise-cells-to-keep.html#cb162-11"></a>        )</span>
+<span id="cb162-12"><a href="vizualise-cells-to-keep.html#cb162-12"></a>dat.remove &lt;-<span class="st"> </span>dat.seurat[, index.remove] </span>
+<span id="cb162-13"><a href="vizualise-cells-to-keep.html#cb162-13"></a>dat.keep &lt;-<span class="st"> </span>dat.seurat[, <span class="op">-</span>index.remove] </span>
+<span id="cb162-14"><a href="vizualise-cells-to-keep.html#cb162-14"></a><span class="kw">dim</span>(dat.remove)</span></code></pre></div>
+<pre><code>## [1] 20082  2063</code></pre>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="vizualise-cells-to-keep.html#cb164-1"></a><span class="kw">dim</span>(dat.keep)</span></code></pre></div>
+<pre><code>## [1] 20082 23511</code></pre>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="vizualise-cells-to-keep.html#cb166-1"></a><span class="co"># Cells we keep</span></span>
+<span id="cb166-2"><a href="vizualise-cells-to-keep.html#cb166-2"></a><span class="kw">DimPlot</span>(dat.keep,</span>
+<span id="cb166-3"><a href="vizualise-cells-to-keep.html#cb166-3"></a>        <span class="dt">group.by =</span> set.ident,</span>
+<span id="cb166-4"><a href="vizualise-cells-to-keep.html#cb166-4"></a>        <span class="dt">reduction =</span> <span class="st">&quot;umap&quot;</span>,</span>
+<span id="cb166-5"><a href="vizualise-cells-to-keep.html#cb166-5"></a>        <span class="dt">cols =</span> col.pal,</span>
+<span id="cb166-6"><a href="vizualise-cells-to-keep.html#cb166-6"></a>        <span class="dt">label.size =</span> <span class="dv">4</span>)</span></code></pre></div>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-72-1.png" width="960" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="vizualise-cells-to-keep.html#cb167-1"></a><span class="co"># Cells we remove</span></span>
+<span id="cb167-2"><a href="vizualise-cells-to-keep.html#cb167-2"></a><span class="kw">DimPlot</span>(dat.remove,</span>
+<span id="cb167-3"><a href="vizualise-cells-to-keep.html#cb167-3"></a>        <span class="dt">group.by =</span> set.ident,</span>
+<span id="cb167-4"><a href="vizualise-cells-to-keep.html#cb167-4"></a>        <span class="dt">reduction =</span> <span class="st">&quot;umap&quot;</span>,</span>
+<span id="cb167-5"><a href="vizualise-cells-to-keep.html#cb167-5"></a>        <span class="dt">cols =</span> col.pal[cl],</span>
+<span id="cb167-6"><a href="vizualise-cells-to-keep.html#cb167-6"></a>        <span class="dt">label.size =</span> <span class="dv">4</span>)</span></code></pre></div>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-72-2.png" width="960" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="vizualise-cells-to-keep.html#cb168-1"></a><span class="co"># Prepare for multiple plots</span></span>
+<span id="cb168-2"><a href="vizualise-cells-to-keep.html#cb168-2"></a>define_region &lt;-<span class="st"> </span><span class="cf">function</span>(row, col){</span>
+<span id="cb168-3"><a href="vizualise-cells-to-keep.html#cb168-3"></a>        <span class="kw">viewport</span>(<span class="dt">layout.pos.row =</span> row, <span class="dt">layout.pos.col =</span> col)</span>
+<span id="cb168-4"><a href="vizualise-cells-to-keep.html#cb168-4"></a>    }</span></code></pre></div>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="vizualise-cells-to-keep.html#cb169-1"></a><span class="cf">for</span> (marker <span class="cf">in</span> markers){</span>
+<span id="cb169-2"><a href="vizualise-cells-to-keep.html#cb169-2"></a>    <span class="kw">cat</span>(<span class="st">&quot;</span><span class="ch">\n\n</span><span class="st">### Show &quot;</span>, marker, <span class="st">&quot; expression </span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb169-3"><a href="vizualise-cells-to-keep.html#cb169-3"></a>    dat.keep<span class="op">@</span>meta.data[[marker]] &lt;-<span class="st"> </span>dat.keep<span class="op">@</span>assays<span class="op">$</span>RNA<span class="op">@</span>data[marker,]</span>
+<span id="cb169-4"><a href="vizualise-cells-to-keep.html#cb169-4"></a>    <span class="co"># Data summary of this marker in cells we keep</span></span>
+<span id="cb169-5"><a href="vizualise-cells-to-keep.html#cb169-5"></a>    <span class="kw">print</span>(<span class="kw">summary</span>(dat.keep<span class="op">@</span>meta.data[[marker]]))</span>
+<span id="cb169-6"><a href="vizualise-cells-to-keep.html#cb169-6"></a>    dat.remove<span class="op">@</span>meta.data[[marker]] &lt;-<span class="st"> </span>dat.remove<span class="op">@</span>assays<span class="op">$</span>RNA<span class="op">@</span>data[marker,]</span>
+<span id="cb169-7"><a href="vizualise-cells-to-keep.html#cb169-7"></a>    <span class="co"># Data summary of this marker in cells we remove</span></span>
+<span id="cb169-8"><a href="vizualise-cells-to-keep.html#cb169-8"></a>    <span class="kw">print</span>(<span class="kw">summary</span>(dat.remove<span class="op">@</span>meta.data[[marker]]))</span>
+<span id="cb169-9"><a href="vizualise-cells-to-keep.html#cb169-9"></a></span>
+<span id="cb169-10"><a href="vizualise-cells-to-keep.html#cb169-10"></a>    <span class="co"># Lowest values are grey</span></span>
+<span id="cb169-11"><a href="vizualise-cells-to-keep.html#cb169-11"></a>    col.pal &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;#C2C1BC1A&quot;</span>, <span class="st">&quot;#E8AA0C80&quot;</span>, <span class="st">&quot;#21908C80&quot;</span>, <span class="st">&quot;#44015480&quot;</span>)</span>
+<span id="cb169-12"><a href="vizualise-cells-to-keep.html#cb169-12"></a>    <span class="co"># Lowest values are transparent</span></span>
+<span id="cb169-13"><a href="vizualise-cells-to-keep.html#cb169-13"></a>    col.pal.transp &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;#C2C1BC00&quot;</span>, <span class="st">&quot;#E8AA0C80&quot;</span>, <span class="st">&quot;#21908C80&quot;</span>, <span class="st">&quot;#44015480&quot;</span>)</span>
+<span id="cb169-14"><a href="vizualise-cells-to-keep.html#cb169-14"></a>    </span>
+<span id="cb169-15"><a href="vizualise-cells-to-keep.html#cb169-15"></a>    p1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(dat.seurat<span class="op">@</span>meta.data, <span class="kw">aes_string</span>(<span class="dt">x =</span> <span class="st">&quot;Progenitors_1&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Neurons_1&quot;</span>, <span class="dt">color =</span> marker)) <span class="op">+</span></span>
+<span id="cb169-16"><a href="vizualise-cells-to-keep.html#cb169-16"></a><span class="st">        </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="fl">1.5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>, <span class="dt">axis.text=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">12</span>), <span class="dt">axis.title=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">14</span>), <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">20</span>), <span class="dt">plot.subtitle =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">15</span>)) <span class="op">+</span></span>
+<span id="cb169-17"><a href="vizualise-cells-to-keep.html#cb169-17"></a><span class="st">        </span><span class="kw">scale_color_gradientn</span>(<span class="dt">colors =</span> col.pal.transp) <span class="op">+</span></span>
+<span id="cb169-18"><a href="vizualise-cells-to-keep.html#cb169-18"></a><span class="st">        </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="kw">paste0</span>(marker, <span class="st">&quot; expression in all cells&quot;</span>), <span class="dt">subtitle =</span> <span class="st">&quot;No expression detected = no dot&quot;</span>) <span class="op">+</span></span>
+<span id="cb169-19"><a href="vizualise-cells-to-keep.html#cb169-19"></a><span class="st">        </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> th, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">size =</span> <span class="dv">1</span>) </span>
+<span id="cb169-20"><a href="vizualise-cells-to-keep.html#cb169-20"></a></span>
+<span id="cb169-21"><a href="vizualise-cells-to-keep.html#cb169-21"></a>    p2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(dat.seurat<span class="op">@</span>meta.data, <span class="kw">aes_string</span>(<span class="dt">x =</span> <span class="st">&quot;Progenitors_1&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Neurons_1&quot;</span>, <span class="dt">color =</span> marker)) <span class="op">+</span></span>
+<span id="cb169-22"><a href="vizualise-cells-to-keep.html#cb169-22"></a><span class="st">        </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="fl">1.5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>, <span class="dt">axis.text=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">12</span>), <span class="dt">axis.title=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">14</span>), <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">20</span>), <span class="dt">plot.subtitle =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">15</span>)) <span class="op">+</span></span>
+<span id="cb169-23"><a href="vizualise-cells-to-keep.html#cb169-23"></a><span class="st">        </span><span class="kw">scale_color_gradientn</span>(<span class="dt">colors =</span> col.pal) <span class="op">+</span></span>
+<span id="cb169-24"><a href="vizualise-cells-to-keep.html#cb169-24"></a><span class="st">        </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="kw">paste0</span>(marker, <span class="st">&quot; expression in all cells&quot;</span>), <span class="dt">subtitle =</span> <span class="st">&quot;No expression detected = grey dot&quot;</span>) <span class="op">+</span></span>
+<span id="cb169-25"><a href="vizualise-cells-to-keep.html#cb169-25"></a><span class="st">        </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> th, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">size =</span> <span class="dv">1</span>)</span>
+<span id="cb169-26"><a href="vizualise-cells-to-keep.html#cb169-26"></a></span>
+<span id="cb169-27"><a href="vizualise-cells-to-keep.html#cb169-27"></a>    p3 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(dat.keep<span class="op">@</span>meta.data, <span class="kw">aes_string</span>(<span class="dt">x =</span> <span class="st">&quot;Progenitors_1&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Neurons_1&quot;</span>, <span class="dt">color =</span> marker)) <span class="op">+</span></span>
+<span id="cb169-28"><a href="vizualise-cells-to-keep.html#cb169-28"></a><span class="st">        </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="fl">1.5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>, <span class="dt">axis.text=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">12</span>), <span class="dt">axis.title=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">14</span>), <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">18</span>), <span class="dt">plot.subtitle =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">12</span>)) <span class="op">+</span></span>
+<span id="cb169-29"><a href="vizualise-cells-to-keep.html#cb169-29"></a><span class="st">        </span><span class="kw">scale_color_gradientn</span>(<span class="dt">colors =</span> col.pal) <span class="op">+</span></span>
+<span id="cb169-30"><a href="vizualise-cells-to-keep.html#cb169-30"></a><span class="st">        </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="kw">paste0</span>(<span class="st">&quot;Kept cells with S = &quot;</span>, th), <span class="dt">subtitle =</span> <span class="st">&quot;No expression detected = grey dot&quot;</span>) <span class="op">+</span></span>
+<span id="cb169-31"><a href="vizualise-cells-to-keep.html#cb169-31"></a><span class="st">        </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> th, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">size =</span> <span class="dv">1</span>)</span>
+<span id="cb169-32"><a href="vizualise-cells-to-keep.html#cb169-32"></a></span>
+<span id="cb169-33"><a href="vizualise-cells-to-keep.html#cb169-33"></a>    p4 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(dat.remove<span class="op">@</span>meta.data, <span class="kw">aes_string</span>(<span class="dt">x =</span> <span class="st">&quot;Progenitors_1&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Neurons_1&quot;</span>, <span class="dt">color =</span> marker)) <span class="op">+</span></span>
+<span id="cb169-34"><a href="vizualise-cells-to-keep.html#cb169-34"></a><span class="st">        </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="fl">1.5</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>, <span class="dt">axis.text=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">12</span>), <span class="dt">axis.title=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">14</span>), <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">18</span>), <span class="dt">plot.subtitle =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">12</span>)) <span class="op">+</span></span>
+<span id="cb169-35"><a href="vizualise-cells-to-keep.html#cb169-35"></a><span class="st">        </span><span class="kw">scale_color_gradientn</span>(<span class="dt">colors =</span> col.pal) <span class="op">+</span></span>
+<span id="cb169-36"><a href="vizualise-cells-to-keep.html#cb169-36"></a><span class="st">        </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="kw">paste0</span>(<span class="st">&quot;Removed cells with S = &quot;</span>, th), <span class="dt">subtitle =</span> <span class="st">&quot;No expression detected = grey dot&quot;</span>) <span class="op">+</span></span>
+<span id="cb169-37"><a href="vizualise-cells-to-keep.html#cb169-37"></a><span class="st">        </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> th, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">size =</span> <span class="dv">1</span>)</span>
+<span id="cb169-38"><a href="vizualise-cells-to-keep.html#cb169-38"></a></span>
+<span id="cb169-39"><a href="vizualise-cells-to-keep.html#cb169-39"></a>    <span class="kw">require</span>(grid)</span>
+<span id="cb169-40"><a href="vizualise-cells-to-keep.html#cb169-40"></a>    <span class="kw">grid.newpage</span>()</span>
+<span id="cb169-41"><a href="vizualise-cells-to-keep.html#cb169-41"></a>    <span class="kw">pushViewport</span>(<span class="kw">viewport</span>(<span class="dt">layout =</span> <span class="kw">grid.layout</span>(<span class="dv">3</span>, <span class="dv">2</span>)))</span>
+<span id="cb169-42"><a href="vizualise-cells-to-keep.html#cb169-42"></a>    </span>
+<span id="cb169-43"><a href="vizualise-cells-to-keep.html#cb169-43"></a>    <span class="kw">print</span>(p1, <span class="dt">vp=</span><span class="kw">define_region</span>(<span class="dv">1</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>))</span>
+<span id="cb169-44"><a href="vizualise-cells-to-keep.html#cb169-44"></a>    <span class="kw">print</span>(p2, <span class="dt">vp=</span><span class="kw">define_region</span>(<span class="dv">2</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>))</span>
+<span id="cb169-45"><a href="vizualise-cells-to-keep.html#cb169-45"></a>    <span class="kw">print</span>(p3, <span class="dt">vp =</span> <span class="kw">define_region</span>(<span class="dv">3</span>, <span class="dv">1</span>))</span>
+<span id="cb169-46"><a href="vizualise-cells-to-keep.html#cb169-46"></a>    <span class="kw">print</span>(p4, <span class="dt">vp =</span> <span class="kw">define_region</span>(<span class="dv">3</span>, <span class="dv">2</span>))</span>
+<span id="cb169-47"><a href="vizualise-cells-to-keep.html#cb169-47"></a>        </span>
+<span id="cb169-48"><a href="vizualise-cells-to-keep.html#cb169-48"></a>}</span></code></pre></div>
+<pre><code>## 
+## 
+## ### Show  Btg2  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.3516  0.5085  3.5557 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.6007  1.1833  3.3614</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-74-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<pre><code>## 
+## 
+## ### Show  Sox1  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## 0.00000 0.00000 0.00000 0.05561 0.00000 2.60269 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.1293  0.0000  1.9542</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-74-2.png" width="1152" style="display: block; margin: auto;" /></p>
+<pre><code>## 
+## 
+## ### Show  Sox2  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.5415  1.1584  3.3960 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.7109  1.2008  1.1557  1.6745  3.1166</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-74-3.png" width="1152" style="display: block; margin: auto;" /></p>
+<pre><code>## 
+## 
+## ### Show  Sox3  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## 0.00000 0.00000 0.00000 0.06065 0.00000 2.47830 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.1517  0.0000  2.2837</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-74-4.png" width="1152" style="display: block; margin: auto;" /></p>
+<pre><code>## 
+## 
+## ### Show  Tubb3  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   0.000   1.580   2.890   2.446   3.406   4.718 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.7339  1.3751  4.1449</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-74-5.png" width="1152" style="display: block; margin: auto;" /></p>
+<pre><code>## 
+## 
+## ### Show  Olig2  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## 0.00000 0.00000 0.00000 0.01959 0.00000 2.88069 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## 0.00000 0.00000 0.00000 0.06872 0.00000 2.44816</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-74-6.png" width="1152" style="display: block; margin: auto;" /></p>
+<pre><code>## 
+## 
+## ### Show  Pax6  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.2923  0.0000  4.2669 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.7438  0.7389  1.3339  3.1041</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-74-7.png" width="1152" style="display: block; margin: auto;" /></p>
+<pre><code>## 
+## 
+## ### Show  Pax7  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## 0.00000 0.00000 0.00000 0.07125 0.00000 2.49898 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   0.000   0.000   0.000   0.119   0.000   2.526</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-74-8.png" width="1152" style="display: block; margin: auto;" /></p>
+<pre><code>## 
+## 
+## ### Show  Isl1  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.1481  0.0000  4.0365 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## 0.00000 0.00000 0.00000 0.03824 0.00000 2.96245</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-74-9.png" width="1152" style="display: block; margin: auto;" /></p>
+<pre><code>## 
+## 
+## ### Show  Isl2  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## 0.00000 0.00000 0.00000 0.02965 0.00000 2.58664 
+##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+## 0.000000 0.000000 0.000000 0.003529 0.000000 1.916826</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-74-10.png" width="1152" style="display: block; margin: auto;" /></p>
+<pre><code>## 
+## 
+## ### Show  Notch1  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.2734  0.0000  2.8345 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.4609  0.9585  2.6833</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-74-11.png" width="1152" style="display: block; margin: auto;" /></p>
+<pre><code>## 
+## 
+## ### Show  Dll1  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.1637  0.0000  2.8924 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.3476  0.5450  3.0640</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-74-12.png" width="1152" style="display: block; margin: auto;" /></p>
+<pre><code>## 
+## 
+## ### Show  Cdc25b  expression 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.1862  0.0000  3.0537 
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.3263  0.5165  2.5389</code></pre>
+<p><img src="2020_delile_reanalysis_files/figure-html/unnamed-chunk-74-13.png" width="1152" style="display: block; margin: auto;" /></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="show-markers-expression-on-signature-score-plots.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="session-info.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": null,
+"scroll_highlight": true
+},
+"toc_depth": 5,
+"toolbar": {
+"position": "fixed"
+},
+"search": true,
+"info": true
+});
+});
+</script>
+
+</body>
+
+</html>
